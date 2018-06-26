@@ -3,13 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  WelcomePage,
-  ProficiencyPage,
-  DashboardPage,
-  ContactUsPage,
-  JoinClassroomPage
-} from '../pages';
+import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
 
 @Component({
   templateUrl: 'app.html'
