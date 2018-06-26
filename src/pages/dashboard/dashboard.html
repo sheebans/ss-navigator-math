@@ -1,15 +1,5 @@
-<ion-header>
-
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{ 'DASHBOARD_TITLE' | translate }}</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
+<ion-header><app-header [header]="headerModel"></app-header></ion-header>
 
 <ion-content padding>
-  <h2>{{ 'DASHBOARD_MESSAGE' | translate }}</h2>
+    <h2>{{ 'DASHBOARD_MESSAGE' | translate }}</h2>
 </ion-content>

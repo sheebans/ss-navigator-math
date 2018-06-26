@@ -13,7 +13,7 @@ export class NavMathApp {
 
   rootPage: any = WelcomePage;
 
-  pages: Array<{ title: string; component: any }>;
+  pages: Array<{ title: string; component: any; icon: string }>;
 
   constructor(
     private translate: TranslateService,
@@ -24,8 +24,14 @@ export class NavMathApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage },
-      { title: 'Proficiency', component: ProficiencyPage }
+      { title: 'Dashboard', component: DashboardPage, icon: 'icon-dashboard' },
+      { title: 'Proficiency', component: ProficiencyPage, icon: 'star' },
+      {
+        title: 'Prefrences',
+        component: ProficiencyPage,
+        icon: 'icon-prefrences'
+      },
+      { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
   }
 

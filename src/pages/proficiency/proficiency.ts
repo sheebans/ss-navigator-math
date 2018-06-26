@@ -11,15 +11,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-proficiency',
-  templateUrl: 'proficiency.html',
+  templateUrl: 'proficiency.html'
 })
 export class ProficiencyPage {
+  headerModel: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.headerModel = {
+      isMenu: true,
+      isNotification: false,
+      isTour: true,
+      title: 'PROFICIENCY_TITLE'
+    };
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProficiencyPage');
   }
-
 }
