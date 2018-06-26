@@ -10,8 +10,19 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"		     
+    "precommit": "lint-staged",
+    "prepush": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "node_modules/.bin/prettier --single-quote --write",
+      "ionic-app-scripts lint",
+      "git add"
+    ],
+    "*.scss": [
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -41,6 +52,8 @@
     "cordova-sqlite-storage": "^2.3.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.6",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
@@ -48,7 +61,8 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.10",
     "husky": "^0.14.3",
-    "typescript": "~2.6.2"
+    "tslint": "^5.10.0",
+    "typescript": "^2.6.2"
   },
   "description": "Navigation Math",
   "cordova": {
