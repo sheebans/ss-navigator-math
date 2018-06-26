@@ -6,14 +6,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 import { NavMathApp } from './app.component';
-import { HeaderComponent } from '../components';
+import { HeaderComponent } from '../components/header/header';
 import {
   WelcomePage,
   DashboardPage,
   ProficiencyPage,
-  MenuPage
+  ContactUsPage,
+  JoinClassroomPage
 } from '../pages';
 import { Auth } from '../providers';
 
@@ -28,9 +28,10 @@ export function createTranslateLoader(http: HttpClient) {
     NavMathApp,
     WelcomePage,
     HeaderComponent,
-    MenuPage,
     DashboardPage,
-    ProficiencyPage
+    ProficiencyPage,
+    ContactUsPage,
+    JoinClassroomPage
   ],
   imports: [
     BrowserModule,
@@ -48,10 +49,11 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     NavMathApp,
     WelcomePage,
-    MenuPage,
     HeaderComponent,
     DashboardPage,
-    ProficiencyPage
+    ProficiencyPage,
+    ContactUsPage,
+    JoinClassroomPage
   ],
   providers: [
     StatusBar,
