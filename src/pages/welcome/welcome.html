@@ -1,9 +1,14 @@
-<ion-content padding>
-  <h2>{{ 'WELCOME_MESSAGE' | translate }}</h2>
-  <div class="btn_wrapper">
-    <button  ion-button icon-left  (click)="gotoDashboard()">
-      {{ 'NEXT' | translate }}
-    </button>
+<ion-content>
+  <div class="cover-img" text-center>
   </div>
-
+  <div class="welcome-message" padding>
+    <h2>{{'WELCOME_MESSAGE' | translate}}</h2>
+    <p>{{'WELCOME_MESSAGE_DESC_1' | translate}}</p>
+    <p>{{'WELCOME_MESSAGE_DESC_2' | translate}}</p>
+    <div class="btn_wrapper">
+      <button  ion-button icon-left full  (click)="gotoDashboard()">
+        {{ 'NEXT' | translate }}
+      </button>
+    </div>
+  </div>
 </ion-content>

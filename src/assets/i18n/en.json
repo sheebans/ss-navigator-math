@@ -1,5 +1,7 @@
 {
-  "WELCOME_MESSAGE": "Welcome to Gooru NavMath!!!",
+  "WELCOME_MESSAGE": "Welcome to NavMath",
+  "WELCOME_MESSAGE_DESC_1" : "Navigate Math is an autocomes-proven course with hunderds of students across Leadership Public Schools' high school campuses growing nearly 3 years in mathematics in 1 school year as measured by NWEA MAP. Navigate Math is an intervention course and apporach that acclerates acadmeic growth and empowers stuendts to direct their own learning.",
+  "WELCOME_MESSAGE_DESC_2" : "Navigate Math helps students develop the foundational knowledge, skills, and thought processes required to be successful in pre-Algebra and Algebra.",
 
   "PROFICIENCY_MESSAGE": "This is the Proficiency Page",
   "PROFICIENCY_TITLE": "Proficiency",
@@ -7,5 +9,6 @@
   "DASHBOARD_MESSAGE": "This is the Dashboard Page",
   "DASHBOARD_TITLE": "NavMath",
 
-  "NEXT": "Next"
+  "NEXT": "Next",
+  "SIGN-IN": "Sign-In"
 }
