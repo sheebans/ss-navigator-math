@@ -35,35 +35,35 @@ export class NavMathApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
-  });
-}
 
-initTranslate() {
-  // Set the default language for translation strings, and the current language.
-  this.translate.setDefaultLang('en');
-  const browserLang = this.translate.getBrowserLang();
+  }
 
-  if (browserLang) {
-    if (browserLang === 'zh') {
-      const browserCultureLang = this.translate.getBrowserCultureLang();
+  initTranslate() {
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('en');
+    const browserLang = this.translate.getBrowserLang();
 
-      if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
-        this.translate.use('zh-cmn-Hans');
-      } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
-        this.translate.use('zh-cmn-Hant');
+    if (browserLang) {
+      if (browserLang === 'zh') {
+        const browserCultureLang = this.translate.getBrowserCultureLang();
+
+        if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
+          this.translate.use('zh-cmn-Hans');
+        } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
+          this.translate.use('zh-cmn-Hant');
+        }
+      } else {
+        this.translate.use(this.translate.getBrowserLang());
       }
     } else {
-      this.translate.use(this.translate.getBrowserLang());
+      this.translate.use('en'); // Set your language here
     }
-  } else {
-    this.translate.use('en'); // Set your language here
   }
-}
 
-openPage(page) {
-  // Reset the content nav to have just this page
-  // we wouldn't want the back button to show in this scenario
-  this.nav.setRoot(page.component);
-}
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
 
 }
