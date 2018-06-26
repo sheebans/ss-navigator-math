@@ -8,9 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { NavMathApp } from './app.component';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { DashboardPage } from "../pages/dashboard/dashboard";
-import { ProficiencyPage } from "../pages/proficiency/proficiency";
+import { WelcomePage, DashboardPage, ProficiencyPage } from '../pages';
 import { Auth } from '../providers';
 
 // The translate loader needs to know where to load i18n files
