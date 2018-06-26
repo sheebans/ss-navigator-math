@@ -4,12 +4,13 @@ page-welcome {
     background-position: center center;
     background-size: cover;
     height: 250px;
-    background-image: url('../assets/imgs/welcome/cover-img.png');
+    background-image: url("../assets/imgs/welcome/cover-img.png");
   }
 
   .welcome-message {
     width: 100%;
     color: #5c5c5c;
+
     h2 {
       font-weight: 300;
     }
@@ -18,5 +19,9 @@ page-welcome {
   .btn_wrapper {
     text-align: center;
     width: 100%;
+
+    .button {
+      height: 40px;
+    }
   }
 }

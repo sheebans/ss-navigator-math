@@ -10,5 +10,14 @@
   "DASHBOARD_TITLE": "NavMath",
 
   "NEXT": "Next",
-  "SIGN-IN": "Sign In"
+  "SIGN-IN": "Sign In",
+  "HELLO": "Hello",
+  "NAME": "Name",
+  "EMAIL_USERNAME": "Email/Username",
+  "STATE": "State",
+  "DISTRICT" : "District",
+  "INSTITUTION": "Institution",
+  "VERIFY-INFORMATION" : "Verify Information",
+  "TELL_US_MORE": "Tell us a little more about yourself.",
+  "JOIN_CLASSROOM" : "Join Classroom"
 }
