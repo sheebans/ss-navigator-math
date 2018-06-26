@@ -1,24 +1,40 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 
 import { WelcomePage } from '../pages/welcome/welcome';
+import { ProficiencyPage } from '../pages/proficiency/proficiency';
+import { DashboardPage } from "../pages/dashboard/dashboard";
+
 @Component({
   templateUrl: 'app.html'
 })
 export class NavMathApp {
+    @ViewChild(Nav) nav: Nav;
+
   rootPage:any = WelcomePage;
 
-  constructor(private translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
-    this.initTranslate();
+  pages: Array<{title: string, component: any}>;
+
+  constructor(private translate: TranslateService, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+      this.initializeApp();
+
+      this.pages = [
+          { title: 'Dashboard', component: DashboardPage },
+          { title: 'Proficiency', component: ProficiencyPage }
+      ];
+  }
+
+  initializeApp() {
+      this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          // Here you can do any higher level native things you might need.
+          this.statusBar.styleDefault();
+          this.splashScreen.hide();
+      });
+      this.initTranslate();
   }
 
   initTranslate() {
@@ -42,4 +58,11 @@ export class NavMathApp {
       this.translate.use('en'); // Set your language here
     }
   }
+
+    openPage(page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    }
+
 }

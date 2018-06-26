@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NavMathApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { DashboardPage } from "../pages/dashboard/dashboard";
+import { ProficiencyPage } from "../pages/proficiency/proficiency";
 import { Auth } from '../providers';
 
 // The translate loader needs to know where to load i18n files
@@ -20,7 +22,9 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     NavMathApp,
-    WelcomePage
+    WelcomePage,
+      DashboardPage,
+      ProficiencyPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     NavMathApp,
-    WelcomePage
+    WelcomePage,
+      DashboardPage,
+      ProficiencyPage
   ],
   providers: [
     StatusBar,

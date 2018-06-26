@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {DashboardPage} from "../dashboard/dashboard";
 
 /**
  * Generated class for the WelcomePage page.
@@ -11,20 +10,16 @@ import {DashboardPage} from "../dashboard/dashboard";
 
 @IonicPage()
 @Component({
-  selector: 'page-welcome',
-  templateUrl: 'welcome.html',
+  selector: 'page-dashboard',
+  templateUrl: 'dashboard.html',
 })
-export class WelcomePage {
+export class DashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  gotoDashboard(){
-    this.navCtrl.setRoot(DashboardPage);
-  }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
+    console.log('ionViewDidLoad DashboardPage');
   }
 
 }
