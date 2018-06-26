@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1020499579881",
+    "firebase_url": "https://gooru-173005.firebaseio.com",
+    "project_id": "gooru-173005",
+    "storage_bucket": "gooru-173005.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020499579881:android:0d4cc5471b080b20",
+        "android_client_info": {
+          "package_name": "com.gooru.navmath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020499579881-96raa3l5ffp14pf98t0ngekno188cf0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuldK5puGAmd8FLYobK4gx44I5R7y02Sw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
