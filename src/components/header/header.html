@@ -1,0 +1,16 @@
+<ion-navbar>
+  <button *ngIf="headerModel.isMenu"  ion-button icon-only menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title class="header-title">
+    {{headerModel.title | translate}}
+  </ion-title>
+  <ion-buttons end>
+      <button *ngIf="headerModel.isNotification" ion-button>
+          <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button *ngIf="headerModel.isTour" ion-button>
+          <ion-icon name="help-circle"></ion-icon>
+      </button>
+  </ion-buttons>
+</ion-navbar>

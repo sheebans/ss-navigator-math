@@ -11,15 +11,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
+  headerModel: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.headerModel = {
+      isMenu: true,
+      isNotification: true,
+      isTour: true,
+      title: 'DASHBOARD_TITLE'
+    };
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
   }
-
 }

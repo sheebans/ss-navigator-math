@@ -6,10 +6,15 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from '@ionic/storage';
-import { Firebase } from '@ionic-native/firebase';
+
 import { NavMathApp } from './app.component';
-import { WelcomePage, DashboardPage, ProficiencyPage } from '../pages';
+import { HeaderComponent } from '../components';
+import {
+  WelcomePage,
+  DashboardPage,
+  ProficiencyPage,
+  MenuPage
+} from '../pages';
 import { Auth } from '../providers';
 
 // The translate loader needs to know where to load i18n files
@@ -22,8 +27,10 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     NavMathApp,
     WelcomePage,
-      DashboardPage,
-      ProficiencyPage
+    HeaderComponent,
+    MenuPage,
+    DashboardPage,
+    ProficiencyPage
   ],
   imports: [
     BrowserModule,
@@ -31,25 +38,25 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
     }),
-    IonicModule.forRoot(NavMathApp),
-    IonicStorageModule.forRoot()
+    IonicModule.forRoot(NavMathApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     NavMathApp,
     WelcomePage,
-      DashboardPage,
-      ProficiencyPage
+    MenuPage,
+    HeaderComponent,
+    DashboardPage,
+    ProficiencyPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Firebase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Auth
   ]
 })
