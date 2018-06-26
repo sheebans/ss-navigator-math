@@ -3,9 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { ProficiencyPage } from '../pages/proficiency/proficiency';
-import { DashboardPage } from "../pages/dashboard/dashboard";
+import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
+import { Firebase } from '@ionic-native/firebase';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -18,7 +17,7 @@ export class NavMathApp {
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(private translate: TranslateService, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private storage: Storage) {
+  constructor(private translate: TranslateService, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private storage: Storage, private firebase: Firebase) {
     this.initializeApp();
 
     this.pages = [
@@ -35,7 +34,6 @@ export class NavMathApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
-
   }
 
   initTranslate() {

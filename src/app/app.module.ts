@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { Firebase } from '@ionic-native/firebase';
 import { NavMathApp } from './app.component';
 import { WelcomePage, DashboardPage, ProficiencyPage } from '../pages';
 import { Auth } from '../providers';
@@ -47,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Auth
   ]

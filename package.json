@@ -9,7 +9,9 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint"		     
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.10",
+    "husky": "^0.14.3",
     "typescript": "~2.6.2"
   },
   "description": "Navigation Math",
