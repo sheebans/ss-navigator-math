@@ -3,10 +3,13 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { ProficiencyPage } from '../pages/proficiency/proficiency';
-import { DashboardPage } from "../pages/dashboard/dashboard";
-import { Storage } from '@ionic/storage';
+import {
+  WelcomePage,
+  ProficiencyPage,
+  DashboardPage,
+  ContactUsPage,
+  JoinClassroomPage
+} from '../pages';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,14 +19,25 @@ export class NavMathApp {
 
   rootPage: any = WelcomePage;
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string; component: any; icon: string }>;
 
-  constructor(private translate: TranslateService, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private storage: Storage) {
+  constructor(
+    private translate: TranslateService,
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen
+  ) {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage },
-      { title: 'Proficiency', component: ProficiencyPage }
+      { title: 'Dashboard', component: DashboardPage, icon: 'icon-dashboard' },
+      { title: 'Proficiency', component: ProficiencyPage, icon: 'star' },
+      {
+        title: 'Prefrences',
+        component: ProficiencyPage,
+        icon: 'icon-prefrences'
+      },
+      { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
   }
 
@@ -35,7 +49,6 @@ export class NavMathApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
-
   }
 
   initTranslate() {
@@ -65,5 +78,4 @@ export class NavMathApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
 }

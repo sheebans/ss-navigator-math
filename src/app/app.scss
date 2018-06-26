@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,5 +13,70 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-icon {
+  &[class*="icon-dashboard"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="icon-dashboard"] {
+    mask-image: url(../assets/icon/location.svg);
+  }
 
-@import 'theme/variables.scss'
+  &[class*="icon-prefrences"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="icon-prefrences"] {
+    mask-image: url(../assets/icon/auto-fix.svg);
+  }
+
+  &[class*="icon-about"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="icon-about"] {
+    mask-image: url(../assets/icon/account-circle.svg);
+  }
+}
+
+.menu-header {
+  border: solid 0.5px #979797;
+}
+.menu-list {
+  padding: 20px 0px 0px 10px;
+}
+.menu-button {
+  background-color: #0072bc;
+  color: white;
+}
+.user-content {
+  padding-top: 25px;
+  .toolbar-title-md {
+    font-size: 1.5rem !important;
+  }
+}
+.user-img {
+  padding: 0px !important;
+}
+ion-menu {
+  ion-content {
+    background-color: #0072bc !important;
+  }
+}
+.menu-icon {
+  width: 9px !important;
+  height: 9pxc !important;
+}
+@import "theme/variables.scss";

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { JoinClassroomPage } from '../join-classroom/join-classroom';
 
 /**
- * Generated class for the WelcomePage page.
+ * Generated class for the SplashPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,17 +10,13 @@ import { JoinClassroomPage } from '../join-classroom/join-classroom';
 
 @IonicPage()
 @Component({
-  selector: 'page-welcome',
-  templateUrl: 'welcome.html'
+  selector: 'page-splash',
+  templateUrl: 'splash.html'
 })
-export class WelcomePage {
+export class SplashPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  gotoJoinClassroom() {
-    this.navCtrl.setRoot(JoinClassroomPage);
-  }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
+    console.log('ionViewDidLoad SplashPage');
   }
 }
