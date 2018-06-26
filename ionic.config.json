@@ -1,6 +1,6 @@
 {
   "name": "NavMath",
-  "app_id": "",
+  "app_id": "com.gooru.navmath",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
