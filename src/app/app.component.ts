@@ -4,8 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
-import { Firebase } from '@ionic-native/firebase';
-import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,9 +13,14 @@ export class NavMathApp {
 
   rootPage: any = WelcomePage;
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string; component: any }>;
 
-  constructor(private translate: TranslateService, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private storage: Storage, private firebase: Firebase) {
+  constructor(
+    private translate: TranslateService,
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen
+  ) {
     this.initializeApp();
 
     this.pages = [
@@ -63,5 +66,4 @@ export class NavMathApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
 }
