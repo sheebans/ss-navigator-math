@@ -1,2 +1,53 @@
 page-join-classroom {
+  .class-code-desc {
+    opacity: 0.5;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.15;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+  }
+
+  .class-code-label {
+    span {
+      font-size: 11px;
+      font-weight: bold;
+      color: #37424b;
+    }
+    width: 100%;
+    text-align: center;
+  }
+
+  .class-code-message {
+    span {
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #2ea9e9;
+    }
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn_wrapper {
+    text-align: center;
+    width: 100%;
+
+    .button {
+      height: 50px;
+    }
+  }
+
+  .no-width {
+    width: auto !important;
+  }
+
+  .back-icon {
+    font-size: 25px;
+  }
 }

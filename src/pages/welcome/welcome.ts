@@ -18,7 +18,7 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   gotoJoinClassroom() {
-    this.navCtrl.setRoot(JoinClassroomPage);
+    this.navCtrl.push(JoinClassroomPage);
   }
 
   ionViewDidLoad() {
