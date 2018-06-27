@@ -5,6 +5,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AppVersion } from '@ionic-native/app-version';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavMathApp } from './app.component';
 import { HeaderComponent } from '../components/header/header';
@@ -58,6 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    AppVersion,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Auth
   ]

@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
+import { AppVersion } from '@ionic-native/app-version';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,11 +16,14 @@ export class NavMathApp {
 
   pages: Array<{ title: string; component: any; icon: string }>;
 
+  version: string = '0.0.0';
+
   constructor(
     private translate: TranslateService,
     private platform: Platform,
     private statusBar: StatusBar,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private appVersion: AppVersion
   ) {
     this.initializeApp();
 
@@ -33,6 +37,9 @@ export class NavMathApp {
       },
       { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
+    this.appVersion.getVersionNumber().then(version => {
+      this.version = version;
+    });
   }
 
   initializeApp() {
