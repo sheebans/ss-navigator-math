@@ -43,7 +43,7 @@ export class Api {
   put(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
     return this.http
       .put(`${this.url} /  ${endpoint}`, body, reqOpts)
-      .pipe(catchError(this.handleErr));
+      .pipe(catchError(this.handleError));
   }
 
   delete(endpoint: string, reqOpts?: any): Observable<{}> {

@@ -34,6 +34,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/app-version": "^4.8.0",
     "@ionic-native/camera": "4.3.3",
     "@ionic-native/core": "4.7.0",
     "@ionic-native/firebase": "^4.8.0",
@@ -82,5 +83,9 @@
     "platforms": [
       "android"
     ]
+  },
+  "config": {
+    "ionic_optimization": "./config/optimization.config.js",
+    "ionic_webpack": "./config/webpack.config.js"
   }
 }
