@@ -1,5 +1,3 @@
-import { Environment } from './environment.model';
-
-export const ENV: Environment = {
-  apiEndpoint: 'http://gooru.org'
+export const ENV = {
+  API_END_POINT: 'http://staging.gooru.org'
 };
