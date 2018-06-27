@@ -29,7 +29,7 @@ export class NavMathApp {
       {
         title: 'Prefernces',
         component: ProficiencyPage,
-        icon: 'icon-prefernces'
+        icon: 'icon-preferences'
       },
       { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
