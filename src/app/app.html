@@ -1,38 +1,38 @@
 <ion-menu [content]="content" class="main-nav-menu">
-<ion-header no-border class="menu-border">
-      <ion-row>
-        <img col-4 class="user-img" width="100" height="100" src="assets/imgs/profile.png" />
-        <div col-8 class="user-content">
-            <ion-title>Sahana-Ram</ion-title>
-        </div>
+  <ion-header no-border class="menu-border">
+    <ion-row>
+      <img col-4 class="user-img" width="100" height="100" src="assets/imgs/profile.png" />
+      <div col-8 class="user-content">
+        <ion-title>Sahana-Ram</ion-title>
+      </div>
     </ion-row>
-</ion-header>
-<ion-content>
-<ion-list no-lines padding-top>
-    <button menuClose class="menu-button" ion-item *ngFor="let p of pages" (click)="openPage(p)">
+  </ion-header>
+  <ion-content>
+    <ion-list no-lines padding-top>
+      <button menuClose class="menu-button" ion-item *ngFor="let p of pages" (click)="openPage(p)">
       <ion-icon class="menu-icon" item-left name={{p.icon}}></ion-icon>
         {{p.title}}
     </button>
-</ion-list>
-</ion-content>
-<ion-footer no-border>
-  <ion-list no-lines class="list-border">
-  <button menuClose class="menu-button no-highlight" ion-item (click)="openPage(p)">
+    </ion-list>
+  </ion-content>
+  <ion-footer no-border>
+    <ion-list no-lines class="list-border">
+      <button menuClose class="menu-button no-highlight" ion-item (click)="openPage(p)">
     <ion-icon class="menu-icon footer-icon" item-left name="icon-support"></ion-icon>
       {{'SUPPORT' | translate}}
   </button>
-  <button menuClose class="menu-button" ion-item (click)="openPage(p)">
+      <button menuClose class="menu-button" ion-item (click)="openPage(p)">
     <ion-icon class="menu-icon footer-icon" item-left name="icon-logout"></ion-icon>
       {{'LOGOUT' | translate}}
   </button>
-  </ion-list>
-  <ion-list no-lines>
-  <button menuClose class="menu-button no-highlight" ion-item (click)="openPage(p)">
+    </ion-list>
+    <ion-list no-lines>
+      <button menuClose class="menu-button no-highlight" ion-item (click)="openPage(p)">
     <ion-icon class="menu-icon footer-icon" item-left name="icon-version"></ion-icon>
       {{'VERSION' | translate}}
   </button>
-  </ion-list>
-</ion-footer>
+    </ion-list>
+  </ion-footer>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

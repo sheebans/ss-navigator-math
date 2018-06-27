@@ -1,9 +1,33 @@
+<ion-header>
+  <ion-navbar color="white">
+    <!-- <ion-icon name="arrow-back" left (click)="goback()" class="back-icon" padding></ion-icon> -->
+  </ion-navbar>
+</ion-header>
 <ion-content>
-  <form>
-    <ion-list>
-      <div padding>
-        <button  text-capitalize ion-button color="primary" (click)="gotoDashboard(p)" block>{{ 'JOIN_CLASSROOM' | translate }}</button>
+  <ion-card no-margin class="no-width">
+    <img src="assets/imgs/join-us/join.png" />
+  </ion-card>
+  <div padding>
+    <ion-row>
+      <ion-col col-8 offset-2>
+        <ion-item no-padding>
+          <ion-input text-center type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <div class="class-code-label">
+        <span>{{'ENTER_CLASS_CODE' | translate}}</span>
       </div>
-    </ion-list>
-  </form>
+    </ion-row>
+    <div padding>
+      <ion-col>
+        <p class="class-code-desc">{{'CLASS_CODE_DESC' | translate}}</p>
+      </ion-col>
+      <div class="class-code-message" padding>
+        <span (click)="gotoContactUs()">{{'DONT_HAVE_CLASS_CODE' | translate}}</span>
+      </div>
+      <div class="btn_wrapper">
+        <button ion-button icon-left full text-capitalize (click)="gotoDashboard(p)">{{ 'JOIN_CLASSROOM' | translate }}</button>
+      </div>
+    </div>
+  </div>
 </ion-content>
