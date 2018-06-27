@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { DashboardPage } from '../dashboard/dashboard';
 /**
  * Generated class for the JoinClassroomPage page.
  *
@@ -18,5 +18,9 @@ export class JoinClassroomPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoinClassroomPage');
+  }
+
+  gotoDashboard() {
+    this.navCtrl.setRoot(DashboardPage);
   }
 }

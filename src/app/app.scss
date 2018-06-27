@@ -26,7 +26,7 @@ ion-icon {
     mask-image: url(../assets/icon/location.svg);
   }
 
-  &[class*="icon-prefrences"] {
+  &[class*="icon-prefernces"] {
     mask-size: contain;
     mask-position: 50% 50%;
     mask-repeat: no-repeat;
@@ -34,7 +34,7 @@ ion-icon {
     width: 1em;
     height: 1em;
   }
-  &[class*="icon-prefrences"] {
+  &[class*="icon-prefernces"] {
     mask-image: url(../assets/icon/auto-fix.svg);
   }
 

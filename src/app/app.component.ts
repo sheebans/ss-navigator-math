@@ -27,9 +27,9 @@ export class NavMathApp {
       { title: 'Dashboard', component: DashboardPage, icon: 'icon-dashboard' },
       { title: 'Proficiency', component: ProficiencyPage, icon: 'star' },
       {
-        title: 'Prefrences',
+        title: 'Prefernces',
         component: ProficiencyPage,
-        icon: 'icon-prefrences'
+        icon: 'icon-prefernces'
       },
       { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
