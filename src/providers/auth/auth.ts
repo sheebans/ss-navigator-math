@@ -2,7 +2,6 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { ApiProvider } from '../api/api';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
 import { AuthModel } from '../../models/auth';
 import { SessionModel } from '../../models/session';
 import { ENV } from '@app/env';

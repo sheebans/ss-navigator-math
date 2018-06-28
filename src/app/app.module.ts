@@ -17,7 +17,7 @@ import {
   ContactUsPage,
   JoinClassroomPage
 } from '../pages';
-import { AuthProvider, ApiProvider } from '../providers';
+import { AuthProvider, ApiProvider, LookupsProvider } from '../providers';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -64,7 +64,8 @@ export function createTranslateLoader(http: HttpClient) {
     AppVersion,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ApiProvider,
-    AuthProvider
+    AuthProvider,
+    LookupsProvider
   ]
 })
 export class AppModule {}
