@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { JoinClassroomPage } from '../join-classroom/join-classroom';
+import {DashboardPage} from "..";
 
 /**
  * Generated class for the WelcomePage page.
@@ -18,7 +19,7 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   gotoJoinClassroom() {
-    this.navCtrl.setRoot(JoinClassroomPage);
+    this.navCtrl.setRoot(DashboardPage);
   }
 
   ionViewDidLoad() {
