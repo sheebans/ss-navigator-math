@@ -9,6 +9,14 @@
   "DASHBOARD_MESSAGE": "This is the Dashboard Page",
   "DASHBOARD_TITLE": "NavMath",
 
+  "SUPPORT" :"Support",
+  "VERSION": "1.0",
+  "LOGOUT" : "Logout",
+
+  "ENTER_CLASS_CODE" : "ENTER CLASS CODE",
+  "CLASS_CODE_DESC" :"By clicking Join Classroom, I agree to share my assessment and collection progress data generated from studying this Gooru classroom with the teacher(s) of this classroom.",
+  "DONT_HAVE_CLASS_CODE" : "I don’t have a class code",
+
   "NEXT": "Next",
   "SIGN-IN": "Sign In",
   "HELLO": "Hello",

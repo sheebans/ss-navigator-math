@@ -1,12 +1,13 @@
 <ion-content>
-  <div class="cover-img" text-center>
-  </div>
+  <ion-card no-margin class="no-width">
+    <img src="assets/imgs/welcome/cover-img.png" />
+  </ion-card>
   <div class="welcome-message" padding>
     <h2 text-center>{{'WELCOME_MESSAGE' | translate}}</h2>
-    <p>{{'WELCOME_MESSAGE_DESC_1' | translate}}</p>
-    <p>{{'WELCOME_MESSAGE_DESC_2' | translate}}</p>
+    <p text-justify>{{'WELCOME_MESSAGE_DESC_1' | translate}}</p>
+    <p text-justify>{{'WELCOME_MESSAGE_DESC_2' | translate}}</p>
     <div class="btn_wrapper">
-      <button  ion-button icon-left full text-capitalize  (click)="gotoJoinClassroom()">
+      <button ion-button icon-left full text-capitalize (click)="gotoJoinClassroom()">
         {{ 'NEXT' | translate }}
       </button>
     </div>

@@ -3,13 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  WelcomePage,
-  ProficiencyPage,
-  DashboardPage,
-  ContactUsPage,
-  JoinClassroomPage
-} from '../pages';
+import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
+import { AppVersion } from '@ionic-native/app-version';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,11 +16,14 @@ export class NavMathApp {
 
   pages: Array<{ title: string; component: any; icon: string }>;
 
+  version: string = '0.0.0';
+
   constructor(
     private translate: TranslateService,
     private platform: Platform,
     private statusBar: StatusBar,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private appVersion: AppVersion
   ) {
     this.initializeApp();
 
@@ -33,9 +31,9 @@ export class NavMathApp {
       { title: 'Dashboard', component: DashboardPage, icon: 'icon-dashboard' },
       { title: 'Proficiency', component: ProficiencyPage, icon: 'star' },
       {
-        title: 'Prefrences',
+        title: 'Prefernces',
         component: ProficiencyPage,
-        icon: 'icon-prefrences'
+        icon: 'icon-preferences'
       },
       { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
@@ -45,8 +43,16 @@ export class NavMathApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      if (this.platform.is('cordova')) {
+        // make your native calls
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+        this.appVersion.getVersionNumber().then(version => {
+          this.version = version;
+        });
+      } else {
+        // handle thing accordingly
+      }
     });
     this.initTranslate();
   }

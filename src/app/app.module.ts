@@ -5,6 +5,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AppVersion } from '@ionic-native/app-version';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavMathApp } from './app.component';
 import { HeaderComponent } from '../components/header/header';
@@ -15,7 +16,7 @@ import {
   ContactUsPage,
   JoinClassroomPage
 } from '../pages';
-import { Auth } from '../providers';
+import { Auth, Api } from '../providers';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -58,8 +59,10 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    AppVersion,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Auth
+    Auth,
+    Api
   ]
 })
 export class AppModule {}

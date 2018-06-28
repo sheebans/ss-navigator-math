@@ -1,0 +1,40 @@
+%background-container {
+  mask-size: contain;
+  mask-position: 50% 50%;
+  mask-repeat: no-repeat;
+  background: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+ion-icon {
+  &[class*="icon-dashboard"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/dashboard.svg");
+  }
+
+  &[class*="icon-support"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/support.svg");
+  }
+
+  &[class*="icon-logout"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/logout.svg");
+  }
+
+  &[class*="icon-version"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/version.svg");
+  }
+
+  &[class*="icon-preferences"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/auto-fix.svg");
+  }
+
+  &[class*="icon-about"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/account-circle.svg");
+  }
+}
