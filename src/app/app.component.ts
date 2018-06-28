@@ -41,17 +41,22 @@ export class NavMathApp {
       },
       { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
     ];
-    this.appVersion.getVersionNumber().then(version => {
-      this.version = version;
-    });
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      if (this.platform.is('cordova')) {
+        // make your native calls
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+        this.appVersion.getVersionNumber().then(version => {
+          this.version = version;
+        });
+      } else {
+        // handle thing accordingly
+      }
     });
     this.initTranslate();
     this.doAuthentication();
