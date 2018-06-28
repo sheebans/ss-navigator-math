@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import { AuthModel } from '../../models/auth';
 import { SessionModel } from '../../models/session';
+import { ENV } from '@app/env';
 
 /**
  *
@@ -19,8 +20,8 @@ export class AuthProvider {
 
   signInAsAnonymous(): Observable<SessionModel> {
     const postData: AuthModel = {
-      client_id: 'ba956a97-ae15-11e5-a302-f8a963065976',
-      client_key: 'c2hlZWJhbkBnb29ydWxlYXJuaW5nLm9yZw==',
+      client_id: ENV.CLIENT_ID,
+      client_key: ENV.CLIENT_KEY,
       grant_type: 'anonymous'
     };
     const endpoint = `${this.authNamespace}/v2/signin`;

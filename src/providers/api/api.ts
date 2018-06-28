@@ -14,7 +14,7 @@ export class ApiProvider {
 
   constructor(public http: HttpClient) {}
 
-  get(endpoint: string, params?: any, reqOpts?: any): Observable<{}> {
+  get<T>(endpoint: string, params?: any, reqOpts?: any): Observable<T> {
     if (!reqOpts) {
       reqOpts = {
         params: new HttpParams()
@@ -35,28 +35,26 @@ export class ApiProvider {
   }
 
   post<T>(endpoint: string, body: any, reqOpts?: any): Observable<T> {
-    console.log(`${this.url}/${endpoint}`);
-    console.log(body);
     return this.http
       .post<T>(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
-  put(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
+  put<T>(endpoint: string, body: any, reqOpts?: any): Observable<T> {
     return this.http
-      .put(`${this.url}/${endpoint}`, body, reqOpts)
+      .put<T>(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
-  delete(endpoint: string, reqOpts?: any): Observable<{}> {
+  delete<T>(endpoint: string, reqOpts?: any): Observable<T> {
     return this.http
-      .delete(`${this.url}/${endpoint}`, reqOpts)
+      .delete<T>(`${this.url}/${endpoint}`, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
-  patch(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
+  patch<T>(endpoint: string, body: any, reqOpts?: any): Observable<T> {
     return this.http
-      .patch(`${this.url}/${endpoint}`, body, reqOpts)
+      .patch<T>(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
