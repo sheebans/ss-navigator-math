@@ -7,6 +7,7 @@ import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
 import { AppVersion } from '@ionic-native/app-version';
 import { AuthProvider } from '../providers/auth/auth';
 import { Storage } from '@ionic/storage';
+import { Firebase } from '@ionic-native/firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +28,8 @@ export class NavMathApp {
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
     private authProvider: AuthProvider,
-    private storage: Storage
+    private storage: Storage,
+    private firebase: Firebase
   ) {
     this.initializeApp();
 
@@ -51,9 +53,8 @@ export class NavMathApp {
         // make your native calls
         this.statusBar.styleDefault();
         this.splashScreen.hide();
-        this.appVersion.getVersionNumber().then(version => {
-          this.version = version;
-        });
+        this.setAppVersion();
+        this.getFirebaseToken();
       } else {
         // handle thing accordingly
       }
@@ -92,6 +93,19 @@ export class NavMathApp {
           .subscribe(session => this.storage.set('session', session));
       }
     });
+  }
+
+  setAppVersion() {
+    this.appVersion.getVersionNumber().then(version => {
+      this.version = version;
+    });
+  }
+
+  getFirebaseToken() {
+    this.firebase
+      .getToken()
+      .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+      .catch(error => console.error('Error getting token', error));
   }
 
   openPage(page) {

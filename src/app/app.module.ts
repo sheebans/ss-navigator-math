@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AppVersion } from '@ionic-native/app-version';
@@ -10,6 +10,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavMathApp } from './app.component';
 import { HeaderComponent } from '../components/header/header';
+import { GlobalErrorHandler } from './global-error';
+import { Device } from '@ionic-native/device';
+import { Firebase } from '@ionic-native/firebase';
+
 import {
   WelcomePage,
   DashboardPage,
@@ -62,7 +66,9 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     AppVersion,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Device,
+    Firebase,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
     ApiProvider,
     AuthProvider,
     LookupsProvider
