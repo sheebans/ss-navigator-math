@@ -1,9 +1,57 @@
+<ion-header no-border>
+  <ion-navbar color="white">
+  </ion-navbar>
+</ion-header>
 <ion-content>
-  <form>
-    <ion-list>
-      <div padding>
-        <button text-capitalize ion-button color="primary" block>{{ 'VERIFY-INFORMATION' | translate }}</button>
-      </div>
-    </ion-list>
-  </form>
+  <div class="contact-header">
+    <ion-label no-margin>{{'HELLO_TITLE' | translate}}</ion-label>
+    <span>{{'CONTACT_US_DESC' | translate}}</span>
+  </div>
+  <ion-content>
+    <div class="contact-container">
+      <ion-list>
+        <ion-item no-padding>
+          <ion-label stacked>{{'NAME' | translate}}</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item no-padding>
+          <ion-label stacked>{{'EMAIL_USERNAME' | translate}}</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="contact-container">
+      <ion-list class="select-container">
+        <ion-label no-padding no-margin class="select-label">{{'COUNTRY' | translate}}</ion-label>
+        <ion-item no-padding class="border-highlight">
+          <ion-label no-margin>{{'COUNTRY' | translate}}</ion-label>
+          <ion-select [(ngModel)]="countryCode" (ionChange)="getStates(countryCode)">
+            <ion-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-label no-padding no-margin class="select-label">{{'STATE' | translate}}</ion-label>
+        <ion-item no-padding class="border-highlight">
+          <ion-label no-margin>{{'STATE' | translate}}</ion-label>
+          <ion-select [(ngModel)]="stateCode" (ionChange)="getDistricts(stateCode)">
+            <ion-option *ngFor="let state of states" [value]="state.code">{{state.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-label no-padding no-margin class="select-label">{{'DISTRICT' | translate}}</ion-label>
+        <ion-item no-padding class="border-highlight">
+          <ion-label no-margin>{{'DISTRICT' | translate}}</ion-label>
+          <ion-select [(ngModel)]="districtCode" (ionChange)="getSchools(districtCode)">
+            <ion-option *ngFor="let district of districts" [value]="district.code">{{district.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-label no-padding no-margin class="select-label">{{'INSTITUTION' | translate}}</ion-label>
+        <ion-item no-padding class="border-highlight">
+          <ion-select [(ngModel)]="schoolCode">
+            <ion-option *ngFor="let school of schools" [value]="school.code">{{school.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <button text-capitalize full ion-button color="primary" block>{{ 'VERIFY-INFORMATION' | translate }}</button>
+    </div>
+  </ion-content>
 </ion-content>

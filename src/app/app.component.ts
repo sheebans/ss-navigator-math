@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,7 +28,8 @@ export class NavMathApp {
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
     private authProvider: AuthProvider,
-    private storage: Storage
+    private storage: Storage,
+    private keyboard: Keyboard
   ) {
     this.initializeApp();
 
@@ -51,6 +53,7 @@ export class NavMathApp {
         // make your native calls
         this.statusBar.styleDefault();
         this.splashScreen.hide();
+        this.keyboard.disableScroll(false);
         this.appVersion.getVersionNumber().then(version => {
           this.version = version;
         });
