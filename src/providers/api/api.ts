@@ -9,7 +9,7 @@ import { ENV } from '@app/env';
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
-export class Api {
+export class ApiProvider {
   url: string = ENV.API_END_POINT;
 
   constructor(public http: HttpClient) {}
@@ -28,33 +28,35 @@ export class Api {
         reqOpts.params = reqOpts.params.set(k, params[k]);
       }
     }
-    console.log(`${this.url}/${endpoint}`);
+
     return this.http
       .get(`${this.url}/${endpoint}`, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
-  post(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
+  post<T>(endpoint: string, body: any, reqOpts?: any): Observable<T> {
+    console.log(`${this.url}/${endpoint}`);
+    console.log(body);
     return this.http
-      .post(`${this.url} /  ${endpoint}`, body, reqOpts)
+      .post<T>(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
   put(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
     return this.http
-      .put(`${this.url} /  ${endpoint}`, body, reqOpts)
+      .put(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
   delete(endpoint: string, reqOpts?: any): Observable<{}> {
     return this.http
-      .delete(`${this.url} /  ${endpoint}`, reqOpts)
+      .delete(`${this.url}/${endpoint}`, reqOpts)
       .pipe(catchError(this.handleError));
   }
 
   patch(endpoint: string, body: any, reqOpts?: any): Observable<{}> {
     return this.http
-      .patch(`${this.url} /  ${endpoint}`, body, reqOpts)
+      .patch(`${this.url}/${endpoint}`, body, reqOpts)
       .pipe(catchError(this.handleError));
   }
 

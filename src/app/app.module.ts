@@ -6,6 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AppVersion } from '@ionic-native/app-version';
+import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavMathApp } from './app.component';
 import { HeaderComponent } from '../components/header/header';
@@ -16,7 +17,7 @@ import {
   ContactUsPage,
   JoinClassroomPage
 } from '../pages';
-import { Auth, Api } from '../providers';
+import { AuthProvider, ApiProvider } from '../providers';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -44,7 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    IonicModule.forRoot(NavMathApp)
+    IonicModule.forRoot(NavMathApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,8 +63,8 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     AppVersion,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Auth,
-    Api
+    ApiProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}

@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
 import { AppVersion } from '@ionic-native/app-version';
+import { AuthProvider } from '../providers/auth/auth';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +25,9 @@ export class NavMathApp {
     private platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
-    private appVersion: AppVersion
+    private appVersion: AppVersion,
+    private authProvider: AuthProvider,
+    private storage: Storage
   ) {
     this.initializeApp();
 
@@ -50,6 +54,7 @@ export class NavMathApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
+    this.doAuthentication();
   }
 
   initTranslate() {
@@ -72,6 +77,16 @@ export class NavMathApp {
     } else {
       this.translate.use('en'); // Set your language here
     }
+  }
+
+  doAuthentication() {
+    this.storage.get('session').then(sessionModel => {
+      if (sessionModel == null) {
+        this.authProvider
+          .signInAsAnonymous()
+          .subscribe(session => this.storage.set('session', session));
+      }
+    });
   }
 
   openPage(page) {
