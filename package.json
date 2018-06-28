@@ -16,7 +16,7 @@
   "lint-staged": {
     "*.ts": [
       "node_modules/.bin/prettier --single-quote --write",
-      "ionic-app-scripts lint",
+      "node_modules/.bin/ionic-app-scripts lint --bailOnLintError true",
       "git add"
     ],
     "*.scss": [
