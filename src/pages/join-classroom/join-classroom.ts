@@ -25,11 +25,7 @@ export class JoinClassroomPage {
     this.navCtrl.setRoot(DashboardPage);
   }
 
-  goback() {
-    this.navCtrl.pop();
-  }
   gotoContactUs() {
-    console.log('Here');
     this.navCtrl.push(ContactUsPage);
   }
 }

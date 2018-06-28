@@ -1,2 +1,62 @@
 page-contact-us {
+  .contact-header {
+    height: 115px;
+    text-align: center;
+    border-bottom: solid 1px #efeff4;
+    padding: 0 45px;
+
+    ion-label {
+      font-size: 45.5px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #030303;
+      padding-bottom: 20px;
+    }
+
+    span {
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #4a4a4a;
+      font-size: 16px;
+    }
+  }
+
+  .contact-container {
+    padding: 20px 45px 0;
+  }
+
+  .select-label {
+    color: #8f8e94;
+    font-size: 1.2rem;
+  }
+
+  .border-highlight {
+    border-bottom: solid 0.5px #efeff4;
+  }
+
+  .select-container {
+    ion-label {
+      padding-top: 10px;
+    }
+
+    ion-select {
+      padding: 0 8px 5px 0 !important;
+      width: 100%;
+      max-width: 100% !important;
+      color: #8f8e94;
+      font-size: 15px;
+    }
+  }
+
+  .input-md {
+    color: #8f8e94;
+  }
 }

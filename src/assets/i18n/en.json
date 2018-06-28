@@ -17,11 +17,16 @@
   "CLASS_CODE_DESC" :"By clicking Join Classroom, I agree to share my assessment and collection progress data generated from studying this Gooru classroom with the teacher(s) of this classroom.",
   "DONT_HAVE_CLASS_CODE" : "I don’t have a class code",
 
+  "HELLO_TITLE":"Hello!",
+  "CONTACT_US_DESC":"Tell us a little more about yourself.",
+
+
   "NEXT": "Next",
   "SIGN-IN": "Sign In",
   "HELLO": "Hello",
   "NAME": "Name",
   "EMAIL_USERNAME": "Email/Username",
+  "COUNTRY":"Country",
   "STATE": "State",
   "DISTRICT" : "District",
   "INSTITUTION": "Institution",
