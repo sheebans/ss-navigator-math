@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController
+} from 'ionic-angular';
 
 /**
  * Generated class for the WelcomePage page.
@@ -16,7 +21,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DashboardPage {
   headerModel: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController
+  ) {
     this.headerModel = {
       isMenu: true,
       isNotification: true,
@@ -26,6 +35,7 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
+    this.menuCtrl.enable(true);
     console.log('ionViewDidLoad DashboardPage');
   }
 }

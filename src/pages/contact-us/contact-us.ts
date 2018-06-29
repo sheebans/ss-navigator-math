@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LookupsProvider } from '../../providers/lookups/lookups';
 
@@ -8,6 +9,7 @@ import { LookupsProvider } from '../../providers/lookups/lookups';
   templateUrl: 'contact-us.html'
 })
 export class ContactUsPage {
+  contactUsForm: FormGroup;
   countryCode: string = 'US';
   countries: any;
   states: any;
@@ -17,8 +19,13 @@ export class ContactUsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public lookupsProvider: LookupsProvider
+    public lookupsProvider: LookupsProvider,
+    private formBuilder: FormBuilder
   ) {
+    this.contactUsForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      emailUsername: ['', Validators.compose([Validators.required])]
+    });
     this.loadInitialData();
   }
 
@@ -56,5 +63,9 @@ export class ContactUsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactUsPage');
+  }
+
+  verifyInformation() {
+    console.log('Verify information');
   }
 }

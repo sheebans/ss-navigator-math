@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DashboardPage, ContactUsPage } from '../';
 
 /**
@@ -15,7 +16,17 @@ import { DashboardPage, ContactUsPage } from '../';
   templateUrl: 'join-classroom.html'
 })
 export class JoinClassroomPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  joinUsForm: FormGroup;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder
+  ) {
+    this.joinUsForm = this.formBuilder.group({
+      classCode: ['', Validators.required]
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoinClassroomPage');

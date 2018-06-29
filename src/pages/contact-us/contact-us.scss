@@ -39,7 +39,16 @@ page-contact-us {
   }
 
   .border-highlight {
-    border-bottom: solid 0.5px #efeff4;
+    border-bottom: 1px solid #dedede;
+  }
+
+  .btn_wrapper {
+    text-align: center;
+    width: 100%;
+
+    .button {
+      height: 50px;
+    }
   }
 
   .select-container {
