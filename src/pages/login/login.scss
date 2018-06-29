@@ -1,0 +1,84 @@
+page-login {
+  .sign-in-wrapper {
+    ion-label {
+      color: #6d6e6f;
+    }
+  }
+
+  .sign-in-input {
+    padding: 40px;
+
+    ion-label {
+      color: #6d6e6f;
+    }
+  }
+
+  .highlight {
+    color: #4a8cdb !important;
+    font-size: 11px;
+  }
+
+  .google-button {
+    padding: 40px;
+  }
+
+  ion-input {
+    input {
+      text-align: center;
+      color: #524e4e;
+
+      ::-webkit-input-placeholder {
+        text-align: center;
+        color: #524e4e;
+      }
+    }
+  }
+
+  .sign-in-button {
+    background: #4795cc;
+    width: 100%;
+    top: 10px;
+  }
+
+  .google-button-content-wrapper {
+    border: 1px solid transparent;
+    width: 100%;
+    height: 100%;
+    background: #4795cc;
+  }
+
+  .google-button-icon {
+    float: left;
+    background-color: #fff;
+    border-radius: 1px;
+    padding: 15px;
+  }
+
+  .google-button-icon-image {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background: url("../assets/icon/google-icon.svg");
+  }
+
+  .btn_wrapper {
+    text-align: center;
+    width: 100%;
+
+    .button {
+      height: 50px;
+    }
+  }
+
+  .google-button-content {
+    line-height: 48px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.21px;
+    margin-left: 6px;
+    margin-right: 6px;
+    vertical-align: top;
+    color: #fff;
+  }
+}

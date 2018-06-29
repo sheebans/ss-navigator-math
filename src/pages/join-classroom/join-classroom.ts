@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { DashboardPage, ContactUsPage } from '../';
+import { ContactUsPage, LoginPage } from '../';
 
 /**
  * Generated class for the JoinClassroomPage page.
@@ -33,7 +33,7 @@ export class JoinClassroomPage {
   }
 
   gotoDashboard() {
-    this.navCtrl.setRoot(DashboardPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 
   gotoContactUs() {

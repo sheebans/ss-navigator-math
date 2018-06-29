@@ -23,7 +23,7 @@ export class ContactUsPage {
     private formBuilder: FormBuilder
   ) {
     this.contactUsForm = this.formBuilder.group({
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       emailUsername: ['', Validators.compose([Validators.required])]
     });
     this.loadInitialData();

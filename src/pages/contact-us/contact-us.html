@@ -13,7 +13,7 @@
         <ion-list>
           <ion-item no-padding>
             <ion-label stacked>{{'NAME' | translate}}</ion-label>
-            <ion-input type="text" formControlName="userName"></ion-input>
+            <ion-input type="text" formControlName="username"></ion-input>
           </ion-item>
 
           <ion-item no-padding>
@@ -33,35 +33,46 @@
           </ion-select>
         </ion-item>
         <ion-label no-padding no-margin class="select-label">{{'STATE' | translate}}</ion-label>
-        <ion-item no-padding *ngIf="states?.length != 0">
+        <div *ngIf="states?.length != 0;then select else text">
+        </div>
+        <ion-item no-padding>
           <ion-label no-margin>{{'STATE' | translate}}</ion-label>
-          <ion-select  [(ngModel)]="stateCode" (ionChange)="getDistricts(stateCode)">
+          <ion-select [(ngModel)]="stateCode" (ionChange)="getDistricts(stateCode)">
             <ion-option *ngFor="let state of states" [value]="state.code">{{state.name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item *ngIf="states?.length == 0">
-          <ion-input type="text"></ion-input>
-        </ion-item>
         <ion-label no-padding no-margin class="select-label">{{'DISTRICT' | translate}}</ion-label>
-        <ion-item no-padding *ngIf="districts?.length != 0">
-          <ion-label no-margin>{{'DISTRICT' | translate}}</ion-label>
-          <ion-select [(ngModel)]="districtCode" (ionChange)="getSchools(districtCode)">
-            <ion-option *ngFor="let district of districts" [value]="district.code">{{district.name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item no-padding *ngIf="districts?.length == 0">
-          <ion-input no-margin type="text"></ion-input>
-        </ion-item>
+        <div *ngIf="districts?.length != 0;then district_select else district_text">
+        </div>
+        <ng-template #district_select>
+          <ion-item no-padding *ngIf="districts?.length != 0">
+            <ion-label no-margin>{{'DISTRICT' | translate}}</ion-label>
+            <ion-select [(ngModel)]="districtCode" (ionChange)="getSchools(districtCode)">
+              <ion-option *ngFor="let district of districts" [value]="district.code">{{district.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ng-template>
+        <ng-template #district_text>
+          <ion-item no-padding *ngIf="districts?.length == 0">
+            <ion-input no-margin type="text"></ion-input>
+          </ion-item>
+        </ng-template>
         <ion-label no-padding no-margin class="select-label">{{'INSTITUTION' | translate}}</ion-label>
-        <ion-item no-padding class="border-highlight" *ngIf="districts?.length != 0">
-          <ion-label no-margin>{{'INSTITUTION' | translate}}</ion-label>
-          <ion-select [(ngModel)]="schoolCode">
-            <ion-option *ngFor="let school of schools" [value]="school.code">{{school.name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item no-padding *ngIf="districts?.length == 0">
-          <ion-input no-margin type="text"></ion-input>
-        </ion-item>
+        <div *ngIf="districts?.length != 0;then school_select else school_text">
+        </div>
+        <ng-template #school_select>
+          <ion-item no-padding class="border-highlight">
+            <ion-label no-margin>{{'INSTITUTION' | translate}}</ion-label>
+            <ion-select [(ngModel)]="schoolCode">
+              <ion-option *ngFor="let school of schools" [value]="school.code">{{school.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ng-template>
+        <ng-template #school_text>
+          <ion-item no-padding>
+            <ion-input no-margin type="text"></ion-input>
+          </ion-item>
+        </ng-template>
       </ion-list>
       <div class="btn_wrapper">
         <button text-capitalize [disabled]="!contactUsForm.valid" ion-button color="primary" type="submit" block>{{ 'VERIFY-INFORMATION' | translate }}</button>

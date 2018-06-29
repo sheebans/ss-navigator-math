@@ -1,7 +1,7 @@
 {
   "WELCOME_MESSAGE": "Welcome to NavMath",
-  "WELCOME_MESSAGE_DESC_1" : "Navigate Math is an outcomes-proven course with hundreds of students across Leadership Public Schools' high school campuses growing nearly 3 years in mathematics in 1 school year as measured by NWEA MAP. Navigate Math is an intervention course and apporach that acclerates acadmeic growth and empowers stuendts to direct their own learning.",
-  "WELCOME_MESSAGE_DESC_2" : "Navigate Math helps students develop the foundational knowledge, skills, and thought processes required to be successful in pre-Algebra and Algebra.",
+  "WELCOME_MESSAGE_DESC_1": "Navigate Math is an outcomes-proven course with hundreds of students across Leadership Public Schools' high school campuses growing nearly 3 years in mathematics in 1 school year as measured by NWEA MAP. Navigate Math is an intervention course and apporach that acclerates acadmeic growth and empowers stuendts to direct their own learning.",
+  "WELCOME_MESSAGE_DESC_2": "Navigate Math helps students develop the foundational knowledge, skills, and thought processes required to be successful in pre-Algebra and Algebra.",
 
   "PROFICIENCY_MESSAGE": "This is the Proficiency Page",
   "PROFICIENCY_TITLE": "Proficiency",
@@ -9,28 +9,33 @@
   "DASHBOARD_MESSAGE": "This is the Dashboard Page",
   "DASHBOARD_TITLE": "NavMath",
 
-  "SUPPORT" :"Support",
+  "SUPPORT": "Support",
   "VERSION": "1.0",
-  "LOGOUT" : "Logout",
+  "LOGOUT": "Logout",
 
-  "ENTER_CLASS_CODE" : "ENTER CLASS CODE",
-  "CLASS_CODE_DESC" :"By clicking Join Classroom, I agree to share my assessment and collection progress data generated from studying this Gooru classroom with the teacher(s) of this classroom.",
-  "DONT_HAVE_CLASS_CODE" : "I don’t have a class code",
+  "ENTER_CLASS_CODE": "ENTER CLASS CODE",
+  "CLASS_CODE_DESC": "By clicking Join Classroom, I agree to share my assessment and collection progress data generated from studying this Gooru classroom with the teacher(s) of this classroom.",
+  "DONT_HAVE_CLASS_CODE": "I don’t have a class code",
 
-  "HELLO_TITLE":"Hello!",
-  "CONTACT_US_DESC":"Tell us a little more about yourself.",
+  "HELLO_TITLE": "Hello!",
+  "CONTACT_US_DESC": "Tell us a little more about yourself.",
 
+
+  "PASSWORD": "Password",
+  "FORGOT_MY_PASSWORD": "Forgot your password?",
+  "SIGN_IN_WITH_GOOGLE": "Sign In with Google",
+  "EXPLORE_AND_LEARN": "Explore and Learn",
 
   "NEXT": "Next",
   "SIGN-IN": "Sign In",
   "HELLO": "Hello",
   "NAME": "Name",
   "EMAIL_USERNAME": "Email/Username",
-  "COUNTRY":"Country",
+  "COUNTRY": "Country",
   "STATE": "State",
-  "DISTRICT" : "District",
+  "DISTRICT": "District",
   "INSTITUTION": "Institution",
-  "VERIFY-INFORMATION" : "Verify Information",
+  "VERIFY-INFORMATION": "Verify Information",
   "TELL_US_MORE": "Tell us a little more about yourself.",
-  "JOIN_CLASSROOM" : "Join Classroom"
+  "JOIN_CLASSROOM": "Join Classroom"
 }

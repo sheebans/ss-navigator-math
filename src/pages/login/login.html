@@ -1,0 +1,44 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col class="sign-in-wrapper">
+        <div>
+          <img width="100" height="100" src="assets/imgs/logo.svg" />
+          <ion-label>{{'EXPLORE_AND_LEARN' | translate}}</ion-label>
+        </div>
+        <div class="sign-in-input">
+          <form [formGroup]="signInForm" (ngSubmit)="doLogin()">
+            <ion-item text-center>
+              <ion-label stacked>{{'EMAIL_USERNAME' | translate}}</ion-label>
+              <ion-input type="text" formControlName="username"></ion-input>
+            </ion-item>
+            <ion-item text-center>
+              <ion-label stacked>{{'PASSWORD' | translate}}</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="btn_wrapper" padding-top>
+              <button ion-button full type="submit" [disabled]="!signInForm.valid">{{'SIGN-IN' | translate}}</button>
+            </div>
+            <ion-label class="highlight" padding>
+              {{'FORGOT_MY_PASSWORD' | translate}}
+            </ion-label>
+          </form>
+        </div>
+        <hr>
+        <div class="sigin-in-google">
+          <div class="google-button">
+            <div class="google-button-content-wrapper">
+              <div class="google-button-icon">
+                <div class="google-button-icon-image">
+                </div>
+              </div>
+              <span class="google-button-content">
+              <span>{{'SIGN_IN_WITH_GOOGLE' | translate}}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -20,7 +20,8 @@ import {
   DashboardPage,
   ProficiencyPage,
   ContactUsPage,
-  JoinClassroomPage
+  JoinClassroomPage,
+  LoginPage
 } from '../pages';
 import { AuthProvider, ApiProvider, LookupsProvider } from '../providers';
 
@@ -38,7 +39,8 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardPage,
     ProficiencyPage,
     ContactUsPage,
-    JoinClassroomPage
+    JoinClassroomPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardPage,
     ProficiencyPage,
     ContactUsPage,
-    JoinClassroomPage
+    JoinClassroomPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
