@@ -6,8 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
 import { AppVersion } from '@ionic-native/app-version';
-import { AuthProvider } from '../providers/auth/auth';
-import { Storage } from '@ionic/storage';
+import { AppAuth } from './app.auth';
+import { Events } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,9 +27,9 @@ export class NavMathApp {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
-    private authProvider: AuthProvider,
-    private storage: Storage,
-    private keyboard: Keyboard
+    private appAuth: AppAuth,
+    private keyboard: Keyboard,
+    public events: Events
   ) {
     this.initializeApp();
 
@@ -63,7 +63,8 @@ export class NavMathApp {
       }
     });
     this.initTranslate();
-    this.doAuthentication();
+    this.appAuth.doAuthentication();
+    this.reloadAppOnReAuthenticate();
   }
 
   initTranslate() {
@@ -88,16 +89,6 @@ export class NavMathApp {
     }
   }
 
-  doAuthentication() {
-    this.storage.get('session').then(sessionModel => {
-      if (sessionModel == null) {
-        this.authProvider
-          .signInAsAnonymous()
-          .subscribe(session => this.storage.set('session', session));
-      }
-    });
-  }
-
   setAppVersion() {
     this.appVersion.getVersionNumber().then(version => {
       this.version = version;
@@ -108,5 +99,15 @@ export class NavMathApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  reloadAppOnReAuthenticate() {
+    this.events.subscribe('auth:reAuthenticateDone', () => {
+      this.nav.setRoot(WelcomePage);
+    });
+  }
+
+  logout() {
+    this.appAuth.logout();
   }
 }

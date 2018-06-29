@@ -22,20 +22,11 @@ import 'rxjs/add/operator/mergeMap';
 export class LookupsProvider {
   lookupsV1Namespace: string = 'api/nucleus/v1/lookups';
 
-  headers: Promise<HttpHeaders>;
-
-  constructor(private api: ApiProvider, private storage: Storage) {
-    this.headers = this.storage.get('session').then(session => {
-      return new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Token ' + session.access_token
-      });
-    });
-  }
+  constructor(private api: ApiProvider, private storage: Storage) {}
 
   getCountries(): Observable<CountryModel[]> {
     const endpoint = `${this.lookupsV1Namespace}/countries`;
-    return Observable.fromPromise(this.headers).mergeMap(headers => {
+    return Observable.fromPromise(this.getHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       return this.api.get<CountryModel[]>(endpoint, null, reqOpts).map(res => {
         return res['countries'].map(
@@ -54,7 +45,7 @@ export class LookupsProvider {
 
   getStates(countryId: string): Observable<StateModel[]> {
     const endpoint = `${this.lookupsV1Namespace}/countries/${countryId}/states`;
-    return Observable.fromPromise(this.headers).mergeMap(headers => {
+    return Observable.fromPromise(this.getHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       return this.api.get<StateModel[]>(endpoint, null, reqOpts).map(res => {
         return res['states'].map(
@@ -73,7 +64,7 @@ export class LookupsProvider {
 
   getSchoolDistricts(stateId: string): Observable<SchoolDistrictModel[]> {
     const endpoint = `${this.lookupsV1Namespace}/school-districts`;
-    return Observable.fromPromise(this.headers).mergeMap(headers => {
+    return Observable.fromPromise(this.getHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       const params = { state_id: stateId };
       return this.api
@@ -95,7 +86,7 @@ export class LookupsProvider {
 
   getSchools(schoolDistrictId: string): Observable<SchoolModel[]> {
     const endpoint = `${this.lookupsV1Namespace}/schools`;
-    return Observable.fromPromise(this.headers).mergeMap(headers => {
+    return Observable.fromPromise(this.getHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       const params = { school_district_id: schoolDistrictId };
       return this.api.get<SchoolModel[]>(endpoint, params, reqOpts).map(res => {
@@ -109,6 +100,15 @@ export class LookupsProvider {
             return result;
           }
         );
+      });
+    });
+  }
+
+  getHeaders(): Promise<HttpHeaders> {
+    return this.storage.get('session').then(session => {
+      return new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Token ' + session.access_token
       });
     });
   }
