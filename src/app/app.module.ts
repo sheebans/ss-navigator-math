@@ -9,9 +9,8 @@ import { AppVersion } from '@ionic-native/app-version';
 import { Keyboard } from '@ionic-native/keyboard';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NavMathApp } from './app.component';
+import { NavMathApp, GlobalErrorHandler, AppAuth } from './';
 import { HeaderComponent } from '../components/header/header';
-import { GlobalErrorHandler } from './global-error';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 
@@ -72,6 +71,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppVersion,
     Device,
     Firebase,
+    AppAuth,
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     ApiProvider,
     AuthProvider,

@@ -3,6 +3,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
+import { AppAuth } from './app.auth';
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
@@ -10,15 +11,18 @@ export class GlobalErrorHandler extends ErrorHandler {
     private device: Device,
     private toastCtrl: ToastController,
     private firebase: Firebase,
-    private platform: Platform
+    private platform: Platform,
+    private appAuth: AppAuth
   ) {
     super();
   }
 
   handleError(error: any): void {
-    console.log(error);
     this.presentToast();
     this.sendErrorToFirebaseCrash(error);
+    if (error.status == 401) {
+      this.appAuth.clearStorageAndDoAuthentication();
+    }
   }
 
   presentToast() {
