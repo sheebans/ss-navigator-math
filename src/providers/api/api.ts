@@ -59,14 +59,6 @@ export class ApiProvider {
   }
 
   private handleError(error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const err = error || '';
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Observable.throw(error);
   }
 }
