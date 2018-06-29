@@ -39,8 +39,11 @@ export class AuthProvider {
   }
 
   signOut(): Observable<any> {
-    const endpoint = `${this.authNamespace}/v2/signout`;
-    return this.api.delete<any>(endpoint);
+    return Observable.fromPromise(this.getHeaders()).mergeMap(headers => {
+      const reqOpts = { headers: headers };
+      const endpoint = `${this.authNamespace}/v2/signout`;
+      return this.api.delete<any>(endpoint, reqOpts);
+    });
   }
 
   getHeaders(): Promise<HttpHeaders> {

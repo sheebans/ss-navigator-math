@@ -12,10 +12,12 @@ export class AppAuth {
   ) {}
 
   doAuthentication() {
-    this.storage.clear().then(sessionModel => {
-      this.authProvider
-        .signInAsAnonymous()
-        .subscribe(session => this.storage.set('session', session));
+    this.storage.get('session').then(sessionModel => {
+      if (sessionModel == null) {
+        this.authProvider
+          .signInAsAnonymous()
+          .subscribe(session => this.storage.set('session', session));
+      }
     });
   }
 
@@ -25,6 +27,12 @@ export class AppAuth {
         this.storage.set('session', session);
         this.events.publish('auth:reAuthenticateDone');
       });
+    });
+  }
+
+  logout() {
+    this.authProvider.signOut().subscribe(() => {
+      this.clearStorageAndDoAuthentication();
     });
   }
 }

@@ -106,4 +106,8 @@ export class NavMathApp {
       this.nav.setRoot(WelcomePage);
     });
   }
+
+  logout() {
+    this.appAuth.logout();
+  }
 }
