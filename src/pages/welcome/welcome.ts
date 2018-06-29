@@ -5,7 +5,6 @@ import {
   NavParams,
   MenuController
 } from 'ionic-angular';
-import { JoinClassroomPage } from '../join-classroom/join-classroom';
 
 /**
  * Generated class for the WelcomePage page.
@@ -27,7 +26,7 @@ export class WelcomePage {
   ) {}
 
   gotoJoinClassroom() {
-    this.navCtrl.push(JoinClassroomPage);
+    this.navCtrl.push('JoinClassroomPage');
   }
 
   ionViewDidLoad() {
