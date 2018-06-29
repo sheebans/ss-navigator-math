@@ -85,5 +85,6 @@
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
     <engine name="android" spec="~7.0.0" />
 </widget>

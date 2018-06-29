@@ -6,7 +6,6 @@ import {
   NavParams,
   MenuController
 } from 'ionic-angular';
-import { DashboardPage } from '../';
 
 /**
  * Generated class for the LoginPage page.
@@ -36,7 +35,7 @@ export class LoginPage {
   }
 
   doLogin() {
-    this.navCtrl.setRoot(DashboardPage);
+    this.navCtrl.setRoot('DashboardPage');
   }
 
   ionViewDidLoad() {

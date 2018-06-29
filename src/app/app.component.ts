@@ -4,7 +4,6 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
-import { WelcomePage, ProficiencyPage, DashboardPage } from '../pages';
 import { AppVersion } from '@ionic-native/app-version';
 import { AppAuth } from './app.auth';
 import { Events } from 'ionic-angular';
@@ -15,7 +14,7 @@ import { Events } from 'ionic-angular';
 export class NavMathApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = WelcomePage;
+  rootPage: any = 'WelcomePage';
 
   pages: Array<{ title: string; component: any; icon: string }>;
 
@@ -34,14 +33,18 @@ export class NavMathApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage, icon: 'icon-dashboard' },
-      { title: 'Proficiency', component: ProficiencyPage, icon: 'star' },
+      {
+        title: 'Dashboard',
+        component: 'DashboardPage',
+        icon: 'icon-dashboard'
+      },
+      { title: 'Proficiency', component: 'ProficiencyPage', icon: 'star' },
       {
         title: 'Prefernces',
-        component: ProficiencyPage,
+        component: 'ProficiencyPage',
         icon: 'icon-preferences'
       },
-      { title: 'About Me', component: ProficiencyPage, icon: 'icon-about' }
+      { title: 'About Me', component: 'ProficiencyPage', icon: 'icon-about' }
     ];
   }
 
@@ -103,7 +106,7 @@ export class NavMathApp {
 
   reloadAppOnReAuthenticate() {
     this.events.subscribe('auth:reAuthenticateDone', () => {
-      this.nav.setRoot(WelcomePage);
+      this.nav.setRoot('WelcomePage');
     });
   }
 

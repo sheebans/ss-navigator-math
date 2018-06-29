@@ -11,9 +11,7 @@ export class HeaderComponent {
   constructor(public navCtrl: NavController) {}
   @Input()
   set header(headerModel: any) {
+    console.log(headerModel);
     this.headerModel = headerModel;
-  }
-  get header() {
-    return this.headerModel;
   }
 }
