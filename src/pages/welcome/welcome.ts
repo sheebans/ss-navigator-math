@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController
+} from 'ionic-angular';
 import { JoinClassroomPage } from '../join-classroom/join-classroom';
 
 /**
@@ -15,13 +20,18 @@ import { JoinClassroomPage } from '../join-classroom/join-classroom';
   templateUrl: 'welcome.html'
 })
 export class WelcomePage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController
+  ) {}
 
   gotoJoinClassroom() {
     this.navCtrl.push(JoinClassroomPage);
   }
 
   ionViewDidLoad() {
+    this.menuCtrl.enable(false);
     console.log('ionViewDidLoad WelcomePage');
   }
 }

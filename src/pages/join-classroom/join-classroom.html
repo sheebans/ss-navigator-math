@@ -7,26 +7,28 @@
     <img src="assets/imgs/join-us/join.png" />
   </ion-card>
   <div padding>
-    <ion-row>
-      <ion-col col-8 offset-2>
-        <ion-item no-padding>
-          <ion-input text-center type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-      <div class="class-code-label">
-        <span>{{'ENTER_CLASS_CODE' | translate}}</span>
+    <form [formGroup]="joinUsForm" (ngSubmit)="gotoDashboard()">
+      <ion-row>
+        <ion-col col-8 offset-2>
+          <ion-item no-padding>
+            <ion-input text-center type="text" formControlName="classCode"></ion-input>
+          </ion-item>
+        </ion-col>
+        <div class="class-code-label">
+          <span>{{'ENTER_CLASS_CODE' | translate}}</span>
+        </div>
+      </ion-row>
+      <div padding>
+        <ion-col>
+          <p class="class-code-desc">{{'CLASS_CODE_DESC' | translate}}</p>
+        </ion-col>
+        <div class="class-code-message" padding>
+          <span (click)="gotoContactUs()">{{'DONT_HAVE_CLASS_CODE' | translate}}</span>
+        </div>
+        <div class="btn_wrapper">
+          <button ion-button type="submit"  [disabled]="!joinUsForm.valid" icon-left full text-capitalize>{{ 'JOIN_CLASSROOM' | translate }}</button>
+        </div>
       </div>
-    </ion-row>
-    <div padding>
-      <ion-col>
-        <p class="class-code-desc">{{'CLASS_CODE_DESC' | translate}}</p>
-      </ion-col>
-      <div class="class-code-message" padding>
-        <span (click)="gotoContactUs()">{{'DONT_HAVE_CLASS_CODE' | translate}}</span>
-      </div>
-      <div class="btn_wrapper">
-        <button ion-button icon-left full text-capitalize (click)="gotoDashboard(p)">{{ 'JOIN_CLASSROOM' | translate }}</button>
-      </div>
-    </div>
+    </form>
   </div>
 </ion-content>
