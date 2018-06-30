@@ -20,6 +20,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <preference name="OverrideUserAgent" value="Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -86,5 +87,7 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
+    <engine name="browser" spec="~5.0.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <engine name="android" spec="~7.0.0" />
 </widget>

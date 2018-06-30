@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ContactUsPage } from './contact-us';
 import { TranslateModule } from '@ngx-translate/core';
+import { LookupsProvider } from '../../providers';
 
 @NgModule({
   declarations: [ContactUsPage],
@@ -9,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicPageModule.forChild(ContactUsPage),
     TranslateModule.forChild()
   ],
-  exports: [ContactUsPage]
+  exports: [ContactUsPage],
+  providers: [LookupsProvider]
 })
 export class ContactUsPageModule {}

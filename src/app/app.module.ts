@@ -14,7 +14,7 @@ import { NavMathApp, GlobalErrorHandler, AppAuth } from './';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { ComponentsModule } from '../components/components.module';
-import { AuthProvider, ApiProvider, LookupsProvider } from '../providers';
+import { AuthProvider, ApiProvider } from '../providers';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -54,7 +54,6 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     ApiProvider,
     AuthProvider,
-    LookupsProvider,
     Keyboard
   ]
 })
