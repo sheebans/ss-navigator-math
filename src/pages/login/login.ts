@@ -53,7 +53,6 @@ export class LoginPage {
         const accessToken: string = token.slice(0, -1);
         this.authProvider.signInWithToken(accessToken).subscribe(session => {
           browser.close();
-          window.alert(session.username);
           this.navCtrl.setRoot('DashboardPage');
           this.storage.set('session', session);
         });

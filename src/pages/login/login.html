@@ -1,10 +1,10 @@
-<ion-content padding>
+<ion-content padding class="vertical-align-content">
   <ion-grid>
     <ion-row text-center>
       <ion-col class="sign-in-wrapper">
         <div>
-          <img width="100" height="100" src="assets/imgs/logo.svg" />
-          <ion-label>{{'EXPLORE_AND_LEARN' | translate}}</ion-label>
+          <img width="100"  src="assets/imgs/logo.svg" />
+          <ion-label padding>{{'EXPLORE_AND_LEARN' | translate}}</ion-label>
         </div>
         <div class="sign-in-input">
           <form [formGroup]="signInForm" (ngSubmit)="doLogin()">
