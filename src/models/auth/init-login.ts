@@ -1,4 +1,4 @@
 export interface InitLoginModel {
-  status_code: string;
+  status_code: number;
   redirect_url: string;
 }

@@ -4,14 +4,14 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  MenuController
+  MenuController,
+  ToastController
 } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ENV } from '@app/env';
 import { AuthProvider } from '../../providers';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
