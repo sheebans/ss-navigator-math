@@ -10,6 +10,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ENV } from '@app/env';
 import { AuthProvider } from '../../providers';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -19,6 +22,12 @@ import { Storage } from '@ionic/storage';
 export class LoginPage {
   signInForm: FormGroup;
 
+  showPage: boolean = true;
+
+  password: string;
+
+  username: string;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,7 +35,10 @@ export class LoginPage {
     private formBuilder: FormBuilder,
     private inAppBrowser: InAppBrowser,
     private authProvider: AuthProvider,
-    private storage: Storage
+    private storage: Storage,
+    private events: Events,
+    private toastCtrl: ToastController,
+    private translate: TranslateService
   ) {
     this.signInForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -35,10 +47,30 @@ export class LoginPage {
   }
 
   doLogin() {
-    this.navCtrl.setRoot('DashboardPage');
+    this.authProvider
+      .signInWithCredential(this.username, this.password)
+      .subscribe(
+        sessionModel => {
+          this.storage.set('session', sessionModel);
+          this.events.publish('auth:loginCompleted', sessionModel);
+        },
+        onerror => {
+          this.translate
+            .get('SIGN_IN_CREDENTIALS_NOT_VALID')
+            .subscribe(value => {
+              let toast = this.toastCtrl.create({
+                message: value,
+                duration: 3000,
+                position: 'top'
+              });
+              toast.present();
+            });
+        }
+      );
   }
 
   doGoogleLogin() {
+    this.showPage = false;
     const googleSignUrl = `${
       ENV.API_END_POINT
     }/api/nucleus-auth-idp/v1/google?redirectURL=${ENV.APP_SSO_REDIRECT_URL}`;
@@ -49,23 +81,18 @@ export class LoginPage {
     );
     browser.on('loadstart').subscribe(event => {
       if (event.url != null && event.url.indexOf('access_token') > -1) {
+        browser.close();
         const token: string = event.url.split('access_token=')[1];
         const accessToken: string = token.slice(0, -1);
         this.authProvider.signInWithToken(accessToken).subscribe(session => {
-          browser.close();
-          this.navCtrl.setRoot('DashboardPage');
           this.storage.set('session', session);
+          this.events.publish('auth:loginCompleted', session);
         });
       }
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   ionViewDidEnter() {
-    //to disable menu, or
     this.menu.enable(false);
   }
 }

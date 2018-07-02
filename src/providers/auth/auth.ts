@@ -136,6 +136,26 @@ export class AuthProvider {
     });
   }
 
+  authorize(user: object): Observable<SessionModel> {
+    const postData = {
+      client_id: ENV.CLIENT_ID,
+      client_key: ENV.CLIENT_KEY,
+      grant_type: 'google',
+      user: user
+    };
+    const endpoint = `${this.authNamespace}/v2/authorize`;
+    return this.api.post<SessionModel>(endpoint, postData).map(res => {
+      const result: SessionModel = {
+        access_token: res.access_token,
+        access_token_validity: res.access_token_validity,
+        cdn_urls: res.cdn_urls,
+        provided_at: res.provided_at,
+        user_id: res.user_id
+      };
+      return result;
+    });
+  }
+
   getBasicHeaders(token: string): Promise<HttpHeaders> {
     if (this.platform.is('cordova')) {
       return this.base64.encodeFile(token).then(encodeToken => {

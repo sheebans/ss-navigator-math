@@ -25,7 +25,7 @@ export class AppAuth {
     this.storage.clear().then(() => {
       this.authProvider.signInAsAnonymous().subscribe(session => {
         this.storage.set('session', session);
-        this.events.publish('auth:reAuthenticateDone');
+        this.events.publish('auth:reAuthenticateDone', session);
       });
     });
   }

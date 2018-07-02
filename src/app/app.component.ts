@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AppVersion } from '@ionic-native/app-version';
 import { AppAuth } from './app.auth';
 import { Events } from 'ionic-angular';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,6 +21,8 @@ export class NavMathApp {
 
   version: string = '0.0.0';
 
+  session: any = {};
+
   constructor(
     private translate: TranslateService,
     private platform: Platform,
@@ -28,7 +31,9 @@ export class NavMathApp {
     private appVersion: AppVersion,
     private appAuth: AppAuth,
     private keyboard: Keyboard,
-    public events: Events
+    public events: Events,
+    private deeplinks: Deeplinks,
+    private zone: NgZone
   ) {
     this.initializeApp();
 
@@ -61,13 +66,12 @@ export class NavMathApp {
           this.version = version;
         });
         this.setAppVersion();
-      } else {
-        // handle thing accordingly
       }
+      this.registerDeeplinks();
     });
     this.initTranslate();
     this.appAuth.doAuthentication();
-    this.reloadAppOnReAuthenticate();
+    this.eventsRegister();
   }
 
   initTranslate() {
@@ -104,13 +108,40 @@ export class NavMathApp {
     this.nav.setRoot(page.component);
   }
 
-  reloadAppOnReAuthenticate() {
-    this.events.subscribe('auth:reAuthenticateDone', () => {
+  eventsRegister() {
+    this.events.subscribe('auth:reAuthenticateDone', sessionModel => {
+      this.zone.run(() => {
+        this.session = sessionModel;
+      });
       this.nav.setRoot('WelcomePage');
+    });
+    this.events.subscribe('auth:loginCompleted', sessionModel => {
+      this.zone.run(() => {
+        this.session = sessionModel;
+      });
+      this.nav.setRoot('DashboardPage');
     });
   }
 
   logout() {
     this.appAuth.logout();
+  }
+
+  registerDeeplinks() {
+    this.deeplinks
+      .routeWithNavController(this.nav, {
+        '/welscome': 'WelcomePage'
+      })
+      .subscribe(
+        match => {
+          console.log('Successfully matched route', match);
+        },
+        nomatch => {
+          console.error(
+            "Got a deeplink that didn't match",
+            +JSON.stringify(nomatch)
+          );
+        }
+      );
   }
 }
