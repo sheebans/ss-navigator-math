@@ -1,22 +1,10 @@
 import { Component } from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ToastController,
-  Events
-} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AuthProvider } from '../../providers';
+import { AppToast } from '../../app/app-toast';
 import { Storage } from '@ionic/storage';
-
-/**
- * Generated class for the JoinClassroomPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -36,15 +24,11 @@ export class JoinClassroomPage {
     private authProvider: AuthProvider,
     private storage: Storage,
     private events: Events,
-    private toastCtrl: ToastController
+    private appToast: AppToast
   ) {
     this.joinUsForm = this.formBuilder.group({
       classCode: ['', Validators.required]
     });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JoinClassroomPage');
   }
 
   gotoDashboard() {
@@ -70,16 +54,11 @@ export class JoinClassroomPage {
             }
           });
         } else {
-          this.navCtrl.setRoot('LoginPage');
+          this.navCtrl.push('LoginPage');
         }
       },
       onerror => {
-        let toast = this.toastCtrl.create({
-          message: onerror.error.message,
-          duration: 3000,
-          position: 'top'
-        });
-        toast.present();
+        this.appToast.presentToast(onerror.error.message);
       }
     );
   }

@@ -15,7 +15,7 @@ import { Deeplinks } from '@ionic-native/deeplinks';
 export class NavMathApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'WelcomePage';
+  rootPage: string;
 
   pages: Array<{ title: string; component: any; icon: string }>;
 
@@ -67,11 +67,11 @@ export class NavMathApp {
         });
         this.setAppVersion();
       }
+      this.initTranslate();
+      this.appAuth.doAuthentication();
+      this.eventsRegister();
       this.registerDeeplinks();
     });
-    this.initTranslate();
-    this.appAuth.doAuthentication();
-    this.eventsRegister();
   }
 
   initTranslate() {
@@ -121,6 +121,16 @@ export class NavMathApp {
       });
       this.nav.setRoot('DashboardPage');
     });
+    this.events.subscribe('auth:initializeAuthCompleted', sessionModel => {
+      this.zone.run(() => {
+        this.session = sessionModel;
+        if (sessionModel.user_id == 'anonymous') {
+          this.rootPage = 'WelcomePage';
+        } else {
+          this.rootPage = 'DashboardPage';
+        }
+      });
+    });
   }
 
   logout() {
@@ -130,17 +140,14 @@ export class NavMathApp {
   registerDeeplinks() {
     this.deeplinks
       .routeWithNavController(this.nav, {
-        '/welscome': 'WelcomePage'
+        '/welcome': 'WelcomePage'
       })
       .subscribe(
         match => {
           console.log('Successfully matched route', match);
         },
         nomatch => {
-          console.error(
-            "Got a deeplink that didn't match",
-            +JSON.stringify(nomatch)
-          );
+          console.error("Got a deeplink that didn't match", nomatch);
         }
       );
   }

@@ -8,8 +8,6 @@ import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/toPromise';
-import { Base64 } from '@ionic-native/base64';
-import { Platform } from 'ionic-angular';
 
 /**
  *
@@ -20,12 +18,7 @@ import { Platform } from 'ionic-angular';
 export class AuthProvider {
   authNamespace: string = 'api/nucleus-auth';
 
-  constructor(
-    private api: ApiProvider,
-    private storage: Storage,
-    private base64: Base64,
-    private platform: Platform
-  ) {}
+  constructor(private api: ApiProvider, private storage: Storage) {}
 
   signInAsAnonymous(): Observable<SessionModel> {
     const postData = {
@@ -150,30 +143,27 @@ export class AuthProvider {
         access_token_validity: res.access_token_validity,
         cdn_urls: res.cdn_urls,
         provided_at: res.provided_at,
-        user_id: res.user_id
+        user_id: res.user_id,
+        username: res.username,
+        email: res.email,
+        first_name: res.first_name,
+        last_name: res.last_name,
+        user_category: res.user_category,
+        thumbnail: res.thumbnail
       };
       return result;
     });
   }
 
   getBasicHeaders(token: string): Promise<HttpHeaders> {
-    if (this.platform.is('cordova')) {
-      return this.base64.encodeFile(token).then(encodeToken => {
-        return new HttpHeaders({
+    return new Promise(resolve => {
+      resolve(
+        new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: 'Basic ' + encodeToken
-        });
-      });
-    } else {
-      return new Promise(resolve => {
-        resolve(
-          new HttpHeaders({
-            'Content-Type': 'application/json',
-            Authorization: 'Basic ' + window.btoa(token)
-          })
-        );
-      });
-    }
+          Authorization: 'Basic ' + window.btoa(token)
+        })
+      );
+    });
   }
 
   getTokenHeaders(): Promise<HttpHeaders> {

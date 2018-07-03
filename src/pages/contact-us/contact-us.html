@@ -35,8 +35,6 @@
               </ion-select>
             </ion-item>
             <ion-label no-padding no-margin class="select-label">{{'STATE' | translate}}</ion-label>
-            <div *ngIf="states?.length != 0;then select else text">
-            </div>
             <ion-item no-padding>
               <ion-label no-margin>{{'STATE' | translate}}</ion-label>
               <ion-select [(ngModel)]="stateCode" (ionChange)="getDistricts(stateCode)">
@@ -47,7 +45,7 @@
             <div *ngIf="districts?.length != 0;then district_select else district_text">
             </div>
             <ng-template #district_select>
-              <ion-item no-padding *ngIf="districts?.length != 0">
+              <ion-item no-padding>
                 <ion-label no-margin>{{'DISTRICT' | translate}}</ion-label>
                 <ion-select [(ngModel)]="districtCode" (ionChange)="getSchools(districtCode)">
                   <ion-option *ngFor="let district of districts" [value]="district.code">{{district.name}}</ion-option>
@@ -55,7 +53,7 @@
               </ion-item>
             </ng-template>
             <ng-template #district_text>
-              <ion-item no-padding *ngIf="districts?.length == 0">
+              <ion-item no-padding>
                 <ion-input no-margin type="text"></ion-input>
               </ion-item>
             </ng-template>

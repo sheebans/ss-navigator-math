@@ -88,7 +88,6 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
-    <engine name="browser" spec="~5.0.3" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <plugin name="ionic-plugin-deeplinks" spec="^1.0.15">
         <variable name="URL_SCHEME" value="navmath" />
@@ -108,9 +107,8 @@
         <variable name="DEEPLINK_5_SCHEME" value=" " />
         <variable name="DEEPLINK_5_HOST" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-googleplus" spec="^5.3.0">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.765348544690-tppunnpkdul9ufgakid9ogg86c5ju02r" />
-        <variable name="WEB_APPLICATION_CLIENT_ID" value="765348544690-tppunnpkdul9ufgakid9ogg86c5ju02r.apps.googleusercontent.com" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.703794097568-jfuavdjf40c1ju1pmmdq77k4fmkpc5v9" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
 </widget>

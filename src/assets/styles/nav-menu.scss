@@ -23,10 +23,17 @@
   }
 
   .user-content {
-    padding-top: 25px;
+    padding-top: 30px;
+    padding-left: 15px;
+    color: white;
 
-    .toolbar-title-md {
-      font-size: 1.5rem !important;
+    .username {
+      font-weight: bold;
+    }
+
+    .email {
+      padding-top: 10px;
+      font-weight: 300;
     }
   }
 

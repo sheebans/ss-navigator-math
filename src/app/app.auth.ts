@@ -14,9 +14,22 @@ export class AppAuth {
   doAuthentication() {
     this.storage.get('session').then(sessionModel => {
       if (sessionModel == null) {
-        this.authProvider
-          .signInAsAnonymous()
-          .subscribe(session => this.storage.set('session', session));
+        this.authProvider.signInAsAnonymous().subscribe(session => {
+          this.storage.set('session', session);
+          this.events.publish('auth:initializeAuthCompleted', session);
+        });
+      } else {
+        this.authProvider.signInWithToken(sessionModel.access_token).subscribe(
+          session => {
+            this.events.publish('auth:initializeAuthCompleted', session);
+          },
+          onerror => {
+            this.authProvider.signInAsAnonymous().subscribe(session => {
+              this.storage.set('session', session);
+              this.events.publish('auth:initializeAuthCompleted', session);
+            });
+          }
+        );
       }
     });
   }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1020499579881-hvf9614h43fqfnrtklfsapmokok8k90h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooru.navmath",
+            "certificate_hash": "b380b3c1cf650ab8305ebaf3343efdc96905154e"
+          }
+        },
+        {
           "client_id": "1020499579881-96raa3l5ffp14pf98t0ngekno188cf0a.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020499579881-96raa3l5ffp14pf98t0ngekno188cf0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

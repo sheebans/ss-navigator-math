@@ -1,38 +1,37 @@
-import { ToastController } from 'ionic-angular';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
 import { AppAuth } from './app.auth';
+import { AppToast } from './app-toast';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
   constructor(
     private device: Device,
-    private toastCtrl: ToastController,
+    private appToast: AppToast,
     private firebase: Firebase,
     private platform: Platform,
-    private appAuth: AppAuth
+    private appAuth: AppAuth,
+    private translate: TranslateService
   ) {
     super();
   }
 
   handleError(error: any): void {
-    this.presentToast();
+    if (error.message) {
+      this.appToast.presentToast(error.message);
+    } else {
+      this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
+        this.appToast.presentToast(value);
+      });
+    }
     this.sendErrorToFirebaseCrash(error);
     if (error.status == 401) {
       this.appAuth.clearStorageAndDoAuthentication();
     }
     console.log(error);
-  }
-
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'Something went wrong!!!',
-      duration: 3000,
-      position: 'top'
-    });
-    toast.present();
   }
 
   sendErrorToFirebaseCrash(error: any) {

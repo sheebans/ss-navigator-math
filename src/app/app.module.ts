@@ -6,11 +6,10 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AppVersion } from '@ionic-native/app-version';
-import { Base64 } from '@ionic-native/base64';
 import { Keyboard } from '@ionic-native/keyboard';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NavMathApp, GlobalErrorHandler, AppAuth } from './';
+import { NavMathApp, GlobalErrorHandler, AppAuth, AppToast } from './';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { ComponentsModule } from '../components/components.module';
@@ -50,7 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     Device,
     Firebase,
     AppAuth,
-    Base64,
+    AppToast,
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     ApiProvider,
     AuthProvider,
