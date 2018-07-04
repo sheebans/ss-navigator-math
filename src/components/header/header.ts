@@ -9,9 +9,9 @@ export class HeaderComponent {
   headerModel: any;
 
   constructor(public navCtrl: NavController) {}
+
   @Input()
   set header(headerModel: any) {
-    console.log(headerModel);
     this.headerModel = headerModel;
   }
 }

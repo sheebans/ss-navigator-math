@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
+import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 import {
@@ -22,24 +22,26 @@ import 'rxjs/add/operator/mergeMap';
 export class LookupsProvider {
   lookupsV1Namespace: string = 'api/nucleus/v1/lookups';
 
-  constructor(private api: ApiProvider, private storage: Storage) {}
+  constructor(private restClient: RestClient, private storage: Storage) {}
 
   getCountries(): Observable<CountryModel[]> {
     const endpoint = `${this.lookupsV1Namespace}/countries`;
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
-      return this.api.get<CountryModel[]>(endpoint, null, reqOpts).map(res => {
-        return res['countries'].map(
-          (country): CountryModel => {
-            const result: CountryModel = {
-              id: country.id,
-              name: country.name,
-              code: country.code
-            };
-            return result;
-          }
-        );
-      });
+      return this.restClient
+        .get<CountryModel[]>(endpoint, null, reqOpts)
+        .map(res => {
+          return res['countries'].map(
+            (country): CountryModel => {
+              const result: CountryModel = {
+                id: country.id,
+                name: country.name,
+                code: country.code
+              };
+              return result;
+            }
+          );
+        });
     });
   }
 
@@ -47,18 +49,20 @@ export class LookupsProvider {
     const endpoint = `${this.lookupsV1Namespace}/countries/${countryId}/states`;
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
-      return this.api.get<StateModel[]>(endpoint, null, reqOpts).map(res => {
-        return res['states'].map(
-          (state): StateModel => {
-            const result: StateModel = {
-              id: state.id,
-              name: state.name,
-              code: state.code
-            };
-            return result;
-          }
-        );
-      });
+      return this.restClient
+        .get<StateModel[]>(endpoint, null, reqOpts)
+        .map(res => {
+          return res['states'].map(
+            (state): StateModel => {
+              const result: StateModel = {
+                id: state.id,
+                name: state.name,
+                code: state.code
+              };
+              return result;
+            }
+          );
+        });
     });
   }
 
@@ -67,7 +71,7 @@ export class LookupsProvider {
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       const params = { state_id: stateId };
-      return this.api
+      return this.restClient
         .get<SchoolDistrictModel[]>(endpoint, params, reqOpts)
         .map(res => {
           return res['school-districts'].map(
@@ -89,18 +93,20 @@ export class LookupsProvider {
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       const params = { school_district_id: schoolDistrictId };
-      return this.api.get<SchoolModel[]>(endpoint, params, reqOpts).map(res => {
-        return res['schools'].map(
-          (school): SchoolModel => {
-            const result: SchoolModel = {
-              id: school.id,
-              name: school.name,
-              code: school.code
-            };
-            return result;
-          }
-        );
-      });
+      return this.restClient
+        .get<SchoolModel[]>(endpoint, params, reqOpts)
+        .map(res => {
+          return res['schools'].map(
+            (school): SchoolModel => {
+              const result: SchoolModel = {
+                id: school.id,
+                name: school.name,
+                code: school.code
+              };
+              return result;
+            }
+          );
+        });
     });
   }
 

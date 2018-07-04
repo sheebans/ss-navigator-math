@@ -9,7 +9,7 @@ import { ENV } from '@app/env';
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
-export class ApiProvider {
+export class RestClient {
   url: string = ENV.API_END_POINT;
 
   constructor(public http: HttpClient) {}

@@ -2,7 +2,7 @@ import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class AppToast {
+export class ToastService {
   defaultPosition: string = 'top';
 
   defaultShowCloseButton: boolean = true;

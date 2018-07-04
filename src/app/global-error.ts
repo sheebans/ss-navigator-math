@@ -2,18 +2,18 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
-import { AppAuth } from './app.auth';
-import { AppToast } from './app-toast';
+import { AuthService } from '../providers/util/auth.service';
+import { ToastService } from '../providers/util/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
   constructor(
     private device: Device,
-    private appToast: AppToast,
+    private toastService: ToastService,
     private firebase: Firebase,
     private platform: Platform,
-    private appAuth: AppAuth,
+    private authService: AuthService,
     private translate: TranslateService
   ) {
     super();
@@ -21,15 +21,15 @@ export class GlobalErrorHandler extends ErrorHandler {
 
   handleError(error: any): void {
     if (error.message && (error.status == 400 || error.status == 404)) {
-      this.appToast.presentToast(error.message);
+      this.toastService.presentToast(error.message);
     } else {
       this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
-        this.appToast.presentToast(value);
+        this.toastService.presentToast(value);
       });
     }
     this.sendErrorToFirebaseCrash(error);
     if (error.status == 401) {
-      this.appAuth.clearStorageAndDoAuthentication();
+      this.authService.clearStorageAndDoAuthentication();
     }
     console.log(error);
   }

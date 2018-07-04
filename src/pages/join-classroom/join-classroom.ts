@@ -8,8 +8,8 @@ import {
 } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { AuthProvider } from '../../providers/auth/auth';
-import { AppToast } from '../../app/app-toast';
+import { AuthProvider } from '../../providers/api/auth';
+import { ToastService } from '../../providers/util/toast.service';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -35,7 +35,7 @@ export class JoinClassroomPage {
     private authProvider: AuthProvider,
     private storage: Storage,
     private events: Events,
-    private appToast: AppToast,
+    private toastService: ToastService,
     private translate: TranslateService,
     private loadingCtrl: LoadingController
   ) {
@@ -72,7 +72,7 @@ export class JoinClassroomPage {
                   this.loading.dismiss();
                   this.showPage = true;
                   this.translate.get('FAILED_TO_LOGIN').subscribe(value => {
-                    this.appToast.presentToast(value);
+                    this.toastService.presentToast(value);
                   });
                 }
               );
@@ -82,7 +82,7 @@ export class JoinClassroomPage {
             this.loading.dismiss();
             this.showPage = true;
             this.translate.get('FAILED_TO_LOGIN').subscribe(value => {
-              this.appToast.presentToast(value);
+              this.toastService.presentToast(value);
             });
           });
         } else {
@@ -90,7 +90,8 @@ export class JoinClassroomPage {
         }
       },
       onerror => {
-        this.appToast.presentToast(onerror.error.message);
+        this.loading.dismiss();
+        this.toastService.presentToast(onerror.error.message);
       }
     );
   }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AuthProvider } from '../providers/auth/auth';
+import { AuthProvider } from '../api/auth';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 
 @Injectable()
-export class AppAuth {
+export class AuthService {
   constructor(
     private authProvider: AuthProvider,
     private storage: Storage,

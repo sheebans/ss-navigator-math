@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ContactUsPage } from './contact-us';
 import { TranslateModule } from '@ngx-translate/core';
-import { LookupsProvider } from '../../providers/lookups/lookups';
+import { LookupsProvider } from '../../providers/api/lookups';
 
 @NgModule({
   declarations: [ContactUsPage],

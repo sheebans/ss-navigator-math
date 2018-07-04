@@ -1,8 +1,8 @@
 // Providers
-import { AppAuth } from './app.auth';
-import { AppToast } from './app-toast';
-import { ApiProvider } from '../providers/api/api';
-import { AuthProvider } from '../providers/auth/auth';
+import { AuthService } from '../providers/util/auth.service';
+import { ToastService } from '../providers/util/toast.service';
+import { AuthProvider } from '../providers/api/auth';
+import { RestClient } from '../providers/api/rest-client';
 
 // Ionic native providers
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,9 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
 export const MODULES = [BrowserModule, ComponentsModule, HttpClientModule];
 
 export const PROVIDERS = [
-  AppAuth,
-  AppToast,
-  ApiProvider,
+  ToastService,
+  AuthService,
+  // Rest Client providers
+  RestClient,
   AuthProvider,
   // Ionic native specific providers
   Firebase,

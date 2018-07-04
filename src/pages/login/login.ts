@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, MenuController } from 'ionic-angular';
-import { AuthProvider } from '../../providers/auth/auth';
+import { AuthProvider } from '../../providers/api/auth';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { AppToast } from '../../app/app-toast';
+import { ToastService } from '../../providers/util/toast.service';
 
 @IonicPage()
 @Component({
@@ -26,7 +26,7 @@ export class LoginPage {
     private authProvider: AuthProvider,
     private storage: Storage,
     private events: Events,
-    private appToast: AppToast,
+    private toastService: ToastService,
     private translate: TranslateService,
     private googlePlus: GooglePlus
   ) {
@@ -48,7 +48,7 @@ export class LoginPage {
           this.translate
             .get('SIGN_IN_CREDENTIALS_NOT_VALID')
             .subscribe(value => {
-              this.appToast.presentToast(value);
+              this.toastService.presentToast(value);
             });
         }
       );
@@ -68,7 +68,7 @@ export class LoginPage {
           this.events.publish('auth:loginCompleted', session);
         });
       })
-      .catch(err => this.appToast.presentToast(err.message));
+      .catch(err => this.toastService.presentToast(err.message));
   }
 
   ionViewDidEnter() {

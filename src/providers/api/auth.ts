@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
+import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';
 import { SessionModel } from '../../models/auth/session';
 import { InitLoginModel } from '../../models/auth/init-login';
@@ -7,7 +7,7 @@ import { ENV } from '@app/env';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/fromPromise';
 
 /**
  *
@@ -18,7 +18,7 @@ import 'rxjs/add/operator/toPromise';
 export class AuthProvider {
   authNamespace: string = 'api/nucleus-auth';
 
-  constructor(private api: ApiProvider, private storage: Storage) {}
+  constructor(private restClient: RestClient, private storage: Storage) {}
 
   signInAsAnonymous(): Observable<SessionModel> {
     const postData = {
@@ -27,7 +27,7 @@ export class AuthProvider {
       grant_type: 'anonymous'
     };
     const endpoint = `${this.authNamespace}/v2/signin`;
-    return this.api.post<SessionModel>(endpoint, postData).map(res => {
+    return this.restClient.post<SessionModel>(endpoint, postData).map(res => {
       const result: SessionModel = {
         access_token: res.access_token,
         access_token_validity: res.access_token_validity,
@@ -43,7 +43,7 @@ export class AuthProvider {
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
       const endpoint = `${this.authNamespace}/v2/signout`;
-      return this.api.delete<any>(endpoint, reqOpts);
+      return this.restClient.delete<any>(endpoint, reqOpts);
     });
   }
 
@@ -61,7 +61,7 @@ export class AuthProvider {
     return Observable.fromPromise(this.getBasicHeaders(token)).mergeMap(
       headers => {
         const reqOpts = { headers: headers };
-        return this.api
+        return this.restClient
           .post<SessionModel>(endpoint, postData, reqOpts)
           .map(res => {
             const result: SessionModel = {
@@ -90,22 +90,24 @@ export class AuthProvider {
       Authorization: 'Token ' + token
     });
     const reqOpts = { headers: headers };
-    return this.api.get<SessionModel>(endpoint, null, reqOpts).map(res => {
-      const result: SessionModel = {
-        access_token: token,
-        access_token_validity: res.access_token_validity,
-        cdn_urls: res.cdn_urls,
-        provided_at: res.provided_at,
-        user_id: res.user_id,
-        username: res.username,
-        email: res.email,
-        first_name: res.first_name,
-        last_name: res.last_name,
-        user_category: res.user_category,
-        thumbnail: res.thumbnail
-      };
-      return result;
-    });
+    return this.restClient
+      .get<SessionModel>(endpoint, null, reqOpts)
+      .map(res => {
+        const result: SessionModel = {
+          access_token: token,
+          access_token_validity: res.access_token_validity,
+          cdn_urls: res.cdn_urls,
+          provided_at: res.provided_at,
+          user_id: res.user_id,
+          username: res.username,
+          email: res.email,
+          first_name: res.first_name,
+          last_name: res.last_name,
+          user_category: res.user_category,
+          thumbnail: res.thumbnail
+        };
+        return result;
+      });
   }
 
   initLogin(classCode: string): Observable<InitLoginModel> {
@@ -117,7 +119,7 @@ export class AuthProvider {
     const endpoint = `${this.authNamespace}/v2/initlogin`;
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       const reqOpts = { headers: headers };
-      return this.api
+      return this.restClient
         .post<InitLoginModel>(endpoint, postData, reqOpts)
         .map(res => {
           const result: InitLoginModel = {
@@ -137,7 +139,7 @@ export class AuthProvider {
       user: user
     };
     const endpoint = `${this.authNamespace}/v2/authorize`;
-    return this.api.post<SessionModel>(endpoint, postData).map(res => {
+    return this.restClient.post<SessionModel>(endpoint, postData).map(res => {
       const result: SessionModel = {
         access_token: res.access_token,
         access_token_validity: res.access_token_validity,

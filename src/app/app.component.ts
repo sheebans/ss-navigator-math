@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { AppVersion } from '@ionic-native/app-version';
-import { AppAuth } from './app.auth';
+import { AuthService } from '../providers/util/auth.service';
 import { Events } from 'ionic-angular';
 import { Deeplinks } from '@ionic-native/deeplinks';
 
@@ -29,7 +29,7 @@ export class NavMathApp {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
-    private appAuth: AppAuth,
+    private authService: AuthService,
     private keyboard: Keyboard,
     public events: Events,
     private deeplinks: Deeplinks,
@@ -68,7 +68,7 @@ export class NavMathApp {
         this.setAppVersion();
       }
       this.initTranslate();
-      this.appAuth.doAuthentication();
+      this.authService.doAuthentication();
       this.eventsRegister();
       this.registerDeeplinks();
     });
@@ -134,7 +134,7 @@ export class NavMathApp {
   }
 
   logout() {
-    this.appAuth.logout();
+    this.authService.logout();
   }
 
   registerDeeplinks() {
