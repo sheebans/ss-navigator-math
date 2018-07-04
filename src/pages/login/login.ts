@@ -16,8 +16,6 @@ import { AppToast } from '../../app/app-toast';
 export class LoginPage {
   signInForm: FormGroup;
 
-  showPage: boolean = true;
-
   password: string;
 
   username: string;

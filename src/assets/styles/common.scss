@@ -3,3 +3,11 @@
   align-content: center !important;
   align-items: center !important;
 }
+
+.spinner-center > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

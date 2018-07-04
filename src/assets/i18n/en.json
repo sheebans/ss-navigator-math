@@ -31,6 +31,6 @@
   "TELL_US_MORE": "Tell us a little more about yourself.",
   "JOIN_CLASSROOM": "Join Classroom",
   "SIGN_IN_CREDENTIALS_NOT_VALID": "Uh oh! Something's not right. Please double check your username and password and try again.",
-  "UN_EXPECTED_ERROR": "An unexpected error has occurred and has been reported. We're sorry for the inconvenience!"
-
+  "UN_EXPECTED_ERROR": "An unexpected error has occurred and has been reported. We're sorry for the inconvenience!",
+  "FAILED_TO_LOGIN": "Failed to login"
 }

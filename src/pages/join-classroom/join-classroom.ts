@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Events,
+  LoadingController
+} from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AuthProvider } from '../../providers';
 import { AppToast } from '../../app/app-toast';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -16,6 +23,10 @@ export class JoinClassroomPage {
 
   classCode: string;
 
+  showPage: boolean = true;
+
+  loading: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -24,17 +35,24 @@ export class JoinClassroomPage {
     private authProvider: AuthProvider,
     private storage: Storage,
     private events: Events,
-    private appToast: AppToast
+    private appToast: AppToast,
+    private translate: TranslateService,
+    private loadingCtrl: LoadingController
   ) {
     this.joinUsForm = this.formBuilder.group({
       classCode: ['', Validators.required]
     });
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
   }
 
   gotoDashboard() {
+    this.loading.present();
     this.authProvider.initLogin(this.classCode).subscribe(
       initLoginModel => {
         if (initLoginModel.status_code == 303) {
+          this.showPage = false;
           const browser = this.inAppBrowser.create(
             initLoginModel.redirect_url,
             '_blank',
@@ -43,15 +61,29 @@ export class JoinClassroomPage {
           browser.on('loadstart').subscribe(event => {
             if (event.url != null && event.url.indexOf('access_token') > -1) {
               browser.close();
-              const token: string = event.url.split('access_token=')[1];
-              const accessToken: string = token.slice(0, -1);
-              this.authProvider
-                .signInWithToken(accessToken)
-                .subscribe(session => {
+              const accessToken: string = event.url.split('access_token=')[1];
+              this.authProvider.signInWithToken(accessToken).subscribe(
+                session => {
+                  this.loading.dismiss();
                   this.storage.set('session', session);
                   this.events.publish('auth:loginCompleted', session);
-                });
+                },
+                onerror => {
+                  this.loading.dismiss();
+                  this.showPage = true;
+                  this.translate.get('FAILED_TO_LOGIN').subscribe(value => {
+                    this.appToast.presentToast(value);
+                  });
+                }
+              );
             }
+          });
+          browser.on('loaderror').subscribe(event => {
+            this.loading.dismiss();
+            this.showPage = true;
+            this.translate.get('FAILED_TO_LOGIN').subscribe(value => {
+              this.appToast.presentToast(value);
+            });
           });
         } else {
           this.navCtrl.push('LoginPage');
