@@ -1,19 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared.module';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { AppVersion } from '@ionic-native/app-version';
-import { Keyboard } from '@ionic-native/keyboard';
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NavMathApp, GlobalErrorHandler, AppAuth, AppToast } from './';
-import { Device } from '@ionic-native/device';
-import { Firebase } from '@ionic-native/firebase';
-import { ComponentsModule } from '../components/components.module';
-import { AuthProvider, ApiProvider } from '../providers';
+import { HttpClient } from '@angular/common/http';
+import { NavMathApp } from './app.component';
+import { GlobalErrorHandler } from './global-error';
+import { MODULES, PROVIDERS } from './app.imports';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -24,9 +18,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [NavMathApp],
   imports: [
-    BrowserModule,
-    ComponentsModule,
-    HttpClientModule,
+    MODULES,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -38,22 +30,14 @@ export function createTranslateLoader(http: HttpClient) {
       scrollAssist: false,
       autoFocusAssist: false
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SharedModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [NavMathApp],
   providers: [
-    StatusBar,
-    SplashScreen,
-    AppVersion,
-    Device,
-    Firebase,
-    AppAuth,
-    AppToast,
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    ApiProvider,
-    AuthProvider,
-    Keyboard
+    PROVIDERS,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ]
 })
 export class AppModule {}

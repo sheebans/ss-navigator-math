@@ -1,0 +1,36 @@
+// Providers
+import { AppAuth } from './app.auth';
+import { AppToast } from './app-toast';
+import { ApiProvider } from '../providers/api/api';
+import { AuthProvider } from '../providers/auth/auth';
+
+// Ionic native providers
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { AppVersion } from '@ionic-native/app-version';
+import { Keyboard } from '@ionic-native/keyboard';
+import { Device } from '@ionic-native/device';
+import { Firebase } from '@ionic-native/firebase';
+
+// Directives
+
+// Modules
+import { BrowserModule } from '@angular/platform-browser';
+import { ComponentsModule } from '../components/components.module';
+import { HttpClientModule } from '@angular/common/http';
+
+export const MODULES = [BrowserModule, ComponentsModule, HttpClientModule];
+
+export const PROVIDERS = [
+  AppAuth,
+  AppToast,
+  ApiProvider,
+  AuthProvider,
+  // Ionic native specific providers
+  Firebase,
+  Device,
+  Keyboard,
+  AppVersion,
+  StatusBar,
+  SplashScreen
+];

@@ -20,7 +20,7 @@ export class GlobalErrorHandler extends ErrorHandler {
   }
 
   handleError(error: any): void {
-    if (error.message) {
+    if (error.message && (error.status == 400 || error.status == 404)) {
       this.appToast.presentToast(error.message);
     } else {
       this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
