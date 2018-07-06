@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';

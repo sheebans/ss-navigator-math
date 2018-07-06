@@ -20,8 +20,12 @@ export class GlobalErrorHandler extends ErrorHandler {
   }
 
   handleError(error: any): void {
-    if (error.message && (error.status == 400 || error.status == 404)) {
-      this.toastService.presentToast(error.message);
+    if (
+      error.error &&
+      error.error.message &&
+      (error.status == 400 || error.status == 404)
+    ) {
+      this.toastService.presentToast(error.error.message);
     } else {
       this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
         this.toastService.presentToast(value);

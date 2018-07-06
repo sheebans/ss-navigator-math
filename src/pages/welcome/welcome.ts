@@ -26,7 +26,10 @@ export class WelcomePage {
   ) {}
 
   gotoJoinClassroom() {
-    this.navCtrl.push('JoinClassroomPage');
+    this.navCtrl.push('PlayerPage', {
+      id: '6815115b-2e77-439e-83a5-3b2a0284ba74',
+      type: 'collection'
+    });
   }
 
   ionViewDidLoad() {
