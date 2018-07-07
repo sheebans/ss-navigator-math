@@ -43,7 +43,7 @@ export class JoinClassroomPage {
       classCode: ['', Validators.required]
     });
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: ''
     });
   }
 
@@ -86,6 +86,7 @@ export class JoinClassroomPage {
             });
           });
         } else {
+          this.loading.dismiss();
           this.navCtrl.push('LoginPage');
         }
       },
