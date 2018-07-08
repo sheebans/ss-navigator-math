@@ -2,8 +2,8 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
-import { AuthService } from '../providers/util/auth.service';
-import { ToastService } from '../providers/util/toast.service';
+import { AuthService } from '@providers/util/auth.service';
+import { ToastService } from '@providers/util/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()

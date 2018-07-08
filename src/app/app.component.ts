@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { AppVersion } from '@ionic-native/app-version';
-import { AuthService } from '../providers/util/auth.service';
+import { AuthService } from '@providers/util/auth.service';
 import { Events } from 'ionic-angular';
 import { Deeplinks } from '@ionic-native/deeplinks';
 
@@ -43,7 +43,7 @@ export class NavMathApp {
         component: 'DashboardPage',
         icon: 'icon-dashboard'
       },
-      { title: 'Proficiency', component: 'ProficiencyPage', icon: 'star' },
+      { title: 'Proficiency', component: 'PlayerPage', icon: 'star' },
       {
         title: 'Prefernces',
         component: 'ProficiencyPage',

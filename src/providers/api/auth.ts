@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';
-import { SessionModel } from '../../models/auth/session';
-import { InitLoginModel } from '../../models/auth/init-login';
+import { SessionModel } from '@models/auth/session';
+import { InitLoginModel } from '@models/auth/init-login';
 import { ENV } from '@app/env';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';

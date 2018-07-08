@@ -1,4 +1,4 @@
-import { ContentModel } from '../content/content';
+import { ContentModel } from '@models/content/content';
 
 export interface CollectionModel {
   id: string;
@@ -10,9 +10,9 @@ export interface CollectionModel {
   thumbnail: string;
   learning_objective?: string;
   license?: string;
-  metadata?: any;
-  taxonomy?: any;
-  setting?: {};
+  metadata?: Object;
+  taxonomy?: Object;
+  setting?: Object;
   grading?: any;
   visible_on_profile?: boolean;
   course_id?: string;

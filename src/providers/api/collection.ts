@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
-import { CollectionModel } from '../../models/collection/collection';
-import { ContentModel } from '../../models/content/content';
-import { SessionModel } from '../../models/auth/session';
+import { CollectionModel } from '@models/collection/collection';
+import { ContentModel } from '@models/content/content';
+import { SessionModel } from '@models/auth/session';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
-import { DEFAULT_IMAGES } from '../../config/config';
+import { DEFAULT_IMAGES } from '@app/config';
 /**
  *
  * This Collection provider makes calls to our API at the collection endpoints.

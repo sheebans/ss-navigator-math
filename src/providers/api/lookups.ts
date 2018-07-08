@@ -7,7 +7,7 @@ import {
   StateModel,
   SchoolDistrictModel,
   SchoolModel
-} from '../../models/lookups';
+} from '@models/lookups';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
