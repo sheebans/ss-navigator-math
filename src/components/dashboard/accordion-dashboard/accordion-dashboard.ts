@@ -8,10 +8,10 @@ import { BadgeInfoComponent } from '@components/badge-info/badge-info';
  * Components.
  */
 @Component({
-  selector: 'accordion',
-  templateUrl: 'accordion.html'
+  selector: 'accordion-dashboard',
+  templateUrl: 'accordion-dashboard.html'
 })
-export class AccordionComponent {
+export class DashboardAccordionComponent {
   accordionModel: any;
   shownAccordion: any;
 

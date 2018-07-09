@@ -7,8 +7,8 @@ import { Deeplinks } from '@ionic-native/deeplinks';
 import { CollectionPlayerOverviewComponent } from './player/collection-player-overview/collection-player-overview';
 import { CollectionPlayerComponent } from './player/collection-player/collection-player';
 import { AssessmentPlayerComponent } from './player/assessment-player/assessment-player';
-import { MilestoneCardComponent } from './milestone-card/milestone-card';
-import { AccordionComponent } from './accordion/accordion';
+import { MilestoneCardComponent } from './dashboard/milestone-card/milestone-card';
+import { DashboardAccordionComponent } from './dashboard/accordion-dashboard/accordion-dashboard';
 import { PipesModule } from '@pipes/pipes.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { PipesModule } from '@pipes/pipes.module';
     CollectionPlayerOverviewComponent,
     CollectionPlayerComponent,
     MilestoneCardComponent,
-    AccordionComponent,
+    DashboardAccordionComponent,
     AssessmentPlayerComponent
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
@@ -29,7 +29,7 @@ import { PipesModule } from '@pipes/pipes.module';
     CollectionPlayerComponent,
     AssessmentPlayerComponent,
     MilestoneCardComponent,
-    AccordionComponent
+    DashboardAccordionComponent
   ],
   entryComponents: [BadgeInfoComponent],
   providers: [Deeplinks]
