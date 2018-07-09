@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { NavMathApp } from './app.component';
 import { GlobalErrorHandler } from './global-error';
 import { MODULES, PROVIDERS } from './app.imports';
+import { HttpModule } from '@angular/http';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -31,7 +32,8 @@ export function createTranslateLoader(http: HttpClient) {
       autoFocusAssist: false
     }),
     IonicStorageModule.forRoot(),
-    SharedModule
+    SharedModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [NavMathApp],

@@ -2,6 +2,7 @@
 import { AuthService } from '@providers/util/auth.service';
 import { ToastService } from '@providers/util/toast.service';
 import { AuthProvider } from '@providers/api/auth';
+import { ModalService } from '@providers/util/modal.service';
 import { RestClient } from '@providers/api/rest-client';
 
 // Ionic native providers
@@ -23,6 +24,7 @@ export const MODULES = [BrowserModule, ComponentsModule, HttpClientModule];
 
 export const PROVIDERS = [
   ToastService,
+  ModalService,
   AuthService,
   // Rest Client providers
   RestClient,

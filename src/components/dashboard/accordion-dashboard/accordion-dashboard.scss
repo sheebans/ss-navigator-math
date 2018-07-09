@@ -1,0 +1,135 @@
+accordion-dashboard {
+  .main-container {
+    padding: 10px 5px 0;
+  }
+
+  .active {
+    box-shadow: 0 1px 1.5px 0 rgba(93, 93, 93, 0.3);
+  }
+
+  .unit-section {
+    margin-top: 10px;
+    width: 100%;
+    border: solid 1px white;
+    box-shadow: 0 0 3.5px;
+  }
+
+  .lesson-section:not(:first-child) {
+    border-top: solid 1.5px rgba(151, 151, 151, 0.3);
+  }
+
+  .lesson-list {
+    background-color: #ffffff;
+    height: 50px;
+    width: 100%;
+    display: flex;
+
+    span {
+      font-size: 11px;
+      color: #5d5d5d;
+      display: block;
+    }
+  }
+
+  .menu-bar {
+    padding: 10px;
+    width: 50px;
+    display: flex;
+    height: 100%;
+
+    img {
+      margin: auto;
+    }
+  }
+
+  .marks {
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    background: #539846;
+    padding-top: 15px;
+
+    span {
+      color: #ffffff !important;
+    }
+  }
+
+  .lesson-image {
+    width: 50px;
+    height: 100%;
+  }
+
+  .lesson-row {
+    height: 100%;
+    width: calc(100% - 50px);
+    display: flex;
+
+    .lesson {
+      padding-top: 10px;
+      height: 100%;
+      background-color: #ffffff;
+      width: calc(100% - 80px);
+
+      .lesson-title {
+        padding-top: 2px;
+        display: inline-block;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        font-style: normal;
+        color: #5d5d5d;
+      }
+    }
+  }
+
+  .badge {
+    width: 50px;
+    height: 100%;
+
+    .badge-icon {
+      background: url("../assets/imgs/dashboard/badge-2x.png");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6px 7px;
+    }
+  }
+
+  .info {
+    width: 50px;
+    height: 100%;
+    text-align: center;
+
+    .info-icon {
+      background: url("../assets/icon/info.svg");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6px 7px;
+    }
+  }
+
+  .collection-list {
+    margin-top: 2px;
+    background-color: #ffffff;
+    height: 50px;
+    margin: 1px;
+    width: 100%;
+    display: flex;
+
+    span {
+      font-size: 13px;
+      color: #5d5d5d;
+    }
+  }
+
+  .list .item.item-accordion {
+    line-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.09s all linear;
+  }
+}

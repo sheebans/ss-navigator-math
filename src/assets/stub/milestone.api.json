@@ -1,0 +1,54 @@
+{
+"milestones" : [{
+ "id": "b6e3cf72-0605-4a78-9cc3-17a6f7501d4b",
+ "title": "Milestone 1",
+ "sequence": 1,
+ "units": [{
+     "unit_id":"f83b395b-9d17-4da6-9542-cea235dadc70",
+     "unit_title":"Geometry",
+     "lessons":[{
+            "lesson_id":"8c000793-2b4e-47f1-ab0d-a0d71380b09c",
+            "lesson_title":"Find areas by composing and decomposing shapes",
+	    "badge":true,
+	    "started":true
+            },{
+            "lesson_id":"5ce5226b-2260-4357-8688-8bf0624e6ab9",
+            "lesson_title":"Find volume of rectangular prisms many ways",
+	    "badge":false,
+	    "started":false
+            }]
+        },{
+     "unit_id":"136debfb-4eee-46ae-a00f-98d7422afd1b",
+     "unit_title":"Functions",
+     "lessons":[{
+            "lesson_id":"fc926444-8ea1-46e6-8312-3780834637c0",
+            "lesson_title":"Sketch a graph of a function",
+	    "badge":false,
+	    "started":false
+            }]
+        }]
+    },{
+ "id": "73d4b0d9-f217-496d-8ba5-4a4f27501ff8",
+ "title": "Milestone 2",
+ "sequence": 1,
+ "units": [{
+     "unit_id":"5b725b7f-c7c0-4c89-9843-a4e912f4f032",
+     "unit_title":"Statistics and Probability",
+     "lessons":[{
+            "lesson_id":"ca91541b-8b4f-45cf-be93-ac5967ffd1cc",
+            "lesson_title":"Know that statistical questions have variability",
+	    "badge":false,
+	    "started":false
+            }]
+        },{
+     "unit_id":"8020c16c-992b-4a88-b428-f737ee89db34",
+     "unit_title":"Ratio and Proportional Relationships",
+     "lessons":[{
+            "lesson_id":"3711feda-33dc-42fc-ac94-6950e2fa9eff",
+            "lesson_title":"Know statistical data can be described on a graph",
+	    "badge":false,
+	    "started":false
+            }]
+        }]
+    }]
+}

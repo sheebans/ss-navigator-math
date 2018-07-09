@@ -13,6 +13,11 @@ ion-icon {
     mask-image: url("../assets/icon/dashboard.svg");
   }
 
+  &[class*="icon-help"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/help.svg");
+  }
+
   &[class*="icon-support"] {
     @extend %background-container;
     mask-image: url("../assets/icon/support.svg");
