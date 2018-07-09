@@ -1,5 +1,6 @@
-<ion-header><app-header [header]="headerModel"></app-header></ion-header>
-
-<ion-content padding>
-    <h2>{{ 'DASHBOARD_MESSAGE' | translate }}</h2>
+<ion-header>
+  <app-header [header]="headerModel"></app-header>
+</ion-header>
+<ion-content>
+  <milestone-card [data]="milestones"></milestone-card>
 </ion-content>

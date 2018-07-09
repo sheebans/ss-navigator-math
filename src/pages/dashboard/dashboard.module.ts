@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
+import { MilestoneProvider } from '../../providers/api/milestone';
 import { ComponentsModule } from '../../components/components.module';
 import { DashboardPage } from './dashboard';
 
@@ -11,6 +12,7 @@ import { DashboardPage } from './dashboard';
     TranslateModule.forChild(),
     ComponentsModule
   ],
-  exports: [DashboardPage]
+  exports: [DashboardPage],
+  providers: [MilestoneProvider]
 })
 export class DashboardPageModule {}

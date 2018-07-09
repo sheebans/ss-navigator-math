@@ -1,0 +1,46 @@
+<ion-content class="container">
+  <div class="info-content">
+    <div class="header">
+      <div class="header-title">
+        <div class="percentage">
+          <img src="assets/imgs/badge-info/percentage.svg" />
+        </div>
+        <div class="title">
+          <span>Number System / Divide Fractions</span>
+          <span class="highlight">Principles of Division</span>
+        </div>
+        <div class="emoji">
+          <img src="assets/imgs/badge-info/smile.svg" />
+        </div>
+      </div>
+      <div class="mark">
+        <span>100%</span>
+      </div>
+    </div>
+    <div class="badge-container">
+      <img src="assets/imgs/badge-info/badge.png" />
+    </div>
+    <div class="collection-list">
+      <ion-list no-margin>
+        <div *ngFor="let collection of collections;let i =index">
+          <div class="collection-row">
+            <div class="collection">
+              <div class="collection-info">
+                <span>{{i + 1}}</span>
+                <ion-icon name="icon-help"></ion-icon>
+              </div>
+              <div class="collection-name">
+                <span>{{collection.name}}</span>
+              </div>
+              <div class="collection-smiley">
+                <img width="25" height="25" src="assets/imgs/badge-info/smile.svg" />
+              </div>
+            </div>
+            <div class="tick">
+            </div>
+          </div>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

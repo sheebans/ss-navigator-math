@@ -1,0 +1,32 @@
+<ion-list no-margin *ngFor="let milestone of milestoneModel">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-icon">
+        <ion-icon name="flag"></ion-icon>
+      </div>
+      <div class="header-title">
+        <div>
+          <span float-left>{{milestone.title}}</span>
+        </div>
+        <div>
+          <span float-right>(0/2 LESSONS COMPLETED)</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- <ion-row class="header-container">
+      <ion-col col-2>
+        <div>
+          <ion-icon name="flag"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="header-title">
+          <span float-left>{{milestone.title}}</span>
+          <span float-right>(0/2 LESSONS COMPLETED)</span>
+        </div>
+      </ion-col>
+    </ion-row> -->
+    <accordion [accordionData]="milestone.units"></accordion>
+  </div>
+</ion-list>
