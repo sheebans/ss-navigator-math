@@ -5,21 +5,14 @@ var useDefaultConfig = require('@ionic/app-scripts/config/optimization.config.js
 
 var env = process.env.IONIC_ENV;
 
-useDefaultConfig.prod.resolve.alias = {
-  "@app/env": path.resolve(environmentPath('prod'))
+useDefaultConfig[env].resolve.alias = {
+  "@models": path.resolve('./src/models/'),
+  "@components": path.resolve('./src/components/'),
+  "@providers": path.resolve('./src/providers/'),
+  "@pipes": path.resolve('./src/pipes/'),
+  "@app/env": path.resolve(environmentPath(env)),
+  "@app/config": path.resolve('./src/config/config')
 };
-
-useDefaultConfig.dev.resolve.alias = {
-  "@app/env": path.resolve(environmentPath('dev'))
-};
-
-if (env !== 'prod' && env !== 'dev') {
-  // Default to dev config
-  useDefaultConfig[env] = useDefaultConfig.dev;
-  useDefaultConfig[env].resolve.alias = {
-    "@app/env": path.resolve(environmentPath(env))
-  };
-}
 
 function environmentPath(env) {
   var filePath = './src/environments/environment' + (env === 'prod' ? '' : '.' + env) + '.ts';

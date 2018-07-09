@@ -5,7 +5,7 @@ import {
   NavParams,
   MenuController
 } from 'ionic-angular';
-import { MilestoneProvider } from '../../providers/api/milestone';
+import { MilestoneProvider } from '@providers/api/milestone';
 
 /**
  * Generated class for the WelcomePage page.

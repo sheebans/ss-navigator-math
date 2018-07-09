@@ -8,8 +8,8 @@ import {
 } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { AuthProvider } from '../../providers/api/auth';
-import { ToastService } from '../../providers/util/toast.service';
+import { AuthProvider } from '@providers/api/auth';
+import { ToastService } from '@providers/util/toast.service';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -43,7 +43,7 @@ export class JoinClassroomPage {
       classCode: ['', Validators.required]
     });
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: ''
     });
   }
 
@@ -86,6 +86,7 @@ export class JoinClassroomPage {
             });
           });
         } else {
+          this.loading.dismiss();
           this.navCtrl.push('LoginPage');
         }
       },

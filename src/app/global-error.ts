@@ -2,8 +2,8 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
-import { AuthService } from '../providers/util/auth.service';
-import { ToastService } from '../providers/util/toast.service';
+import { AuthService } from '@providers/util/auth.service';
+import { ToastService } from '@providers/util/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
@@ -20,8 +20,12 @@ export class GlobalErrorHandler extends ErrorHandler {
   }
 
   handleError(error: any): void {
-    if (error.message && (error.status == 400 || error.status == 404)) {
-      this.toastService.presentToast(error.message);
+    if (
+      error.error &&
+      error.error.message &&
+      (error.status == 400 || error.status == 404)
+    ) {
+      this.toastService.presentToast(error.error.message);
     } else {
       this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
         this.toastService.presentToast(value);

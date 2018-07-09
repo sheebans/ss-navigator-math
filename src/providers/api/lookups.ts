@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { RestClient } from './rest-client';
 import { Observable } from 'rxjs/Observable';
@@ -8,7 +7,7 @@ import {
   StateModel,
   SchoolDistrictModel,
   SchoolModel
-} from '../../models/lookups';
+} from '@models/lookups';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ModalService } from '../../providers/util/modal.service';
-import { BadgeInfoComponent } from '../../components/badge-info/badge-info';
+import { ModalService } from '@providers/util/modal.service';
+import { BadgeInfoComponent } from '@components/badge-info/badge-info';
 /**
  * Generated class for the AccordionComponent component.
  *

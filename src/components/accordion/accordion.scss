@@ -68,7 +68,7 @@ accordion {
       padding-top: 10px;
       height: 100%;
       background-color: #ffffff;
-      width: calc(100% - 50px);
+      width: calc(100% - 80px);
 
       .lesson-title {
         padding-top: 2px;
@@ -86,6 +86,15 @@ accordion {
   .badge {
     width: 50px;
     height: 100%;
+
+    .badge-icon {
+      background: url("../assets/imgs/dashboard/badge-2x.png");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6px 7px;
+    }
   }
 
   .info {
@@ -93,10 +102,13 @@ accordion {
     height: 100%;
     text-align: center;
 
-    ion-icon {
-      position: relative;
-      top: 35%;
-      transform: translateY(-50%);
+    .info-icon {
+      background: url("../assets/icon/info.svg");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6px 7px;
     }
   }
 

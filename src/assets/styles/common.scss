@@ -12,6 +12,16 @@
   height: 100%;
 }
 
+.loading-wrapper {
+  background: none !important;
+  box-shadow: none !important;
+
+  ion-spinner {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 ion-modal {
   ion-backdrop {
     visibility: visible;

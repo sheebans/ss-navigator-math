@@ -13,10 +13,10 @@
             </div>
             <ion-row>
               <ion-col class="badge">
-                <img *ngIf="lesson.badge" src="assets/imgs/dashboard/badge-2x.png" (click)="$event.stopPropagation(); openBadgeInfo()" />
+                <i *ngIf="lesson.badge" class="badge-icon" (click)="$event.stopPropagation(); openBadgeInfo()"></i>
               </ion-col>
               <ion-col class="info">
-                <ion-icon name="ios-alert-outline"></ion-icon>
+                <i class="info-icon"></i>
               </ion-col>
             </ion-row>
           </div>
