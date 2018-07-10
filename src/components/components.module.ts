@@ -5,12 +5,17 @@ import { HeaderComponent } from './header/header';
 import { BadgeInfoComponent } from './badge-info/badge-info';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { CourseMapProvider } from '@providers/api/course-map';
-import { CollectionPlayerOverviewComponent } from './player/collection-player-overview/collection-player-overview';
-import { CollectionPlayerComponent } from './player/collection-player/collection-player';
-import { AssessmentPlayerComponent } from './player/assessment-player/assessment-player';
+import { PipesModule } from '@pipes/pipes.module';
 import { MilestoneCardComponent } from './dashboard/milestone-card/milestone-card';
 import { DashboardAccordionComponent } from './dashboard/accordion-dashboard/accordion-dashboard';
-import { PipesModule } from '@pipes/pipes.module';
+import {
+  CollectionPlayerOverviewComponent,
+  CollectionPlayerComponent,
+  AssessmentPlayerComponent,
+  YoutubePlayerComponent,
+  VimeoPlayerComponent,
+  WebpagePlayerComponent
+} from './player';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,10 @@ import { PipesModule } from '@pipes/pipes.module';
     CollectionPlayerComponent,
     MilestoneCardComponent,
     DashboardAccordionComponent,
-    AssessmentPlayerComponent
+    AssessmentPlayerComponent,
+    YoutubePlayerComponent,
+    VimeoPlayerComponent,
+    WebpagePlayerComponent
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
@@ -30,7 +38,10 @@ import { PipesModule } from '@pipes/pipes.module';
     CollectionPlayerComponent,
     AssessmentPlayerComponent,
     MilestoneCardComponent,
-    DashboardAccordionComponent
+    DashboardAccordionComponent,
+    YoutubePlayerComponent,
+    VimeoPlayerComponent,
+    WebpagePlayerComponent
   ],
   entryComponents: [BadgeInfoComponent],
   providers: [Deeplinks, CourseMapProvider]
