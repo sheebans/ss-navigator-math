@@ -19,7 +19,7 @@ export class MilestoneProvider {
   constructor(private storage: Storage, private _http: Http) {}
 
   getMileStones(): Observable<any> {
-    const endpoint = '../../assets/stub/milestone.api.json';
+    const endpoint = 'assets/stub/milestone.api.json';
     return Observable.fromPromise(this.getTokenHeaders()).mergeMap(headers => {
       // const reqOpts = { headers: headers };
       return this._http.get(endpoint).map(res => {
