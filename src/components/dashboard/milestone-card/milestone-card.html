@@ -13,6 +13,6 @@
         </div>
       </div>
     </div>
-    <accordion-dashboard class="accordion" [accordionData]="milestone.units"></accordion-dashboard>
+    <accordion-dashboard class="accordion" (messageEvent)="receiveEvent($event)" [events]="eventsSubject.asObservable()" [accordionData]="milestone.units"></accordion-dashboard>
   </div>
 </ion-list>
