@@ -1,0 +1,7 @@
+<ion-content>
+  <ion-slides [initialSlide]="activeSlideIndex" (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let content of contents; let contentIndex = index">
+      <content-player [isActive]="activeSlideIndex === contentIndex" [content]="content"></content-player>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

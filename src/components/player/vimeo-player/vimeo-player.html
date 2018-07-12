@@ -1,7 +1,7 @@
-<ion-content padding>
+<ng-container *ngIf="isActive">
     <iframe width="100%"
             height="100%"
             [src]="trustedVimeoVideoUrl ? trustedVimeoVideoUrl : null"
             (load)="trustedVimeoVideoUrl ? onVimeoVideoLoad() : null"
             frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</ion-content>
+</ng-container>

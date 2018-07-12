@@ -11,6 +11,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -111,4 +112,5 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.703794097568-jfuavdjf40c1ju1pmmdq77k4fmkpc5v9" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
 </widget>

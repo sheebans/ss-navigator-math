@@ -30,6 +30,8 @@ export class PlayerPage {
 
   class: ClassModel;
 
+  activeSlideIndex: number = 1;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

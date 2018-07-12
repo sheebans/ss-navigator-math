@@ -14,7 +14,10 @@ import {
   AssessmentPlayerComponent,
   YoutubePlayerComponent,
   VimeoPlayerComponent,
-  WebpagePlayerComponent
+  WebpagePlayerComponent,
+  PdfPlayerComponent,
+  ContentPlayerComponent,
+  CollectionPlaylistComponent
 } from './player';
 
 @NgModule({
@@ -28,7 +31,10 @@ import {
     AssessmentPlayerComponent,
     YoutubePlayerComponent,
     VimeoPlayerComponent,
-    WebpagePlayerComponent
+    WebpagePlayerComponent,
+    PdfPlayerComponent,
+    CollectionPlaylistComponent,
+    ContentPlayerComponent
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
@@ -41,7 +47,10 @@ import {
     DashboardAccordionComponent,
     YoutubePlayerComponent,
     VimeoPlayerComponent,
-    WebpagePlayerComponent
+    WebpagePlayerComponent,
+    PdfPlayerComponent,
+    CollectionPlaylistComponent,
+    ContentPlayerComponent
   ],
   entryComponents: [BadgeInfoComponent],
   providers: [Deeplinks, CourseMapProvider]
