@@ -27,4 +27,8 @@ export class CollectionPlayerComponent implements OnInit {
       this.collection = collection;
     });
   }
+
+  openPlayer(data) {
+    this.activePlayerIndex = data.index;
+  }
 }
