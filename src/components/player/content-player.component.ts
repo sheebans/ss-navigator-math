@@ -10,11 +10,11 @@ import {
   OnChanges
 } from '@angular/core';
 import {
-  PlayerComponent,
-  YoutubePlayerComponent,
-  VimeoPlayerComponent,
-  WebpagePlayerComponent,
-  PdfPlayerComponent
+  ContentFormatComponent,
+  YoutubeVideoFormatComponent,
+  VimeoVideoFormatComponent,
+  WebpageFormatComponent,
+  PdfFormatComponent
 } from '@components/player';
 import { PlayerService } from '@components/player/player.service';
 
@@ -22,10 +22,10 @@ import { PlayerService } from '@components/player/player.service';
   selector: 'content-player',
   template: '<ng-container #player_container></ng-container>',
   entryComponents: [
-    YoutubePlayerComponent,
-    VimeoPlayerComponent,
-    WebpagePlayerComponent,
-    PdfPlayerComponent
+    YoutubeVideoFormatComponent,
+    VimeoVideoFormatComponent,
+    WebpageFormatComponent,
+    PdfFormatComponent
   ],
   providers: [PlayerService]
 })
@@ -59,7 +59,7 @@ export class ContentPlayerComponent implements OnInit, OnDestroy, OnChanges {
         componentType
       );
       this.componentRef = this.playerContainer.createComponent(factory);
-      let instance = <PlayerComponent>this.componentRef.instance;
+      let instance = <ContentFormatComponent>this.componentRef.instance;
       instance.content = this.content;
       instance.isActive = this.isActive;
     }

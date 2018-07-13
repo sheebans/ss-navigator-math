@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { PlayerComponent } from '@components/player';
+import { ContentFormatComponent } from '@components/player';
 
 @Component({
-  selector: 'webpage-player',
-  templateUrl: 'webpage-player.html'
+  selector: 'webpage-format',
+  templateUrl: 'webpage-format.html'
 })
-export class WebpagePlayerComponent implements PlayerComponent, OnInit {
+export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
   @Input() content: any;
 
   @Input() isActive: boolean;

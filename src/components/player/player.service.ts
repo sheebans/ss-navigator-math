@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import {
-  YoutubePlayerComponent,
-  VimeoPlayerComponent,
-  WebpagePlayerComponent,
-  PdfPlayerComponent
+  YoutubeVideoFormatComponent,
+  VimeoVideoFormatComponent,
+  WebpageFormatComponent,
+  PdfFormatComponent
 } from '@components/player';
 
 @Injectable()
 export class PlayerService {
   private playerComponentMapper: object = {
-    webpage_resource: WebpagePlayerComponent,
-    video_resource: YoutubePlayerComponent,
-    vimeo_resource: VimeoPlayerComponent,
-    pdf_resource: PdfPlayerComponent
+    webpage_resource: WebpageFormatComponent,
+    video_resource: YoutubeVideoFormatComponent,
+    vimeo_resource: VimeoVideoFormatComponent,
+    pdf_resource: PdfFormatComponent
   };
 
   constructor() {}

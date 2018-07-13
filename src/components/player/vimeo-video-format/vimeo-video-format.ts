@@ -1,14 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { PlayerComponent } from '@components/player';
+import { ContentFormatComponent } from '@components/player';
 import { PlayerService } from '@components/player/player.service';
 
 @Component({
-  selector: 'vimeo-player',
-  templateUrl: 'vimeo-player.html',
+  selector: 'vimeo-video-format',
+  templateUrl: 'vimeo-video-format.html',
   providers: [PlayerService]
 })
-export class VimeoPlayerComponent implements PlayerComponent, OnInit {
+export class VimeoVideoFormatComponent
+  implements ContentFormatComponent, OnInit {
   vimeoPlayerUrl: string = 'https://player.vimeo.com/video/';
 
   @Input() content: any;

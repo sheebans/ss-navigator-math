@@ -1,14 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { PlayerComponent } from '@components/player';
+import { ContentFormatComponent } from '@components/player';
 import { PlayerService } from '@components/player/player.service';
 
 @Component({
-  selector: 'youtube-player',
-  templateUrl: 'youtube-player.html',
+  selector: 'youtube-video-format',
+  templateUrl: 'youtube-video-format.html',
   providers: [PlayerService]
 })
-export class YoutubePlayerComponent implements PlayerComponent, OnInit {
+export class YoutubeVideoFormatComponent
+  implements ContentFormatComponent, OnInit {
   youtubePlayerUrl: string = 'https://www.youtube.com/embed/';
 
   @Input() content: any;

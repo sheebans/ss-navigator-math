@@ -7,11 +7,15 @@ export {
 export {
   AssessmentPlayerComponent
 } from './assessment-player/assessment-player';
-export { YoutubePlayerComponent } from './youtube-player/youtube-player';
-export { VimeoPlayerComponent } from './vimeo-player/vimeo-player';
-export { WebpagePlayerComponent } from './webpage-player/webpage-player';
-export { PdfPlayerComponent } from './pdf-player/pdf-player';
-export { PlayerComponent } from './player.component';
+export {
+  YoutubeVideoFormatComponent
+} from './youtube-video-format/youtube-video-format';
+export {
+  VimeoVideoFormatComponent
+} from './vimeo-video-format/vimeo-video-format';
+export { WebpageFormatComponent } from './webpage-format/webpage-format';
+export { PdfFormatComponent } from './pdf-format/pdf-format';
+export { ContentFormatComponent } from './content-format.component';
 export { ContentPlayerComponent } from './content-player.component';
 export {
   CollectionPlaylistComponent

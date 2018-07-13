@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { PlayerComponent } from '@components/player';
+import { ContentFormatComponent } from '@components/player';
 
 @Component({
-  selector: 'pdf-player',
-  templateUrl: 'pdf-player.html'
+  selector: 'pdf-format',
+  templateUrl: 'pdf-format.html'
 })
-export class PdfPlayerComponent implements PlayerComponent, OnInit {
+export class PdfFormatComponent implements ContentFormatComponent, OnInit {
   pdfPlayerUrl: string = 'https://docs.google.com/gview?embedded=true&url=';
 
   @Input() content: any;
