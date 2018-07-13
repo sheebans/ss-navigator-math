@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import {
-  YoutubeVideoFormatComponent,
-  VimeoVideoFormatComponent,
-  WebpageFormatComponent,
-  PdfFormatComponent
-} from '@components/player';
+import { PLAYER_CONTENT_FORMAT_MAPPER } from '@components/player/player.component.imports';
 
 @Injectable()
 export class PlayerService {
-  private playerComponentMapper: object = {
-    webpage_resource: WebpageFormatComponent,
-    video_resource: YoutubeVideoFormatComponent,
-    vimeo_resource: VimeoVideoFormatComponent,
-    pdf_resource: PdfFormatComponent
-  };
+  private playerComponentMapper: object = PLAYER_CONTENT_FORMAT_MAPPER;
+
+  private youtubePattern: any = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+
+  private vimeoPattern: any = /(http|https)?:\/\/(www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^/]*)\/videos\/|)(\d+)(?:|\/\?)/;
+
+  private allowedImagesExtension: Array<string> = [
+    '.jpg',
+    '.jpeg',
+    '.gif',
+    '.png'
+  ];
 
   constructor() {}
 
@@ -69,7 +70,29 @@ export class PlayerService {
   }
 
   private getPlayerFormat(content: any): string {
-    console.log(content);
-    return content.content_subformat;
+    let playerFormat = '';
+    if (content.url) {
+      let urlExtension = this.getUrlExtension(content.url);
+      if (urlExtension === '.pdf') {
+        playerFormat = 'pdf';
+      } else if (this.youtubePattern.test(content.url)) {
+        playerFormat = 'youtube';
+      } else if (this.vimeoPattern.test(content.url)) {
+        playerFormat = 'vimeo';
+      } else if (this.allowedImagesExtension.indexOf(urlExtension) > -1) {
+        playerFormat = 'image';
+      } else {
+        playerFormat = 'webpage';
+      }
+    } else {
+      playerFormat = content.content_subformat.split('_question')[0];
+    }
+    return playerFormat;
+  }
+
+  private getUrlExtension(url: string) {
+    return (url = url.substr(1 + url.lastIndexOf('/')).split('?')[0])
+      .split('#')[0]
+      .substr(url.lastIndexOf('.'));
   }
 }

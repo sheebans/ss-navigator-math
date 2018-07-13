@@ -30,7 +30,7 @@ export class PlayerPage {
 
   class: ClassModel;
 
-  activeSlideIndex: number = 1;
+  activePlayerIndex: number = 0;
 
   constructor(
     public navCtrl: NavController,

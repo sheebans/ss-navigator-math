@@ -9,50 +9,27 @@ import { PipesModule } from '@pipes/pipes.module';
 import { MilestoneCardComponent } from './dashboard/milestone-card/milestone-card';
 import { DashboardAccordionComponent } from './dashboard/accordion-dashboard/accordion-dashboard';
 import {
-  CollectionPlayerOverviewComponent,
-  CollectionPlayerComponent,
-  AssessmentPlayerComponent,
-  YoutubeVideoFormatComponent,
-  VimeoVideoFormatComponent,
-  WebpageFormatComponent,
-  PdfFormatComponent,
-  ContentPlayerComponent,
-  CollectionPlaylistComponent
-} from './player';
+  PLAYER_COMPONENTS,
+  PLAYER_CONTENT_FORMAT_COMPONENTS
+} from '@components/player/player.component.imports';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BadgeInfoComponent,
-    CollectionPlayerOverviewComponent,
-    CollectionPlayerComponent,
     MilestoneCardComponent,
     DashboardAccordionComponent,
-    AssessmentPlayerComponent,
-    YoutubeVideoFormatComponent,
-    VimeoVideoFormatComponent,
-    WebpageFormatComponent,
-    PdfFormatComponent,
-    CollectionPlaylistComponent,
-    ContentPlayerComponent
+    PLAYER_COMPONENTS
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
     HeaderComponent,
     BadgeInfoComponent,
-    CollectionPlayerOverviewComponent,
-    CollectionPlayerComponent,
-    AssessmentPlayerComponent,
     MilestoneCardComponent,
     DashboardAccordionComponent,
-    YoutubeVideoFormatComponent,
-    VimeoVideoFormatComponent,
-    WebpageFormatComponent,
-    PdfFormatComponent,
-    CollectionPlaylistComponent,
-    ContentPlayerComponent
+    PLAYER_COMPONENTS
   ],
-  entryComponents: [BadgeInfoComponent],
+  entryComponents: [BadgeInfoComponent, PLAYER_CONTENT_FORMAT_COMPONENTS],
   providers: [Deeplinks, CourseMapProvider]
 })
 export class ComponentsModule {}

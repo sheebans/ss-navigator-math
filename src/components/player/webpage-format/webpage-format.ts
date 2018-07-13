@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { ContentFormatComponent } from '@components/player';
-
+import { ContentFormatComponent } from '@components/player/content-format.component';
 @Component({
   selector: 'webpage-format',
   templateUrl: 'webpage-format.html'

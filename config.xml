@@ -112,5 +112,4 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.703794097568-jfuavdjf40c1ju1pmmdq77k4fmkpc5v9" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
-    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
 </widget>
