@@ -1,6 +1,7 @@
 // Providers
 import { AuthService } from '@providers/util/auth.service';
 import { ToastService } from '@providers/util/toast.service';
+import { NetworkService } from '@providers/util/network.service';
 import { AuthProvider } from '@providers/api/auth';
 import { ModalService } from '@providers/util/modal.service';
 import { RestClient } from '@providers/api/rest-client';
@@ -12,6 +13,7 @@ import { AppVersion } from '@ionic-native/app-version';
 import { Keyboard } from '@ionic-native/keyboard';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
+import { Network } from '@ionic-native/network';
 
 // Directives
 
@@ -26,6 +28,7 @@ export const PROVIDERS = [
   ToastService,
   ModalService,
   AuthService,
+  NetworkService,
   // Rest Client providers
   RestClient,
   AuthProvider,
@@ -35,5 +38,6 @@ export const PROVIDERS = [
   Keyboard,
   AppVersion,
   StatusBar,
-  SplashScreen
+  SplashScreen,
+  Network
 ];
