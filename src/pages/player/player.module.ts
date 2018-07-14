@@ -5,8 +5,6 @@ import { ComponentsModule } from '@components/components.module';
 import { PipesModule } from '@pipes/pipes.module';
 import { ClassesProvider } from '@providers/api/classes';
 import { CoursesProvider } from '@providers/api/courses';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 
 @NgModule({
   declarations: [PlayerPage],
@@ -15,11 +13,6 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
     ComponentsModule,
     PipesModule
   ],
-  providers: [
-    ClassesProvider,
-    CoursesProvider,
-    InAppBrowser,
-    NativePageTransitions
-  ]
+  providers: [ClassesProvider, CoursesProvider]
 })
 export class PlayerPageModule {}

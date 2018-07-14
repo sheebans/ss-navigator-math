@@ -18,7 +18,7 @@ export class CollectionPlayerOverviewComponent {
   @Output()
   onContentPlay: EventEmitter<{
     content: ContentModel;
-    index: string;
+    index: number;
   }> = new EventEmitter();
 
   constructor() {}
