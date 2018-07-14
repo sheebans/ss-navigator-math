@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AppVersion } from '@ionic-native/app-version';
 import { AuthService } from '@providers/util/auth.service';
 import { Events } from 'ionic-angular';
+import { NetworkService } from '@providers/util/network.service';
 import { Deeplinks } from '@ionic-native/deeplinks';
 
 @Component({
@@ -30,6 +31,7 @@ export class NavMathApp {
     private splashScreen: SplashScreen,
     private appVersion: AppVersion,
     private authService: AuthService,
+    private networkService: NetworkService,
     private keyboard: Keyboard,
     public events: Events,
     private deeplinks: Deeplinks,
@@ -71,6 +73,7 @@ export class NavMathApp {
       this.authService.doAuthentication();
       this.eventsRegister();
       this.registerDeeplinks();
+      this.networkService.isConnect();
     });
   }
 
