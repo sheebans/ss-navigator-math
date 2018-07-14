@@ -15,7 +15,11 @@ export class CollectionPlayerOverviewComponent {
 
   @Input() lesson: LessonModel;
 
-  @Output() onContentPlay: EventEmitter = new EventEmitter();
+  @Output()
+  onContentPlay: EventEmitter<{
+    content: ContentModel;
+    index: string;
+  }> = new EventEmitter();
 
   constructor() {}
 
