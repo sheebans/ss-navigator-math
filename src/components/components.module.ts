@@ -22,14 +22,8 @@ import {
   declarations: [
     HeaderComponent,
     BadgeInfoComponent,
-    CollectionPlayerOverviewComponent,
-    CollectionPlayerComponent,
     MilestoneListComponent,
     MilestoneAccordionComponent,
-    AssessmentPlayerComponent,
-    YoutubePlayerComponent,
-    VimeoPlayerComponent,
-    WebpagePlayerComponent,
     MilestoneComponent,
     PLAYER_COMPONENTS
   ],
@@ -37,14 +31,8 @@ import {
   exports: [
     HeaderComponent,
     BadgeInfoComponent,
-    CollectionPlayerOverviewComponent,
-    CollectionPlayerComponent,
-    AssessmentPlayerComponent,
     MilestoneListComponent,
     MilestoneAccordionComponent,
-    YoutubePlayerComponent,
-    VimeoPlayerComponent,
-    WebpagePlayerComponent,
     MilestoneComponent,
     PLAYER_COMPONENTS
   ],
