@@ -19,7 +19,9 @@ import { DEFAULT_IMAGES } from '@app/config';
 @Injectable()
 export class CourseMapProvider {
   couseMapV1Namespace: string = 'api/nucleus/v1/course-map';
+
   session: any;
+
   constructor(private storage: Storage, private restClient: RestClient) {
     this.getSession().then(session => {
       this.session = session;

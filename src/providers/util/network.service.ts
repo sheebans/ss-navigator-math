@@ -8,7 +8,7 @@ export class NetworkService {
 
   isConnect(): void {
     this.network.onDisconnect().subscribe(() => {
-      this.toastService.presentToast('Please connect to network connection');
+      this.toastService.presentToast('Please connect to Internet connection');
     });
   }
 }

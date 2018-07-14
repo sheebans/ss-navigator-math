@@ -5,31 +5,50 @@ import { HeaderComponent } from './header/header';
 import { BadgeInfoComponent } from './badge-info/badge-info';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { CourseMapProvider } from '@providers/api/course-map';
+import { UserLocationProvider } from '@providers/api/user-location';
+
 import { PipesModule } from '@pipes/pipes.module';
-import { MilestoneCardComponent } from './dashboard/milestone-card/milestone-card';
-import { DashboardAccordionComponent } from './dashboard/accordion-dashboard/accordion-dashboard';
 import {
   PLAYER_COMPONENTS,
   PLAYER_CONTENT_FORMAT_COMPONENTS
 } from '@components/player/player.component.imports';
+import {
+  MilestoneListComponent,
+  MilestoneAccordionComponent,
+  MilestoneComponent
+} from './milestone';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BadgeInfoComponent,
-    MilestoneCardComponent,
-    DashboardAccordionComponent,
+    CollectionPlayerOverviewComponent,
+    CollectionPlayerComponent,
+    MilestoneListComponent,
+    MilestoneAccordionComponent,
+    AssessmentPlayerComponent,
+    YoutubePlayerComponent,
+    VimeoPlayerComponent,
+    WebpagePlayerComponent,
+    MilestoneComponent,
     PLAYER_COMPONENTS
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
     HeaderComponent,
     BadgeInfoComponent,
-    MilestoneCardComponent,
-    DashboardAccordionComponent,
+    CollectionPlayerOverviewComponent,
+    CollectionPlayerComponent,
+    AssessmentPlayerComponent,
+    MilestoneListComponent,
+    MilestoneAccordionComponent,
+    YoutubePlayerComponent,
+    VimeoPlayerComponent,
+    WebpagePlayerComponent,
+    MilestoneComponent,
     PLAYER_COMPONENTS
   ],
   entryComponents: [BadgeInfoComponent, PLAYER_CONTENT_FORMAT_COMPONENTS],
-  providers: [Deeplinks, CourseMapProvider]
+  providers: [Deeplinks, CourseMapProvider, UserLocationProvider]
 })
 export class ComponentsModule {}

@@ -12,10 +12,10 @@ import { Observable } from 'rxjs/Observable';
  * Components.
  */
 @Component({
-  selector: 'accordion-dashboard',
-  templateUrl: 'accordion-dashboard.html'
+  selector: 'milestone-accordion',
+  templateUrl: 'milestone-accordion.html'
 })
-export class DashboardAccordionComponent {
+export class MilestoneAccordionComponent {
   accordionModel: any;
 
   classId: string;
@@ -28,11 +28,22 @@ export class DashboardAccordionComponent {
 
   toogleData: any;
 
-  private eventsSubscription: any;
+  eventsSubscription: any;
+
+  locationSubscription: any;
+
+  userLocation: any;
 
   @Input() events: Observable<Object>;
 
+  @Input() userLocationModel: Observable<Object>;
+
   @Output() messageEvent = new EventEmitter<Object>();
+
+  @Input()
+  set accordionData(accordionModel: any) {
+    this.accordionModel = accordionModel;
+  }
 
   constructor(
     private modalService: ModalService,
@@ -40,20 +51,18 @@ export class DashboardAccordionComponent {
     public navParams: NavParams
   ) {
     this.classId =
-      navParams.get('classId') || '1a6a4243-2ac1-48f3-87db-51b15374d86c';
+      navParams.get('classId') || 'bd5b0c71-3b3f-441f-903f-91f000fa9863';
     this.courseId =
       navParams.get('courseId') || '5d2d7b02-540f-495b-9ce3-6f3ed5a99074';
   }
 
   ngOnInit() {
+    this.locationSubscription = this.userLocationModel.subscribe(location => {
+      this.userLocation = location;
+    });
     this.eventsSubscription = this.events.subscribe(data => {
       this.toogleData = data;
     });
-  }
-
-  @Input()
-  set accordionData(accordionModel: any) {
-    this.accordionModel = accordionModel;
   }
 
   getCourseMap(lesson, unitId) {
@@ -65,6 +74,14 @@ export class DashboardAccordionComponent {
         this.spinner = false;
       });
     this.messageEvent.emit(lesson);
+  }
+
+  checkCurrentLocation(lesson) {
+    return lesson.lesson_id === this.userLocation.content[0].lessonId;
+  }
+
+  checkCurrentCourseMap(course) {
+    return course.id === this.userLocation.content[0].id;
   }
 
   isToggle(lesson) {
@@ -79,5 +96,6 @@ export class DashboardAccordionComponent {
 
   ngOnDestroy() {
     this.eventsSubscription.unsubscribe();
+    this.locationSubscription.unsubscribe();
   }
 }

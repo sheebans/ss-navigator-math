@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the MilestoneCardComponent component.
@@ -8,21 +9,33 @@ import { Subject } from 'rxjs';
  * Components.
  */
 @Component({
-  selector: 'milestone-card',
-  templateUrl: 'milestone-card.html'
+  selector: 'milestone',
+  templateUrl: 'milestone.html'
 })
-export class MilestoneCardComponent {
+export class MilestoneComponent {
   milestoneModel: any;
 
   shownAccordion: any;
 
-  private eventsSubject: Subject<Object> = new Subject<Object>();
+  locationSubscription: any;
+
+  eventsSubject: Subject<Object> = new Subject<Object>();
+
+  locationEvents: Subject<Object> = new Subject<Object>();
+
+  @Input() locationData: Observable<Object>;
+
+  @Input()
+  set milestoneData(milestoneModel: any) {
+    this.milestoneModel = milestoneModel;
+  }
 
   constructor() {}
 
-  @Input()
-  set data(milestoneModel: any) {
-    this.milestoneModel = milestoneModel;
+  ngOnInit() {
+    this.locationSubscription = this.locationData.subscribe(userLocation => {
+      this.locationEvents.next(userLocation);
+    });
   }
 
   receiveEvent($event) {
@@ -36,5 +49,9 @@ export class MilestoneCardComponent {
 
   isShown(data) {
     return this.shownAccordion === data;
+  }
+
+  ngOnDestroy() {
+    this.locationSubscription.unsubscribe();
   }
 }
