@@ -111,4 +111,6 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.703794097568-jfuavdjf40c1ju1pmmdq77k4fmkpc5v9" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
+    <allow-navigation href="http://172.16.1.104:8100" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
 </widget>
