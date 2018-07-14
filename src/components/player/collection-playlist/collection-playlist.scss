@@ -1,0 +1,20 @@
+collection-playlist {
+  .slide-zoom {
+    height: 85vh;
+    padding-left: 40px;
+    background: #000;
+    padding-right: 40px;
+  }
+
+  .swiper-slide {
+    iframe {
+      display: none;
+    }
+  }
+
+  .swiper-slide-active {
+    iframe {
+      display: inline-block;
+    }
+  }
+}
