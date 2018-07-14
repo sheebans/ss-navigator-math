@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="panel-body">
-    <div class="content-panel" *ngFor="let content of collection.content">
+    <div  class="content-panel" *ngFor="let content of collection.content; let contentIndex = index" (click)="playContent(content, contentIndex)">
       <div class="content-icon">
         <ng-container *ngIf="content.content_format === 'resource'">
           <i class="{{content.content_subformat | resourceFormat}}-icon"></i>

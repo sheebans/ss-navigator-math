@@ -47,7 +47,7 @@ export class NavMathApp {
       },
       { title: 'Proficiency', component: 'PlayerPage', icon: 'star' },
       {
-        title: 'Prefernces',
+        title: 'Preferences',
         component: 'ProficiencyPage',
         icon: 'icon-preferences'
       },

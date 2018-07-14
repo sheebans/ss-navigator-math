@@ -18,6 +18,14 @@ import { DEFAULT_IMAGES } from '@app/config';
 export class CollectionProvider {
   collectionV1Namespace: string = 'api/nucleus/v1/collections';
 
+  private contentFormatExtension: Array<string> = [
+    '.jpg',
+    '.jpeg',
+    '.gif',
+    '.png',
+    '.pdf'
+  ];
+
   constructor(private restClient: RestClient, private storage: Storage) {}
 
   getCollection(collectionId: string): Observable<CollectionModel> {
@@ -49,7 +57,7 @@ export class CollectionProvider {
             unit_id: collection.unit_id,
             lesson_id: collection.lesson_id,
             subformat: collection.subformat,
-            content: this.serializeContentModel(collection.content),
+            content: this.serializeContentModel(collection.content, session),
             collaborator: collection.collaborator
           };
           return result;
@@ -58,13 +66,16 @@ export class CollectionProvider {
     });
   }
 
-  serializeContentModel(collectionContent: any): Array<ContentModel> {
+  serializeContentModel(
+    collectionContent: any,
+    session: SessionModel
+  ): Array<ContentModel> {
     return collectionContent.map(
       (content): ContentModel => {
         const result: ContentModel = {
           id: content.id,
           title: content.title,
-          url: content.url,
+          url: this.generateUrl(content.url, session.cdn_urls.content_cdn_url),
           creator_id: content.creator_id,
           original_creator_id: content.original_creator_id,
           content_format: content.content_format,
@@ -85,6 +96,29 @@ export class CollectionProvider {
       }
     );
   }
+
+  generateUrl(url: string, content_cdn_url: string): string {
+    if (url) {
+      if (url.startsWith('//')) {
+        url = `https:${url}`;
+      } else if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        let extension = this.getUrlExtension(url);
+        if (this.contentFormatExtension.indexOf(extension) > -1) {
+          url = `https:${content_cdn_url}${url}`;
+        } else {
+          url = `http://${url}`;
+        }
+      }
+    }
+    return url;
+  }
+
+  getUrlExtension(url: string): string {
+    return (url = url.substr(1 + url.lastIndexOf('/')).split('?')[0])
+      .split('#')[0]
+      .substr(url.lastIndexOf('.'));
+  }
+
   getTokenHeaders(token: string): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',

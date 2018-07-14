@@ -9,19 +9,14 @@ import { UserLocationProvider } from '@providers/api/user-location';
 
 import { PipesModule } from '@pipes/pipes.module';
 import {
-  CollectionPlayerOverviewComponent,
-  CollectionPlayerComponent,
-  AssessmentPlayerComponent,
-  YoutubePlayerComponent,
-  VimeoPlayerComponent,
-  WebpagePlayerComponent
-} from './player';
+  PLAYER_COMPONENTS,
+  PLAYER_CONTENT_FORMAT_COMPONENTS
+} from '@components/player/player.component.imports';
 import {
   MilestoneListComponent,
   MilestoneAccordionComponent,
   MilestoneComponent
 } from './milestone';
-import { MilestoneMenuComponent } from './milestone-menu/milestone-menu';
 
 @NgModule({
   declarations: [
@@ -36,7 +31,7 @@ import { MilestoneMenuComponent } from './milestone-menu/milestone-menu';
     VimeoPlayerComponent,
     WebpagePlayerComponent,
     MilestoneComponent,
-    MilestoneMenuComponent
+    PLAYER_COMPONENTS
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
@@ -51,9 +46,9 @@ import { MilestoneMenuComponent } from './milestone-menu/milestone-menu';
     VimeoPlayerComponent,
     WebpagePlayerComponent,
     MilestoneComponent,
-    MilestoneMenuComponent
+    PLAYER_COMPONENTS
   ],
-  entryComponents: [BadgeInfoComponent],
+  entryComponents: [BadgeInfoComponent, PLAYER_CONTENT_FORMAT_COMPONENTS],
   providers: [Deeplinks, CourseMapProvider, UserLocationProvider]
 })
 export class ComponentsModule {}

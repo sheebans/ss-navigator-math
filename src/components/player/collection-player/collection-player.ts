@@ -18,11 +18,17 @@ export class CollectionPlayerComponent implements OnInit {
 
   collection: CollectionModel;
 
+  @Input() activePlayerIndex: number;
+
   constructor(private collectionProvider: CollectionProvider) {}
 
   ngOnInit() {
     this.collectionProvider.getCollection(this.id).subscribe(collection => {
       this.collection = collection;
     });
+  }
+
+  openPlayer(data) {
+    this.activePlayerIndex = data.index;
   }
 }
