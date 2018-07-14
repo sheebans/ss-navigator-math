@@ -1,6 +1,6 @@
 import { ContentModel } from '@models/content/content';
 
-export interface CollectionModel {
+export interface AssessmentModel {
   id: string;
   title: string;
   owner_id: string;
@@ -19,6 +19,6 @@ export interface CollectionModel {
   unit_id?: string;
   lesson_id?: string;
   subformat?: string;
-  content: Array<ContentModel>;
+  question: Array<ContentModel>;
   collaborator: Array<string>;
 }

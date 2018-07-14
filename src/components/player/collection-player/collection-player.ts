@@ -14,6 +14,8 @@ import { HeaderTitleContextModel } from '@models/app/header/header-title-context
 export class CollectionPlayerComponent implements OnInit, OnChanges {
   headerContextModel: HeaderContextModel;
 
+  headerTitleContext: HeaderTitleContextModel = { view_name: 'player' };
+
   @Input() id: string;
 
   @Input() unit: UnitModel;
@@ -29,18 +31,15 @@ export class CollectionPlayerComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.collectionProvider.getCollection(this.id).subscribe(collection => {
       this.collection = collection;
+      this.headerTitleContext.title = collection.title;
     });
   }
 
   ngOnChanges() {
-    const headerTitleContext: HeaderTitleContextModel = {
-      title: this.collection ? this.collection.title : '',
-      subtitle: this.lesson ? this.lesson.title : '',
-      view_name: 'player'
-    };
-    this.headerContextModel = {
-      header_title_context: headerTitleContext
-    };
+    (this.headerTitleContext.subtitle = this.lesson ? this.lesson.title : ''),
+      (this.headerContextModel = {
+        header_title_context: this.headerTitleContext
+      });
   }
 
   openPlayer(data) {

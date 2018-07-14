@@ -38,16 +38,12 @@ export class PlayerPage {
     private classesProvider: ClassesProvider,
     private coursesProvider: CoursesProvider
   ) {
-    this.classId =
-      navParams.get('classId') || 'bd5b0c71-3b3f-441f-903f-91f000fa9863';
-    this.courseId =
-      navParams.get('courseId') || '5d2d7b02-540f-495b-9ce3-6f3ed5a99074';
-    this.unitId =
-      navParams.get('unitId') || '495644c9-5814-4144-8a06-bb2d55d58e30';
-    this.lessonId =
-      navParams.get('lessonId') || '988cd1a9-88c9-4541-a30f-51e12c342ec4';
-    this.id = navParams.get('id') || 'a40d6e15-7dbf-4988-8ffd-5cac959de1e6';
-    this.collectionType = navParams.get('collectionType') || 'collection';
+    this.classId = navParams.get('classId');
+    this.courseId = navParams.get('courseId');
+    this.unitId = navParams.get('unitId');
+    this.lessonId = navParams.get('lessonId');
+    this.id = navParams.get('id');
+    this.collectionType = navParams.get('collectionType');
   }
 
   ionViewDidLoad() {

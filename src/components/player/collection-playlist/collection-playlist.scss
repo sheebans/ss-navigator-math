@@ -5,16 +5,4 @@ collection-playlist {
     background: #000;
     padding-right: 40px;
   }
-
-  .swiper-slide {
-    iframe {
-      display: none;
-    }
-  }
-
-  .swiper-slide-active {
-    iframe {
-      display: inline-block;
-    }
-  }
 }

@@ -3,7 +3,8 @@ import { CollectionPlayerComponent } from './collection-player/collection-player
 import { AssessmentPlayerComponent } from './assessment-player/assessment-player';
 import { CollectionPlaylistComponent } from './collection-playlist/collection-playlist';
 import { ContentPlayerComponent } from './content-player.component';
-
+import { AssessmentPlayerOverviewComponent } from './assessment-player-overview/assessment-player-overview';
+import { AssessmentPlaylistComponent } from './assessment-playlist/assessment-playlist';
 import { WebpageFormatComponent } from './webpage-format/webpage-format';
 import { PdfFormatComponent } from './pdf-format/pdf-format';
 import { YoutubeVideoFormatComponent } from './youtube-video-format/youtube-video-format';
@@ -37,9 +38,11 @@ export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
 export const PLAYER_COMPONENTS = [
   CollectionPlayerOverviewComponent,
   CollectionPlayerComponent,
+  AssessmentPlayerOverviewComponent,
   AssessmentPlayerComponent,
   ContentPlayerComponent,
   CollectionPlaylistComponent,
+  AssessmentPlaylistComponent,
   PLAYER_CONTENT_FORMAT_COMPONENTS
 ];
 

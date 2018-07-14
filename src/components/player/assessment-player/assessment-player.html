@@ -1,4 +1,11 @@
-<!-- Generated template for the AssessmentPlayerComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-header>
+  <app-header *ngIf="headerContextModel" [context]="headerContextModel"></app-header>
+</ion-header>
+<ion-content *ngIf="assessment">
+  <ng-container *ngIf="activePlayerIndex == -1">
+    <assessment-player-overview (onContentPlay)="openPlayer($event)" [assessment]="assessment" [unit]="unit" [lesson]="lesson"></assessment-player-overview>
+  </ng-container>
+  <ng-container *ngIf="activePlayerIndex > -1 ">
+    <assessment-playlist  [assessment]="assessment" [activePlayerIndex]="activePlayerIndex"></assessment-playlist>
+  </ng-container>
+</ion-content>

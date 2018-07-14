@@ -1,5 +1,5 @@
 export interface HeaderTitleContextModel {
-  title: string;
+  title?: string;
   subtitle?: string;
   view_name?: string;
 }

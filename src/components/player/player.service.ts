@@ -85,7 +85,7 @@ export class PlayerService {
         playerFormat = 'webpage';
       }
     } else {
-      playerFormat = content.content_subformat.split('_question')[0];
+      playerFormat = content.content_subformat;
     }
     return playerFormat;
   }
