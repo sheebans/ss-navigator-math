@@ -110,9 +110,6 @@ export class NavMathApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  openPlayer() {
-    this.nav.push('PlayerPage', { pageNumber: 1 });
-  }
 
   eventsRegister() {
     this.events.subscribe('auth:reAuthenticateDone', sessionModel => {
