@@ -10,7 +10,7 @@ import { UserLocationProvider } from '@providers/api/user-location';
 import { PipesModule } from '@pipes/pipes.module';
 import {
   PLAYER_COMPONENTS,
-  PLAYER_CONTENT_FORMAT_COMPONENT
+  PLAYER_CONTENT_FORMAT_COMPONENTS
 } from '@components/player/player.component.imports';
 import {
   HEADER_COMPONENTS,
@@ -43,7 +43,7 @@ import {
   ],
   entryComponents: [
     BadgeInfoComponent,
-    PLAYER_CONTENT_FORMAT_COMPONENT,
+    PLAYER_CONTENT_FORMAT_COMPONENTS,
     HEADER_TITLE_COMPONENTS
   ],
   providers: [Deeplinks, CourseMapProvider, UserLocationProvider]
