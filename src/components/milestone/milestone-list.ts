@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserLocationProvider } from '@providers/api/user-location';
+import { UserLocationProvider } from '@providers/api/analytics/user-location';
 import { NavParams } from 'ionic-angular';
 import { Subject } from 'rxjs';
 

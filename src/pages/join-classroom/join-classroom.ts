@@ -8,7 +8,7 @@ import {
 } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { AuthProvider } from '@providers/api/auth';
+import { AuthProvider } from '@providers/api/auth/auth';
 import { ToastService } from '@providers/util/toast.service';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';

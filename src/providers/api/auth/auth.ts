@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RestClient } from './rest-client';
+import { RestClient } from '@providers/api/rest-client';
 import { Observable } from 'rxjs/Observable';
 import { SessionModel } from '@models/auth/session';
 import { InitLoginModel } from '@models/auth/init-login';

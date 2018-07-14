@@ -4,8 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { BadgeInfoComponent } from './badge-info/badge-info';
 import { Deeplinks } from '@ionic-native/deeplinks';
-import { CourseMapProvider } from '@providers/api/course-map';
-import { UserLocationProvider } from '@providers/api/user-location';
+import { CourseMapProvider } from '@providers/api/core/course-map';
+import { UserLocationProvider } from '@providers/api/analytics/user-location';
 
 import { PipesModule } from '@pipes/pipes.module';
 import {

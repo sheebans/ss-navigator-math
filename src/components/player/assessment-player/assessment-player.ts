@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { AssessmentModel } from '@models/assessment/assessment';
-import { AssessmentProvider } from '@providers/api/assessment';
+import { AssessmentProvider } from '@providers/api/core/assessment';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { HeaderContextModel } from '@models/app/header/header-context';

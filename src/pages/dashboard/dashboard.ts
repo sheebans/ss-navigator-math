@@ -5,7 +5,7 @@ import {
   NavParams,
   MenuController
 } from 'ionic-angular';
-import { MilestoneProvider } from '@providers/api/milestone';
+import { MilestoneProvider } from '@providers/api/stubs/milestone';
 import { HeaderContextModel } from '@models/app/header/header-context';
 import { HeaderTitleContextModel } from '@models/app/header/header-title-context';
 

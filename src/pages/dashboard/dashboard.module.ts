@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ComponentsModule } from '@components/components.module';
-import { MilestoneProvider } from '@providers/api/milestone';
+import { MilestoneProvider } from '@providers/api/stubs/milestone';
 import { DashboardPage } from './dashboard';
 
 @NgModule({

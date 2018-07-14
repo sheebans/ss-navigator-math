@@ -2,7 +2,7 @@
 import { AuthService } from '@providers/util/auth.service';
 import { ToastService } from '@providers/util/toast.service';
 import { NetworkService } from '@providers/util/network.service';
-import { AuthProvider } from '@providers/api/auth';
+import { AuthProvider } from '@providers/api/auth/auth';
 import { ModalService } from '@providers/util/modal.service';
 import { RestClient } from '@providers/api/rest-client';
 

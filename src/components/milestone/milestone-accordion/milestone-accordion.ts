@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ModalService } from '@providers/util/modal.service';
 import { BadgeInfoComponent } from '@components/badge-info/badge-info';
-import { CourseMapProvider } from '@providers/api/course-map';
+import { CourseMapProvider } from '@providers/api/core/course-map';
 import { NavParams, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 

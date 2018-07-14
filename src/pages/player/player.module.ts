@@ -3,8 +3,8 @@ import { IonicPageModule } from 'ionic-angular';
 import { PlayerPage } from './player';
 import { ComponentsModule } from '@components/components.module';
 import { PipesModule } from '@pipes/pipes.module';
-import { ClassesProvider } from '@providers/api/classes';
-import { CoursesProvider } from '@providers/api/courses';
+import { ClassesProvider } from '@providers/api/core/classes';
+import { CoursesProvider } from '@providers/api/core/courses';
 
 @NgModule({
   declarations: [PlayerPage],

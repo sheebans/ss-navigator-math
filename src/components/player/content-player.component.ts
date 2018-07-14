@@ -44,7 +44,6 @@ export class ContentPlayerComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit() {
     if (this.content) {
       let componentType = this.playerService.getPlayerComponent(this.content);
-      console.log(componentType);
       let factory = this.componentFactoryResolver.resolveComponentFactory(
         componentType
       );

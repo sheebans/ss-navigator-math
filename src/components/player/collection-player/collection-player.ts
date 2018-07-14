@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { CollectionModel } from '@models/collection/collection';
-import { CollectionProvider } from '@providers/api/collection';
+import { CollectionProvider } from '@providers/api/core/collection';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { HeaderContextModel } from '@models/app/header/header-context';

@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { ClassModel } from '@models/class/class';
-import { ClassesProvider } from '@providers/api/classes';
-import { CoursesProvider } from '@providers/api/courses';
+import { ClassesProvider } from '@providers/api/core/classes';
+import { CoursesProvider } from '@providers/api/core/courses';
 
 @IonicPage()
 @Component({

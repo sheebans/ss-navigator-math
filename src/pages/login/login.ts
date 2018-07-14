@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, MenuController } from 'ionic-angular';
-import { AuthProvider } from '@providers/api/auth';
+import { AuthProvider } from '@providers/api/auth/auth';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
