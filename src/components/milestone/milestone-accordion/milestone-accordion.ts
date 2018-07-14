@@ -2,15 +2,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ModalService } from '@providers/util/modal.service';
 import { BadgeInfoComponent } from '@components/badge-info/badge-info';
 import { CourseMapProvider } from '@providers/api/course-map';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 
-/**
- * Generated class for the AccordionComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'milestone-accordion',
   templateUrl: 'milestone-accordion.html'
@@ -48,7 +42,8 @@ export class MilestoneAccordionComponent {
   constructor(
     private modalService: ModalService,
     private courseMapProvider: CourseMapProvider,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private navCtrl: NavController
   ) {
     this.classId =
       navParams.get('classId') || 'bd5b0c71-3b3f-441f-903f-91f000fa9863';
@@ -86,6 +81,17 @@ export class MilestoneAccordionComponent {
 
   isToggle(lesson) {
     return lesson.lesson_id === this.toogleData.lesson_id;
+  }
+
+  openPlayer(unitId, lesson, collection) {
+    this.navCtrl.push('PlayerPage', {
+      classId: this.classId,
+      courseId: this.courseId,
+      unitId: unitId,
+      lessonId: lesson.lesson_id,
+      id: collection.id,
+      collectionType: collection.format
+    });
   }
 
   openBadgeInfo() {

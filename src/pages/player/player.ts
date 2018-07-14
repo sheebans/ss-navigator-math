@@ -20,7 +20,7 @@ export class PlayerPage {
 
   lessonId: string;
 
-  collectionId: string;
+  id: string;
 
   collectionType: string;
 
@@ -46,8 +46,7 @@ export class PlayerPage {
       navParams.get('unitId') || '495644c9-5814-4144-8a06-bb2d55d58e30';
     this.lessonId =
       navParams.get('lessonId') || '988cd1a9-88c9-4541-a30f-51e12c342ec4';
-    this.collectionId =
-      navParams.get('collectionId') || 'a40d6e15-7dbf-4988-8ffd-5cac959de1e6';
+    this.id = navParams.get('id') || 'a40d6e15-7dbf-4988-8ffd-5cac959de1e6';
     this.collectionType = navParams.get('collectionType') || 'collection';
   }
 

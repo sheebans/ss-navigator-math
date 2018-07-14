@@ -6,13 +6,8 @@ import {
   MenuController
 } from 'ionic-angular';
 import { MilestoneProvider } from '@providers/api/milestone';
-
-/**
- * Generated class for the WelcomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HeaderContextModel } from '@models/app/header/header-context';
+import { HeaderTitleContextModel } from '@models/app/header/header-title-context';
 
 @IonicPage()
 @Component({
@@ -20,7 +15,7 @@ import { MilestoneProvider } from '@providers/api/milestone';
   templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
-  headerModel: any;
+  headerContextModel: HeaderContextModel;
 
   milestones: any;
 
@@ -31,14 +26,15 @@ export class DashboardPage {
     private milestoneProvider: MilestoneProvider
   ) {
     this.init();
-    this.headerModel = {
-      isMenu: true,
-      isNotification: true,
-      isTour: true,
-      title: 'DASHBOARD_TITLE'
-    };
   }
   init() {
+    const headerTitleContext: HeaderTitleContextModel = {
+      title: 'DASHBOARD_TITLE'
+    };
+    this.headerContextModel = {
+      show_menu: true,
+      header_title_context: headerTitleContext
+    };
     this.milestoneProvider.getMileStones().subscribe(data => {
       this.milestones = data.milestones;
     });

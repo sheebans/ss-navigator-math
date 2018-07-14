@@ -1,5 +1,5 @@
 <ion-header>
-  <app-header [header]="headerModel"></app-header>
+  <app-header *ngIf="headerContextModel" [context]="headerContextModel"></app-header>
 </ion-header>
 <ion-content *ngIf="collection">
   <ng-container *ngIf="activePlayerIndex == -1">
