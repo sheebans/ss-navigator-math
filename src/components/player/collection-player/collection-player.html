@@ -1,3 +1,6 @@
+<ion-header>
+  <app-header [header]="headerModel"></app-header>
+</ion-header>
 <ion-content *ngIf="collection">
   <ng-container *ngIf="activePlayerIndex == -1">
     <collection-player-overview (onContentPlay)="openPlayer($event)" [collection]="collection" [unit]="unit" [lesson]="lesson"></collection-player-overview>

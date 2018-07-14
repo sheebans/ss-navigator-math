@@ -10,6 +10,8 @@ import { LessonModel } from '@models/course/lesson';
   providers: [CollectionProvider]
 })
 export class CollectionPlayerComponent implements OnInit {
+  headerModel: any;
+
   @Input() id: string;
 
   @Input() unit: UnitModel;
@@ -20,7 +22,14 @@ export class CollectionPlayerComponent implements OnInit {
 
   @Input() activePlayerIndex: number;
 
-  constructor(private collectionProvider: CollectionProvider) {}
+  constructor(private collectionProvider: CollectionProvider) {
+    this.headerModel = {
+      isMenu: false,
+      isNotification: true,
+      isTour: true,
+      title: 'DASHBOARD_TITLE'
+    };
+  }
 
   ngOnInit() {
     this.collectionProvider.getCollection(this.id).subscribe(collection => {

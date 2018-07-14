@@ -21,6 +21,7 @@ import { MilestoneProvider } from '@providers/api/milestone';
 })
 export class DashboardPage {
   headerModel: any;
+
   milestones: any;
 
   constructor(
