@@ -1,54 +1,484 @@
 {
-"milestones" : [{
- "id": "b6e3cf72-0605-4a78-9cc3-17a6f7501d4b",
- "title": "Milestone 1",
- "sequence": 1,
- "units": [{
-     "unit_id":"f83b395b-9d17-4da6-9542-cea235dadc70",
-     "unit_title":"Geometry",
-     "lessons":[{
-            "lesson_id":"8c000793-2b4e-47f1-ab0d-a0d71380b09c",
-            "lesson_title":"Find areas by composing and decomposing shapes",
-	    "badge":true,
-	    "started":true
-            },{
-            "lesson_id":"5ce5226b-2260-4357-8688-8bf0624e6ab9",
-            "lesson_title":"Find volume of rectangular prisms many ways",
-	    "badge":false,
-	    "started":false
-            }]
-        },{
-     "unit_id":"136debfb-4eee-46ae-a00f-98d7422afd1b",
-     "unit_title":"Functions",
-     "lessons":[{
-            "lesson_id":"fc926444-8ea1-46e6-8312-3780834637c0",
-            "lesson_title":"Sketch a graph of a function",
-	    "badge":false,
-	    "started":false
-            }]
-        }]
-    },{
- "id": "73d4b0d9-f217-496d-8ba5-4a4f27501ff8",
- "title": "Milestone 2",
- "sequence": 1,
- "units": [{
-     "unit_id":"5b725b7f-c7c0-4c89-9843-a4e912f4f032",
-     "unit_title":"Statistics and Probability",
-     "lessons":[{
-            "lesson_id":"ca91541b-8b4f-45cf-be93-ac5967ffd1cc",
-            "lesson_title":"Know that statistical questions have variability",
-	    "badge":false,
-	    "started":false
-            }]
-        },{
-     "unit_id":"8020c16c-992b-4a88-b428-f737ee89db34",
-     "unit_title":"Ratio and Proportional Relationships",
-     "lessons":[{
-            "lesson_id":"3711feda-33dc-42fc-ac94-6950e2fa9eff",
-            "lesson_title":"Know statistical data can be described on a graph",
-	    "badge":false,
-	    "started":false
-            }]
-        }]
-    }]
+  "milestones": [{
+      "id": "b6e3cf72-0605-4a78-9cc3-17a6f7501d4b",
+      "title": "Milestone 1",
+      "sequence": 1,
+      "units": [{
+          "unit_id": "136debfb-4eee-46ae-a00f-98d7422afd1b",
+          "unit_title": "Functions",
+          "lessons": [{
+              "lesson_id": "0d76362b-22a4-49ca-9ee8-f317f2c25df4",
+              "lesson_title": "Find rate of change and values of linear function",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "fc926444-8ea1-46e6-8312-3780834637c0",
+              "lesson_title": "Determine/compare properties of functions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "04891f8b-cf6b-4cda-9a66-0207e77603d1",
+              "lesson_title": "Define a function as a rule/graph as ordered pairs",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "0b4b8731-2cfe-4954-8e0e-f9940a590eb6",
+              "lesson_title": "Sketch a graph of a function",
+              "badge": false,
+              "started": false
+            }
+          ]
+        },
+        {
+          "unit_id": "495644c9-5814-4144-8a06-bb2d55d58e30",
+          "unit_title": "Number System",
+          "lessons": [{
+              "lesson_id": "21f1bdf8-f983-4cbe-9446-0b95fdeb6798",
+              "lesson_title": "Easily divide multi-digit numbers using algorithm",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "ac82364b-a07c-4ae5-b022-4572afed1df5",
+              "lesson_title": "Know positive and negative numbers describe value",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "4afcd60c-aea5-4c40-97fa-04d6c9ef4b2f",
+              "lesson_title": "Use all four operations with rational numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "ff529e45-0974-466b-b68c-ef36d9cc73ff",
+              "lesson_title": "Interpret and compute division of fractions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "b1dda09d-bfc9-4ce0-aa6b-090706a61791",
+              "lesson_title": "Approximate irrational numbers/estimate value",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "706b4c2c-3a3c-4dc3-b5cc-8831efdbc4f4",
+              "lesson_title": "Know rational/irrational numbers/show as decimals",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "1b28f728-d669-4c86-9765-411f42523a8e",
+              "lesson_title": "Add and subtract rational numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "1acd766d-6f0c-427a-8d43-01476762d934",
+              "lesson_title": "Know rational numbers have points on number lines",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "74666713-c1f2-45ec-bd66-24cf8ccce366",
+              "lesson_title": "Know ordering/absolute value of rational numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "c911fcaa-56bb-4f26-8551-2d87f884071a",
+              "lesson_title": "Multiply/divide rational numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "dcb1a0a3-fa4b-4d52-ba93-a43040312d42",
+              "lesson_title": "Compute with multi-digit decimals using algorithms",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "988cd1a9-88c9-4541-a30f-51e12c342ec4",
+              "lesson_title": "Find the GCF/LCM of two numbers < or = to 100",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "9f772e60-0329-4b44-b95b-ca347b4feec5",
+              "lesson_title": "Use absolute value to find distance between points",
+              "badge": false,
+              "started": false
+            }
+          ]
+        },
+        {
+          "unit_id": "f16994ce-f652-4091-a48d-bb6665e347af",
+          "unit_title": "U-TrialLaxmikant",
+          "lessons": [{
+            "lesson_id": "bd0de1d0-b0a2-4985-9208-e7c363a21a42",
+            "lesson_title": "L-TrialLaxmikant",
+            "badge": false,
+            "started": false
+          }]
+        },
+        {
+          "unit_id": "f83b395b-9d17-4da6-9542-cea235dadc70",
+          "unit_title": "Geometry",
+          "lessons": [{
+              "lesson_id": "7aea2f0f-2ee4-4648-890e-f73e3be4da5f",
+              "lesson_title": "Use facts about angles to find unknown angles",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "6864f362-7ef0-4972-b47a-80bf0849c38f",
+              "lesson_title": "Solve problems (area, volume) of 2D and 3D figures",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "638db16d-8626-4444-9657-4f5b7507ac19",
+              "lesson_title": "Know/use formulas (area/circumference) of circles",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "dc19900a-f90b-4c30-a346-1ebc1fdceaee",
+              "lesson_title": "Find volume of rectangular prisms many ways",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "5ce5226b-2260-4357-8688-8bf0624e6ab9",
+              "lesson_title": "Draw geometric shapes with given conditions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "e397bf66-2a5e-4aed-9c72-1edeb169a827",
+              "lesson_title": "Find distance with the Pythagorean Theorem",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "97212e72-7f4e-4f25-9c0c-51cc0b82e2b9",
+              "lesson_title": "Find areas by composing and decomposing shapes",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "2dc8c485-73aa-4e1f-9c8d-d7d9f3bd8319",
+              "lesson_title": "Draw/solve polygon problems on coordinate plane",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "3e1bec82-6d9a-4ab8-bf43-c1da1ac36717",
+              "lesson_title": "Know/use formulas (volume cones/cylinders/spheres)",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "3dd1ce23-43d6-402a-beb4-4ca82ec5a7de",
+              "lesson_title": "Verify properties rotation/reflection/translations",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "8c000793-2b4e-47f1-ab0d-a0d71380b09c",
+              "lesson_title": "Rotate/reflect/translate figures for congruence",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "c23ecd2a-e487-40b2-acf5-a37ec747494c",
+              "lesson_title": "Use Pythagorean Theorem to prove right triangles",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "a4ad182a-f5ab-42fa-bb2f-494f6caf401e",
+              "lesson_title": "Use transformations to prove similarity of shapes",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "a779a58c-57ea-41ad-ba99-50e6568a5e04",
+              "lesson_title": "Solve problems using Pythagorean Theorem",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "3e90f4f1-990c-48de-82ff-d2b46c53ec1f",
+              "lesson_title": "Prove angle/polygon sums and estimate measures",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "20d685cc-f5b2-481c-af7f-486d35b7f1a9",
+              "lesson_title": "Use/solve problems with nets to find surface areas",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "996bdc71-06d6-4202-b15e-73a33a7c968f",
+              "lesson_title": "Draw/describe 2D figures from slice of a 3D figure",
+              "badge": false,
+              "started": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73d4b0d9-f217-496d-8ba5-4a4f27501ff8",
+      "title": "Milestone 2",
+      "sequence": 1,
+      "units": [{
+          "unit_id": "8020c16c-992b-4a88-b428-f737ee89db34",
+          "unit_title": "Ratio and Proportional Relationships",
+          "lessons": [{
+
+            },
+            {
+              "lesson_id": "3711feda-33dc-42fc-ac94-6950e2fa9eff",
+              "lesson_title": "Solve unit rate problems by dividing ratios",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "cf64df00-962a-4c94-9fce-d5e366d326c6",
+              "lesson_title": "Represent proportion as equal ratios",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "3c47a9d2-3026-4ed1-b3d7-b2a82ee4ed2c",
+              "lesson_title": "Solve real world problems using ratios and rates",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "74ca5498-773d-4bd2-a96d-b55e9a657097",
+              "lesson_title": "Show ratio relationships between quantities",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "bcb6791b-ec01-4e37-9231-62cede90fe43",
+              "lesson_title": "Apply proportional reasoning to solve problems",
+              "badge": false,
+              "started": false
+            }
+          ]
+        },
+        {
+          "unit_id": "5b725b7f-c7c0-4c89-9843-a4e912f4f032",
+          "unit_title": "Statistics and Probability",
+          "lessons": [{
+              "lesson_id": "55f5b924-3e50-4cf4-af1d-3057db7e682a",
+              "lesson_title": "Describe line of best fit for a scatter plot",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "2b3292fd-5cab-48b4-a429-1f2218308cea",
+              "lesson_title": "Use probabilities to solve problems",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "5bbb84ac-84ab-4d64-914e-c791081b8afa",
+              "lesson_title": "Find probabilities using lists/tables/diagrams",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "d4830787-57c2-4ae3-a887-0c4e748da4ad",
+              "lesson_title": "Collect data to approximate probability",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "2827df93-fbad-418a-ad77-be0c144cb8fe",
+              "lesson_title": "Use mean/median/range to compare data",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "ca91541b-8b4f-45cf-be93-ac5967ffd1cc",
+              "lesson_title": "Summarize data sets in relation to their context",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "4d63d8dc-f002-49c4-a81f-fc994b808158",
+              "lesson_title": "Use relative frequencies to describe data",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "1e488568-ca46-468f-8e04-486f3b230b49",
+              "lesson_title": "Make/Interpret data on a scatter plot",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "b8b66909-dcb7-49c4-8634-4dc14ba15efe",
+              "lesson_title": "Determine equation of a trend line",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "53ee64a0-87c7-4aff-9588-a5a141f5e63f",
+              "lesson_title": "Summarize data with a measure of center",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "6cf1faa2-b128-4774-8699-2a9e2f65f791",
+              "lesson_title": "Know that statistical questions have variability",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "985eb0c6-e65e-44cb-b8fb-20973af82a54",
+              "lesson_title": "Use data to draw conclusions and gauge predictions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "13e275ce-6f9a-49db-892e-cea266e12683",
+              "lesson_title": "Show data in plots on a number line",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "94ee7ebb-cb0b-4a52-983e-4517e4f12d40",
+              "lesson_title": "Know statistical data can be described on a graph",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "cd80e59b-9b4a-494d-91e4-87d239cf80db",
+              "lesson_title": "Understand inferences about populations",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "51ef3748-2273-4ede-996a-5e35cfb65cbc",
+              "lesson_title": "Recognize/explain probability of a chance event",
+              "badge": false,
+              "started": false
+            }
+          ]
+        },
+        {
+          "unit_id": "8b09cf22-95c2-4a6c-af7f-601eb582a736",
+          "unit_title": "Equations and Expressions",
+          "lessons": [{
+              "lesson_id": "3dc8ccd4-7eae-474b-aea4-4192162fdbf2",
+              "lesson_title": "Use scientific notation for large/small numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "725fcd1a-105d-495d-a958-de4d98bee5f3",
+              "lesson_title": "Use variables to make/solve equations/inequalities",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "88b3fa4c-d0d7-4c36-b82d-502f824b170c",
+              "lesson_title": "Apply properties to write equivalent expressions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "9059ca59-9a14-4c1f-b3f5-32d1b08d0831",
+              "lesson_title": "Compute with numbers in scientific notation",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "0d026a23-9df6-4c03-83dd-5a0d8087d77b",
+              "lesson_title": "Use square/cube root signs to represent solutions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "cb81a441-e6c3-485b-b3b2-7a0698afd428",
+              "lesson_title": "Apply properties to expand linear expressions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "be60f115-1997-4011-9090-6bb5d2d71f58",
+              "lesson_title": "Use values to make equations or inequalities true",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "e031ef47-c7fd-45ff-b5a8-4e55dd47d815",
+              "lesson_title": "Analyze/Solve pairs of linear equations",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "934d92a1-aeb2-476f-a5d4-64384bb8c6f1",
+              "lesson_title": "Simplify expressions with properties of exponents",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "ba293fce-40c7-4bd2-896c-068ee879e747",
+              "lesson_title": "Solve/estimate problems with rational numbers",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "38a4244b-c858-4921-b4dc-230b5836d4e7",
+              "lesson_title": "Use properties to make equal expressions",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "45b2276e-61b5-4213-9bb6-6c627fbbf8a2",
+              "lesson_title": "Solve linear equations in one variable",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "57660c23-fc1b-4326-9216-f98739184a53",
+              "lesson_title": "Use proportion to show/graph/compare relationships",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "61c36336-9507-480c-97b7-eda1625182e0",
+              "lesson_title": "Use variables to represent unknown quantities",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "9ad7fe1e-dd12-479e-8e2d-bb8fdb2e375b",
+              "lesson_title": "Write and solve expressions with exponents",
+              "badge": false,
+              "started": false
+            },
+            {
+              "lesson_id": "cfe3fc1a-e427-4a02-be3d-65e4c122175f",
+              "lesson_title": "Read/write/solve expressions with letters",
+              "badge": false,
+              "started": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

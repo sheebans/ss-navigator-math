@@ -5,9 +5,9 @@ import { HeaderComponent } from './header/header';
 import { BadgeInfoComponent } from './badge-info/badge-info';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { CourseMapProvider } from '@providers/api/course-map';
+import { UserLocationProvider } from '@providers/api/user-location';
+
 import { PipesModule } from '@pipes/pipes.module';
-import { MilestoneCardComponent } from './dashboard/milestone-card/milestone-card';
-import { DashboardAccordionComponent } from './dashboard/accordion-dashboard/accordion-dashboard';
 import {
   CollectionPlayerOverviewComponent,
   CollectionPlayerComponent,
@@ -16,6 +16,12 @@ import {
   VimeoPlayerComponent,
   WebpagePlayerComponent
 } from './player';
+import {
+  MilestoneListComponent,
+  MilestoneAccordionComponent,
+  MilestoneComponent
+} from './milestone';
+import { MilestoneMenuComponent } from './milestone-menu/milestone-menu';
 
 @NgModule({
   declarations: [
@@ -23,12 +29,14 @@ import {
     BadgeInfoComponent,
     CollectionPlayerOverviewComponent,
     CollectionPlayerComponent,
-    MilestoneCardComponent,
-    DashboardAccordionComponent,
+    MilestoneListComponent,
+    MilestoneAccordionComponent,
     AssessmentPlayerComponent,
     YoutubePlayerComponent,
     VimeoPlayerComponent,
-    WebpagePlayerComponent
+    WebpagePlayerComponent,
+    MilestoneComponent,
+    MilestoneMenuComponent
   ],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [
@@ -37,13 +45,15 @@ import {
     CollectionPlayerOverviewComponent,
     CollectionPlayerComponent,
     AssessmentPlayerComponent,
-    MilestoneCardComponent,
-    DashboardAccordionComponent,
+    MilestoneListComponent,
+    MilestoneAccordionComponent,
     YoutubePlayerComponent,
     VimeoPlayerComponent,
-    WebpagePlayerComponent
+    WebpagePlayerComponent,
+    MilestoneComponent,
+    MilestoneMenuComponent
   ],
   entryComponents: [BadgeInfoComponent],
-  providers: [Deeplinks, CourseMapProvider]
+  providers: [Deeplinks, CourseMapProvider, UserLocationProvider]
 })
 export class ComponentsModule {}

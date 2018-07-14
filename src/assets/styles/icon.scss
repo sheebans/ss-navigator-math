@@ -28,6 +28,16 @@ ion-icon {
     mask-image: url("../assets/icon/logout.svg");
   }
 
+  &[class*="icon-collection"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/collection.svg");
+  }
+
+  &[class*="icon-assessment"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/assessment.svg");
+  }
+
   &[class*="icon-version"] {
     @extend %background-container;
     mask-image: url("../assets/icon/version.svg");
@@ -41,5 +51,10 @@ ion-icon {
   &[class*="icon-about"] {
     @extend %background-container;
     mask-image: url("../assets/icon/account-circle.svg");
+  }
+
+  &[class*="icon-line"] {
+    @extend %background-container;
+    mask-image: url("../assets/icon/vertical-line.svg");
   }
 }

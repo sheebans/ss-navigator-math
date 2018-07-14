@@ -68,12 +68,12 @@ export class NavMathApp {
           this.version = version;
         });
         this.setAppVersion();
+        this.networkService.isConnect();
       }
       this.initTranslate();
       this.authService.doAuthentication();
       this.eventsRegister();
       this.registerDeeplinks();
-      this.networkService.isConnect();
     });
   }
 
