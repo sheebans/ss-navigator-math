@@ -23,6 +23,9 @@ export class CollectionPlaylistComponent implements OnInit {
   }
 
   slideChanged() {
-    this.activePlayerIndex = this.slides.getActiveIndex();
+    let activeIndex = this.slides.getActiveIndex();
+    if (activeIndex <= this.contents.length - 1) {
+      this.activePlayerIndex = activeIndex;
+    }
   }
 }

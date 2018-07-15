@@ -1,3 +1,3 @@
 <ng-container *ngIf="isActive">
-  <iframe width="100%" height="100%" [src]="trustedYoutubeVideoUrl ? trustedYoutubeVideoUrl : null" (load)="trustedYoutubeVideoUrl ? onYoutubeVideoLoad() : null" frameborder="0"></iframe>
+  <iframe  [src]="trustedYoutubeVideoUrl ? trustedYoutubeVideoUrl : null" (load)="trustedYoutubeVideoUrl ? onYoutubeVideoLoad() : null" frameborder="0"></iframe>
 </ng-container>

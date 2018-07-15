@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the WelcomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HeaderContextModel } from '@models/app/header/header-context';
+import { HeaderTitleContextModel } from '@models/app/header/header-title-context';
 
 @IonicPage()
 @Component({
@@ -14,14 +9,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'proficiency.html'
 })
 export class ProficiencyPage {
-  headerModel: any;
+  headerContextModel: HeaderContextModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.headerModel = {
-      isMenu: true,
-      isNotification: false,
-      isTour: true,
+    const headerTitleContext: HeaderTitleContextModel = {
       title: 'PROFICIENCY_TITLE'
+    };
+    this.headerContextModel = {
+      show_menu: true,
+      header_title_context: headerTitleContext
     };
   }
 

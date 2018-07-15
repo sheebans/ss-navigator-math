@@ -26,15 +26,14 @@ export class GlobalErrorHandler extends ErrorHandler {
       (error.status == 400 || error.status == 404)
     ) {
       this.toastService.presentToast(error.error.message);
+    } else if (error.status == 401) {
+      this.authService.clearStorageAndDoAuthentication();
     } else {
       this.translate.get('UN_EXPECTED_ERROR').subscribe(value => {
         this.toastService.presentToast(value);
       });
     }
     this.sendErrorToFirebaseCrash(error);
-    if (error.status == 401) {
-      this.authService.clearStorageAndDoAuthentication();
-    }
     console.log(error);
   }
 

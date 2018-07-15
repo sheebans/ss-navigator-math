@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController
+} from 'ionic-angular';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { ClassModel } from '@models/class/class';
@@ -34,6 +39,7 @@ export class PlayerPage {
 
   constructor(
     public navCtrl: NavController,
+    private menuCtrl: MenuController,
     public navParams: NavParams,
     private classesProvider: ClassesProvider,
     private coursesProvider: CoursesProvider
@@ -47,6 +53,7 @@ export class PlayerPage {
   }
 
   ionViewDidLoad() {
+    this.menuCtrl.enable(false);
     this.classesProvider.getClass(this.classId).subscribe(classModel => {
       this.class = classModel;
     });

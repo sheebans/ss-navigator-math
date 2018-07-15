@@ -27,6 +27,7 @@ export class DashboardPage {
   ) {
     this.init();
   }
+
   init() {
     const headerTitleContext: HeaderTitleContextModel = {
       title: 'DASHBOARD_TITLE'
