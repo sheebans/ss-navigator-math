@@ -2,12 +2,6 @@ import { Component, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 
-/**
- * Generated class for the MilestoneCardComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'milestone',
   templateUrl: 'milestone.html'

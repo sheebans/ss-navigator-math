@@ -1,13 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ModalService } from '@providers/util/modal.service';
-import { BadgeInfoComponent } from '@components/badge-info/badge-info';
+import { BadgeInfoComponent } from '@components/dashboard/badge-info/badge-info';
 import { CourseMapProvider } from '@providers/api/core/course-map';
 import { NavParams, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'milestone-accordion',
-  templateUrl: 'milestone-accordion.html'
+  templateUrl: 'milestone-accordion.html',
+  providers: [CourseMapProvider],
+  entryComponents: [BadgeInfoComponent]
 })
 export class MilestoneAccordionComponent {
   accordionModel: any;

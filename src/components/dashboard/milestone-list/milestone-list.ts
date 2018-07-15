@@ -3,15 +3,10 @@ import { UserLocationProvider } from '@providers/api/analytics/user-location';
 import { NavParams } from 'ionic-angular';
 import { Subject } from 'rxjs';
 
-/**
- * Generated class for the MilestoneComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'milestone-list',
-  templateUrl: 'milestone-list.html'
+  templateUrl: 'milestone-list.html',
+  providers: [UserLocationProvider]
 })
 export class MilestoneListComponent {
   milestones: any;

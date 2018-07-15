@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { TranslateModule } from '@ngx-translate/core';
-
-import { BadgeInfoComponent } from './badge-info/badge-info';
 import { Deeplinks } from '@ionic-native/deeplinks';
-import { CourseMapProvider } from '@providers/api/core/course-map';
-import { UserLocationProvider } from '@providers/api/analytics/user-location';
-
 import { PipesModule } from '@pipes/pipes.module';
 import {
   PLAYER_COMPONENTS,
@@ -16,36 +11,13 @@ import {
   HEADER_COMPONENTS,
   HEADER_TITLE_COMPONENTS
 } from '@components/header/header.component.imports';
-
-import {
-  MilestoneListComponent,
-  MilestoneAccordionComponent,
-  MilestoneComponent
-} from './milestone';
+import { DASHBOARD_COMPONENTS } from '@components/dashboard/dashboard.component.imports.ts';
 
 @NgModule({
-  declarations: [
-    BadgeInfoComponent,
-    MilestoneListComponent,
-    MilestoneAccordionComponent,
-    MilestoneComponent,
-    HEADER_COMPONENTS,
-    PLAYER_COMPONENTS
-  ],
+  declarations: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
-  exports: [
-    BadgeInfoComponent,
-    MilestoneListComponent,
-    MilestoneAccordionComponent,
-    MilestoneComponent,
-    HEADER_COMPONENTS,
-    PLAYER_COMPONENTS
-  ],
-  entryComponents: [
-    BadgeInfoComponent,
-    PLAYER_CONTENT_FORMAT_COMPONENTS,
-    HEADER_TITLE_COMPONENTS
-  ],
-  providers: [Deeplinks, CourseMapProvider, UserLocationProvider]
+  exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
+  entryComponents: [PLAYER_CONTENT_FORMAT_COMPONENTS, HEADER_TITLE_COMPONENTS],
+  providers: [Deeplinks]
 })
 export class ComponentsModule {}
