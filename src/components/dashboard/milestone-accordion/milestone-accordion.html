@@ -1,57 +1,55 @@
-<ion-list no-margin>
-  <div class="unit-section" *ngFor="let accordion of accordionModel">
-    <div class="lesson-section" *ngFor="let lesson of accordion.lessons" [ngClass]="{active: toogleData && isToggle(lesson) || userLocation && checkCurrentLocation(lesson)}">
-      <div class="lesson-list" no-padding (click)="getCourseMap(lesson, accordion.unit_id)">
-        <div class="menu-bar">
-          <div class="icon-container">
-            <i class="lesson-icon"></i>
-          </div>
-        </div>
-        <div class="lesson-row">
-          <div class="lesson">
-            <span>{{accordion.unit_title}}</span>
-            <div class="lesson-title">{{lesson.lesson_title}}</div>
-          </div>
-          <div class="lesson-meta">
-            <div class="badge">
-              <i *ngIf="lesson.badge" class="badge-icon" (click)="$event.stopPropagation(); openBadgeInfo()"></i>
-            </div>
-            <div class="info">
-              <i class="info-icon"></i>
-            </div>
-          </div>
-        </div>
-        <div *ngIf="lesson.started" class="score">
-          <span>100%</span>
-        </div>
-        <div *ngIf="!lesson.started" class="lesson-image">
+<div class="unit-section" *ngFor="let accordion of accordionModel">
+  <div class="lesson-section" *ngFor="let lesson of accordion.lessons" [ngClass]="{active: toogleData && isToggle(lesson) || userLocation && checkCurrentLocation(lesson)}">
+    <div class="lesson-list" no-padding (click)="getCourseMap(lesson, accordion.unit_id)">
+      <div class="menu-bar">
+        <div class="icon-container">
+          <i class="lesson-icon"></i>
         </div>
       </div>
-      <div no-border *ngIf="toogleData && isToggle(lesson)" class="accordion-list">
-        <ion-spinner *ngIf="spinner" name="dots"></ion-spinner>
-        <div *ngIf="courseMapModel && !spinner">
-          <div no-padding class="collection-list" *ngFor="let course of courseMapModel" [ngClass]="{location: userLocation && checkCurrentCourseMap(course)}">
-            <div class="menu-bar">
-              <div class="icon-container" *ngIf="course.format == 'collection'">
-                <ion-icon name="icon-collection"></ion-icon>
-              </div>
-              <div class="icon-container" *ngIf="course.format == 'assessment'">
-                <ion-icon name="icon-assessment"></ion-icon>
-              </div>
+      <div class="lesson-row">
+        <div class="lesson">
+          <span>{{accordion.unit_title}}</span>
+          <div class="lesson-title">{{lesson.lesson_title}}</div>
+        </div>
+        <div class="lesson-meta">
+          <div class="badge">
+            <i *ngIf="lesson.badge" class="badge-icon" (click)="$event.stopPropagation(); openBadgeInfo()"></i>
+          </div>
+          <div class="info">
+            <i class="info-icon"></i>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="lesson.started" class="score">
+        <span>100%</span>
+      </div>
+      <div *ngIf="!lesson.started" class="lesson-image">
+      </div>
+    </div>
+    <div no-border *ngIf="toogleData && isToggle(lesson)" class="accordion-list">
+      <ion-spinner *ngIf="spinner" name="dots"></ion-spinner>
+      <div *ngIf="courseMapModel && !spinner">
+        <div no-padding class="collection-list" *ngFor="let course of courseMapModel" [ngClass]="{location: userLocation && checkCurrentCourseMap(course)}">
+          <div class="menu-bar">
+            <div class="icon-container" *ngIf="course.format == 'collection'">
+              <ion-icon name="icon-collection"></ion-icon>
             </div>
-            <div class="course-map-row">
-              <div class="course-map">
-                <div class="course-map-title">{{course.title}}</div>
+            <div class="icon-container" *ngIf="course.format == 'assessment'">
+              <ion-icon name="icon-assessment"></ion-icon>
+            </div>
+          </div>
+          <div class="course-map-row">
+            <div class="course-map">
+              <div class="course-map-title">{{course.title}}</div>
+            </div>
+            <div class="lesson-meta">
+              <div class="badge">
               </div>
-              <div class="lesson-meta">
-                <div class="badge">
-                </div>
-                <div class="collection-play" (click)="openPlayer(accordion.unit_id, lesson, course)">
-                  <i class="play-icon"></i>
-                </div>
-                <div class="collection-image">
-                  <img src="{{course.thumbnail}}" />
-                </div>
+              <div class="collection-play" (click)="openPlayer(accordion.unit_id, lesson, course)">
+                <i class="play-icon"></i>
+              </div>
+              <div class="collection-image">
+                <img src="{{course.thumbnail}}" />
               </div>
             </div>
           </div>
@@ -59,4 +57,4 @@
       </div>
     </div>
   </div>
-</ion-list>
+</div>

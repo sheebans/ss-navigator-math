@@ -1,3 +1,1 @@
-<div>
-  <milestone [milestoneData]="milestones" [locationData]="locationModel.asObservable()"></milestone>
-</div>
+<milestone-item *ngFor="let milestone of milestones" [milestone]="milestone" [location]="locationModel.asObservable()"></milestone-item>

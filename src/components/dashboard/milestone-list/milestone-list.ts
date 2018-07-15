@@ -9,16 +9,11 @@ import { Subject } from 'rxjs';
   providers: [UserLocationProvider]
 })
 export class MilestoneListComponent {
-  milestones: any;
+  @Input() milestones: any;
 
   classId: string;
 
   private locationModel: Subject<Object> = new Subject<Object>();
-
-  @Input()
-  set milestone(milestoneModel: any) {
-    this.milestones = milestoneModel;
-  }
 
   constructor(
     private userLocationProvider: UserLocationProvider,
