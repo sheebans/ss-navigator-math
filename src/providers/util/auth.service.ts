@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthProvider } from '@providers/api/auth';
+import { AuthProvider } from '@providers/api/auth/auth';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LookupsProvider } from '@providers/api/lookups';
+import { LookupsProvider } from '@providers/api/core/lookups';
 
 @IonicPage()
 @Component({

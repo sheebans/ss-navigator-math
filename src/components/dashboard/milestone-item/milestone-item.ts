@@ -2,18 +2,12 @@ import { Component, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 
-/**
- * Generated class for the MilestoneCardComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'milestone',
-  templateUrl: 'milestone.html'
+  selector: 'milestone-item',
+  templateUrl: 'milestone-item.html'
 })
-export class MilestoneComponent {
-  milestoneModel: any;
+export class MilestoneItemComponent {
+  @Input() milestone: any;
 
   shownAccordion: any;
 
@@ -23,17 +17,12 @@ export class MilestoneComponent {
 
   locationEvents: Subject<Object> = new Subject<Object>();
 
-  @Input() locationData: Observable<Object>;
-
-  @Input()
-  set milestoneData(milestoneModel: any) {
-    this.milestoneModel = milestoneModel;
-  }
+  @Input() location: Observable<Object>;
 
   constructor() {}
 
   ngOnInit() {
-    this.locationSubscription = this.locationData.subscribe(userLocation => {
+    this.locationSubscription = this.location.subscribe(userLocation => {
       this.locationEvents.next(userLocation);
     });
   }

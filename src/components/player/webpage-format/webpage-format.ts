@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { Loading, LoadingController } from 'ionic-angular';
+
 @Component({
   selector: 'webpage-format',
   templateUrl: 'webpage-format.html'
@@ -12,7 +14,12 @@ export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
 
   trustedWebsiteUrl: SafeResourceUrl;
 
-  constructor(private domSanitizer: DomSanitizer) {}
+  loading: Loading;
+
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private loadingCtrl: LoadingController
+  ) {}
 
   ngOnInit() {
     this.trustedWebsiteUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
@@ -21,6 +28,15 @@ export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
   }
 
   onWebpageLoad(): void {
+    if (this.loading) {
+      this.loading.dismiss();
+      this.loading = null;
+    } else {
+      this.loading = this.loadingCtrl.create({
+        content: ''
+      });
+      this.loading.present();
+    }
     console.log('webpage loaded Successfully!!!!');
   }
 }

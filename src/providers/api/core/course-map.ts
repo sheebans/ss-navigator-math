@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RestClient } from './rest-client';
+import { RestClient } from '@providers/api/rest-client';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 import { CourseMapModel } from '@models/course-map/course-map';

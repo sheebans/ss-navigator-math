@@ -1,29 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { UserLocationProvider } from '@providers/api/user-location';
+import { UserLocationProvider } from '@providers/api/analytics/user-location';
 import { NavParams } from 'ionic-angular';
 import { Subject } from 'rxjs';
 
-/**
- * Generated class for the MilestoneComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'milestone-list',
-  templateUrl: 'milestone-list.html'
+  templateUrl: 'milestone-list.html',
+  providers: [UserLocationProvider]
 })
 export class MilestoneListComponent {
-  milestones: any;
+  @Input() milestones: any;
 
   classId: string;
 
   private locationModel: Subject<Object> = new Subject<Object>();
-
-  @Input()
-  set milestone(milestoneModel: any) {
-    this.milestones = milestoneModel;
-  }
 
   constructor(
     private userLocationProvider: UserLocationProvider,

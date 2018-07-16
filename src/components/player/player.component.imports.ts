@@ -3,7 +3,8 @@ import { CollectionPlayerComponent } from './collection-player/collection-player
 import { AssessmentPlayerComponent } from './assessment-player/assessment-player';
 import { CollectionPlaylistComponent } from './collection-playlist/collection-playlist';
 import { ContentPlayerComponent } from './content-player.component';
-
+import { AssessmentPlayerOverviewComponent } from './assessment-player-overview/assessment-player-overview';
+import { AssessmentPlaylistComponent } from './assessment-playlist/assessment-playlist';
 import { WebpageFormatComponent } from './webpage-format/webpage-format';
 import { PdfFormatComponent } from './pdf-format/pdf-format';
 import { YoutubeVideoFormatComponent } from './youtube-video-format/youtube-video-format';
@@ -17,12 +18,14 @@ import { HighlightTextFormatComponent } from './highlight-text-format/highlight-
 import { MultipleSelectImageFormatComponent } from './multiple-select-image-format/multiple-select-image-format';
 import { MultipleSelectTextFormatComponent } from './multiple-select-text-format/multiple-select-text-format';
 import { FreeResponseFormatComponent } from './free-response-format/free-response-format';
+import { ImageFormatComponent } from './image-format/image-format';
 
 export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
   YoutubeVideoFormatComponent,
   VimeoVideoFormatComponent,
   WebpageFormatComponent,
   PdfFormatComponent,
+  ImageFormatComponent,
   TrueOrFalseFormatComponent,
   MultipleChoiceFormatComponent,
   FillInTheBlankFormatComponent,
@@ -37,9 +40,11 @@ export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
 export const PLAYER_COMPONENTS = [
   CollectionPlayerOverviewComponent,
   CollectionPlayerComponent,
+  AssessmentPlayerOverviewComponent,
   AssessmentPlayerComponent,
   ContentPlayerComponent,
   CollectionPlaylistComponent,
+  AssessmentPlaylistComponent,
   PLAYER_CONTENT_FORMAT_COMPONENTS
 ];
 
@@ -48,6 +53,7 @@ export const PLAYER_CONTENT_FORMAT_MAPPER: object = {
   youtube: YoutubeVideoFormatComponent,
   vimeo: VimeoVideoFormatComponent,
   pdf: PdfFormatComponent,
+  image: ImageFormatComponent,
   true_false_question: TrueOrFalseFormatComponent,
   multiple_choice_question: MultipleChoiceFormatComponent,
   fill_in_the_blank_question: FillInTheBlankFormatComponent,

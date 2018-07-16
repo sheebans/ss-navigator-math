@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { PlayerService } from '@components/player/player.service';
+import { Loading, LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'youtube-video-format',
@@ -18,9 +19,12 @@ export class YoutubeVideoFormatComponent
 
   trustedYoutubeVideoUrl: SafeResourceUrl;
 
+  loading: Loading;
+
   constructor(
     private domSanitizer: DomSanitizer,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -36,6 +40,15 @@ export class YoutubeVideoFormatComponent
   }
 
   onYoutubeVideoLoad(): void {
+    if (this.loading) {
+      this.loading.dismiss();
+      this.loading = null;
+    } else {
+      this.loading = this.loadingCtrl.create({
+        content: ''
+      });
+      this.loading.present();
+    }
     console.log('youtube video loaded Successfully!!!!');
   }
 

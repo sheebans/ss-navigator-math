@@ -34,6 +34,7 @@ export class HeaderTitleComponent implements OnInit, OnDestroy, OnChanges {
   ngOnChanges() {
     if (this.componentRef) {
       let instance = <HeaderTitleContextComponent>this.componentRef.instance;
+      console.log(this.context);
       instance.context = this.context;
     }
   }

@@ -10,9 +10,9 @@ export interface CollectionModel {
   thumbnail: string;
   learning_objective?: string;
   license?: string;
-  metadata?: Object;
-  taxonomy?: Object;
-  setting?: Object;
+  metadata?: object;
+  taxonomy?: object;
+  setting?: object;
   grading?: any;
   visible_on_profile?: boolean;
   course_id?: string;

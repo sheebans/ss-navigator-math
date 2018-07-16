@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { CollectionModel } from '@models/collection/collection';
-import { CollectionProvider } from '@providers/api/collection';
+import { CollectionProvider } from '@providers/api/core/collection';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { HeaderContextModel } from '@models/app/header/header-context';
@@ -13,6 +13,8 @@ import { HeaderTitleContextModel } from '@models/app/header/header-title-context
 })
 export class CollectionPlayerComponent implements OnInit, OnChanges {
   headerContextModel: HeaderContextModel;
+
+  headerTitleContext: HeaderTitleContextModel = { view_name: 'player' };
 
   @Input() id: string;
 
@@ -29,18 +31,15 @@ export class CollectionPlayerComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.collectionProvider.getCollection(this.id).subscribe(collection => {
       this.collection = collection;
+      this.headerTitleContext.title = collection.title;
     });
   }
 
   ngOnChanges() {
-    const headerTitleContext: HeaderTitleContextModel = {
-      title: this.collection ? this.collection.title : '',
-      subtitle: this.lesson ? this.lesson.title : '',
-      view_name: 'player'
-    };
-    this.headerContextModel = {
-      header_title_context: headerTitleContext
-    };
+    (this.headerTitleContext.subtitle = this.lesson ? this.lesson.title : ''),
+      (this.headerContextModel = {
+        header_title_context: this.headerTitleContext
+      });
   }
 
   openPlayer(data) {

@@ -1,1 +1,2 @@
-<collection-player [activePlayerIndex]="activePlayerIndex" [id]="id" [unit]="unit" [lesson]="lesson"></collection-player>
+<collection-player *ngIf="collectionType == 'collection'" [activePlayerIndex]="activePlayerIndex" [id]="id" [unit]="unit" [lesson]="lesson"></collection-player>
+<assessment-player *ngIf="collectionType == 'assessment'" [activePlayerIndex]="activePlayerIndex" [id]="id" [unit]="unit" [lesson]="lesson"></assessment-player>

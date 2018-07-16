@@ -85,14 +85,15 @@ export class PlayerService {
         playerFormat = 'webpage';
       }
     } else {
-      playerFormat = content.content_subformat.split('_question')[0];
+      playerFormat = content.content_subformat;
     }
     return playerFormat;
   }
 
   private getUrlExtension(url: string) {
-    return (url = url.substr(1 + url.lastIndexOf('/')).split('?')[0])
+    let extension = (url = url.substr(1 + url.lastIndexOf('/')).split('?')[0])
       .split('#')[0]
       .substr(url.lastIndexOf('.'));
+    return extension != null ? extension.toLowerCase() : '';
   }
 }
