@@ -13,6 +13,7 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="http://*" />
     <allow-navigation href="https://*" />
+    <preference name="YouTubeDataApiKey" value="AIzaSyB_hPBFrpQKqZfo7zHG4rWT1T6loiEBxHA" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -89,7 +90,6 @@
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
-    <plugin name="com-badrit-base64" spec="^0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
     <plugin name="ionic-plugin-deeplinks" spec="^1.0.15">
         <variable name="URL_SCHEME" value="navmath" />
@@ -113,6 +113,6 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.703794097568-jfuavdjf40c1ju1pmmdq77k4fmkpc5v9" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
-    <allow-navigation href="http://172.16.1.104:8100" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
+    <plugin name="cordova-plugin-youtube-video-player" spec="~1.0.6" />
 </widget>
