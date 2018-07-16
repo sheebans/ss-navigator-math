@@ -1,4 +1,11 @@
 image-format {
+  ion-card {
+    position: relative;
+    text-align: center;
+    &.no-width {
+      width: auto;
+    }
+  }
   img {
     background: white;
   }

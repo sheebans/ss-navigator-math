@@ -2,11 +2,9 @@
   <ion-content class="vertical-align-content">
     <ion-grid>
       <ion-row text-center>
-        <ion-col>
-          <ion-card no-margin>
+          <ion-card no-margin class="no-width">
             <img [src]="trustedImageUrl ? trustedImageUrl : null" (load)="trustedImageUrl ? onImageLoad() : null"  />
           </ion-card>
-        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-content>
