@@ -15,7 +15,9 @@ import { HeaderTitleContextModel } from '@models/app/header/header-title-context
   templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
-  headerContextModel: HeaderContextModel;
+  headerContextModel: HeaderContextModel = { show_menu: true };
+
+  headerTitleContext: HeaderTitleContextModel = { title: 'DASHBOARD_TITLE' };
 
   milestones: any;
 
@@ -25,23 +27,17 @@ export class DashboardPage {
     public menuCtrl: MenuController,
     private milestoneProvider: MilestoneProvider
   ) {
+    this.headerContextModel.header_title_context = this.headerTitleContext;
     this.init();
   }
 
   init() {
-    const headerTitleContext: HeaderTitleContextModel = {
-      title: 'DASHBOARD_TITLE'
-    };
-    this.headerContextModel = {
-      show_menu: true,
-      header_title_context: headerTitleContext
-    };
     this.milestoneProvider.getMileStones().subscribe(data => {
       this.milestones = data.milestones;
     });
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.menuCtrl.enable(true);
   }
 }

@@ -18,12 +18,14 @@ import { HighlightTextFormatComponent } from './highlight-text-format/highlight-
 import { MultipleSelectImageFormatComponent } from './multiple-select-image-format/multiple-select-image-format';
 import { MultipleSelectTextFormatComponent } from './multiple-select-text-format/multiple-select-text-format';
 import { FreeResponseFormatComponent } from './free-response-format/free-response-format';
+import { ImageFormatComponent } from './image-format/image-format';
 
 export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
   YoutubeVideoFormatComponent,
   VimeoVideoFormatComponent,
   WebpageFormatComponent,
   PdfFormatComponent,
+  ImageFormatComponent,
   TrueOrFalseFormatComponent,
   MultipleChoiceFormatComponent,
   FillInTheBlankFormatComponent,
@@ -51,6 +53,7 @@ export const PLAYER_CONTENT_FORMAT_MAPPER: object = {
   youtube: YoutubeVideoFormatComponent,
   vimeo: VimeoVideoFormatComponent,
   pdf: PdfFormatComponent,
+  image: ImageFormatComponent,
   true_false_question: TrueOrFalseFormatComponent,
   multiple_choice_question: MultipleChoiceFormatComponent,
   fill_in_the_blank_question: FillInTheBlankFormatComponent,

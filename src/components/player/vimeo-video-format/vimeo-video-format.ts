@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { PlayerService } from '@components/player/player.service';
+import { Loading, LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'vimeo-video-format',
@@ -16,11 +17,14 @@ export class VimeoVideoFormatComponent
 
   @Input() isActive: boolean;
 
+  loading: Loading;
+
   trustedVimeoVideoUrl: SafeResourceUrl;
 
   constructor(
     private domSanitizer: DomSanitizer,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -32,6 +36,15 @@ export class VimeoVideoFormatComponent
   }
 
   onVimeoVideoLoad(): void {
+    if (this.loading) {
+      this.loading.dismiss();
+      this.loading = null;
+    } else {
+      this.loading = this.loadingCtrl.create({
+        content: ''
+      });
+      this.loading.present();
+    }
     console.log('vimeo video loaded Successfully!!!!');
   }
 }
