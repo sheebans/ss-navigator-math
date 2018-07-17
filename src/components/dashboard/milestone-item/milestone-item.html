@@ -12,5 +12,16 @@
       </div>
     </div>
   </div>
-  <milestone-accordion class="accordion" (messageEvent)="receiveEvent($event)" [userLocationModel]="locationEvents.asObservable()" [events]="eventsSubject.asObservable()" [accordionData]="milestone.units"></milestone-accordion>
+  <div class="unit-section" *ngFor="let unit of milestone.units">
+    <div class="lesson-container" *ngFor="let lesson of unit.lessons" [ngClass]="{active: location && checkCurrentLesson(lesson)}">
+      <milestone-lesson-item class="lesson-item" no-padding (click)="getCollections(lesson, unit)" [unit]="unit" [lesson]="lesson"></milestone-lesson-item>
+      <ng-container *ngIf="isToggle(lesson)">
+        <ion-spinner *ngIf="isLoading" name="dots"></ion-spinner>
+        <ng-container *ngIf="!isLoading && collectionModel">
+          <milestone-collection-item class="collection-item" [activeLocation]="location" *ngFor="let collection of collectionModel" [ngClass]="{collection: checkCurrentCollection(collection)}" [collection]="collection">
+          </milestone-collection-item>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
 </div>

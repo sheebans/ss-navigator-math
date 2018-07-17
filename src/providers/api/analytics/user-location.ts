@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 import { SessionModel } from '@models/auth/session';
 import { UserLocationModel } from '@models/analytics/user-location';
-import { LocationContent } from '@models/analytics/location-content';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
@@ -27,29 +26,19 @@ export class UserLocationProvider {
       }/current/location`;
       const reqOpts = { headers: this.getTokenHeaders(session.access_token) };
       return this.restClient
-        .get<UserLocationModel>(endpoint, null, reqOpts)
-        .map(
-          (location): UserLocationModel => {
-            const result: UserLocationModel = {
-              content: this.serializeLocationContent(location.content)
-            };
-            return result;
-          }
-        );
+        .get<{ content: Array<UserLocationModel> }>(endpoint, null, reqOpts)
+        .map(res => {
+          let location = res.content[0];
+          const result: UserLocationModel = {
+            unitId: location.unitId,
+            lessonId: location.lessonId,
+            id: location.assessmentId
+              ? location.assessmentId
+              : location.collectionId
+          };
+          return result;
+        });
     });
-  }
-
-  serializeLocationContent(locationContent: any): Array<LocationContent> {
-    return locationContent.map(
-      (content): LocationContent => {
-        const result: LocationContent = {
-          unitId: content.unitId,
-          lessonId: content.lessonId,
-          id: content.assessmentId ? content.assessmentId : content.collectionId
-        };
-        return result;
-      }
-    );
   }
 
   getTokenHeaders(token: string): HttpHeaders {

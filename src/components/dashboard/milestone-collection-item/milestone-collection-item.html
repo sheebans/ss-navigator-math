@@ -1,0 +1,23 @@
+<div class="menu-bar">
+  <div class="icon-container" *ngIf="collection.format == 'collection'">
+    <ion-icon name="icon-collection"></ion-icon>
+  </div>
+  <div class="icon-container" *ngIf="collection.format == 'assessment'">
+    <ion-icon name="icon-assessment"></ion-icon>
+  </div>
+</div>
+<div class="collection-row">
+  <div class="collection">
+    <div class="collection-title">{{collection.title}}</div>
+  </div>
+  <div class="collection-meta">
+    <div class="badge">
+    </div>
+    <div class="collection-play" (click)="openPlayer()">
+      <i class="play-icon"></i>
+    </div>
+    <div class="collection-image">
+      <img src="{{collection.thumbnail}}" />
+    </div>
+  </div>
+</div>

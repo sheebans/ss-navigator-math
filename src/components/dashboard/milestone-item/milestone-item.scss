@@ -1,4 +1,9 @@
 milestone-item {
+  ion-spinner {
+    display: block;
+    margin: auto;
+  }
+
   .container {
     min-height: 200px;
     background: #ffffff;
@@ -29,6 +34,86 @@ milestone-item {
           color: #5c5c5c;
         }
       }
+    }
+
+    .unit-section {
+      margin-top: 10px;
+      width: 100%;
+
+      .lesson-container {
+        opacity: 0.5;
+        margin-right: 5px;
+        margin-left: 5px;
+        box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        border: solid 0.5px rgba(151, 151, 151, 0.3);
+      }
+
+      .lesson-container:nth-child(1) {
+        margin-top: 5px;
+      }
+
+      .lesson-container:last-child {
+        margin-bottom: 5px;
+      }
+
+      .lesson-container:not(:first-child) {
+        border-top: solid 0.5px rgba(151, 151, 151, 0.3);
+      }
+
+      .active {
+        margin: 10px 0 10px 0 !important;
+        opacity: 1;
+        box-shadow: 0 0 2.5px 2px rgba(93, 147, 217, 0.7) !important;
+      }
+
+      .active > .lesson-item {
+        padding-right: 5px;
+        padding-left: 5px;
+        pointer-events: none;
+      }
+
+      .active > .lesson-item > .lesson-row > .lesson > .lesson-title {
+        font-weight: bold;
+      }
+    }
+
+    .lesson-item {
+      display: flex;
+      box-shadow: 0 1px 2.5px 0 rgba(93, 93, 93, 0.3);
+      height: 50px;
+      width: 100%;
+    }
+
+    .collection-item.collection
+      > .collection-row
+      > .collection
+      > .collection-title {
+      color: #4a8cdb;
+      font-weight: bold;
+    }
+
+    .collection-item.collection > .menu-bar > .icon-container > ion-icon {
+      background: #4a8cdb;
+      font-size: 30px;
+    }
+
+    .collection-item.collection
+      > .collection-row
+      > .collection-meta
+      > .collection-play
+      > i {
+      zoom: 1.5;
+      background-position: 4px 4px !important;
+    }
+
+    .collection-item {
+      height: 50px;
+      width: 100%;
+      margin-top: 5px !important;
+      display: flex;
+      padding-left: 5px;
+      padding-right: 5px;
     }
   }
 }

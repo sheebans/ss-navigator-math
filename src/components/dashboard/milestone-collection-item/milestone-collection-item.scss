@@ -1,0 +1,73 @@
+milestone-collection-item {
+  %container {
+    width: 50px;
+    height: 100%;
+  }
+
+  .menu-bar {
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    @extend %container;
+
+    .icon-container {
+      margin: auto;
+      width: 100%;
+    }
+  }
+
+  .collection-row {
+    height: 100%;
+    width: calc(100% - 50px);
+    display: flex;
+    border-bottom: solid 0.5px #979797 !important;
+
+    .collection {
+      padding-top: 10px;
+      height: 100%;
+      background-color: #ffffff;
+      width: calc(100% - 100px);
+    }
+
+    .collection-title {
+      text-align: left;
+      padding-top: 5px;
+      font-size: 13px;
+      margin: 0;
+      white-space: nowrap;
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-style: normal;
+      color: #5d5d5d;
+    }
+
+    .collection-meta {
+      display: flex;
+      float: left;
+
+      .collection-play {
+        @extend %container;
+        text-align: center;
+
+        .play-icon {
+          background: url("../assets/icon/play.svg");
+          height: 41px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: 24px 24px;
+          background-position: 12px 14px;
+        }
+      }
+
+      .collection-image {
+        @extend %container;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
