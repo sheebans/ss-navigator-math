@@ -1,4 +1,10 @@
 collection-playlist {
+  ion-content {
+    &.content {
+      background-color: #000;
+    }
+  }
+
   .slide-zoom {
     height: 85vh;
     padding-left: 20px;

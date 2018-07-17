@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { PlayerService } from '@components/player/player.service';
-import { YouTubeProvider } from '@providers/api/youtube/youtube';
-import { YoutubeModel } from '@models/app/youtube';
+import { YouTubeVideoProvider } from '@providers/api/google/youtube-video';
+import { YoutubeVideoModel } from '@models/google/youtube-video';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { LoadingService } from '@providers/util/loading.service';
 import { ENV } from '@app/env';
 
 @Component({
   selector: 'youtube-video-format',
   templateUrl: 'youtube-video-format.html',
-  providers: [PlayerService, YouTubeProvider, YoutubeVideoPlayer]
+  providers: [PlayerService, YouTubeVideoProvider, YoutubeVideoPlayer]
 })
 export class YoutubeVideoFormatComponent
   implements ContentFormatComponent, OnInit {
@@ -19,28 +20,35 @@ export class YoutubeVideoFormatComponent
 
   @Input() isActive: boolean;
 
-  youtube: YoutubeModel;
+  youtubeVideo: YoutubeVideoModel;
 
   youTubeVideoId: string;
 
   constructor(
     private playerService: PlayerService,
-    private youTubeProvider: YouTubeProvider,
-    private youtubeVideoPlayer: YoutubeVideoPlayer
-  ) {}
+    private youTubeVideoProvider: YouTubeVideoProvider,
+    private youtubeVideoPlayer: YoutubeVideoPlayer,
+    private loadingService: LoadingService
+  ) {
+    this.loadingService.present();
+  }
 
   ngOnInit() {
     this.youTubeVideoId = this.playerService.getYoutubeIdFromUrl(
       this.content.url
     );
-    this.youTubeProvider
+    this.youTubeVideoProvider
       .getYoutubeVideoById(this.youTubeVideoId)
-      .subscribe(youtubeModel => {
-        this.youtube = youtubeModel;
+      .subscribe(youtubeVideo => {
+        this.youtubeVideo = youtubeVideo;
       });
   }
 
   play() {
     this.youtubeVideoPlayer.openVideo(this.youTubeVideoId);
+  }
+
+  onLoadYoutubeImage() {
+    this.loadingService.dismiss();
   }
 }

@@ -1,6 +1,7 @@
 // Providers
 import { AuthService } from '@providers/util/auth.service';
 import { ToastService } from '@providers/util/toast.service';
+import { LoadingService } from '@providers/util/loading.service';
 import { NetworkService } from '@providers/util/network.service';
 import { AuthProvider } from '@providers/api/auth/auth';
 import { ModalService } from '@providers/util/modal.service';
@@ -29,6 +30,7 @@ export const PROVIDERS = [
   ModalService,
   AuthService,
   NetworkService,
+  LoadingService,
   // Rest Client providers
   RestClient,
   AuthProvider,

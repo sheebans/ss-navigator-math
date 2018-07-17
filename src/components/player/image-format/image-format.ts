@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { LoadingService } from '@providers/util/loading.service';
 
 @Component({
   selector: 'image-format',
@@ -13,7 +14,12 @@ export class ImageFormatComponent implements ContentFormatComponent, OnInit {
 
   trustedImageUrl: SafeResourceUrl;
 
-  constructor(private domSanitizer: DomSanitizer) {}
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private loadingService: LoadingService
+  ) {
+    this.loadingService.present();
+  }
 
   ngOnInit() {
     this.trustedImageUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
@@ -22,6 +28,7 @@ export class ImageFormatComponent implements ContentFormatComponent, OnInit {
   }
 
   onImageLoad(): void {
+    this.loadingService.dismiss();
     console.log('image loaded Successfully!!!!');
   }
 }

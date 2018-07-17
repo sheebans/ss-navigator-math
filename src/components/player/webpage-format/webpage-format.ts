@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
-import { Loading, LoadingController } from 'ionic-angular';
+import { LoadingService } from '@providers/util/loading.service';
 
 @Component({
   selector: 'webpage-format',
@@ -14,11 +14,11 @@ export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
 
   trustedWebsiteUrl: SafeResourceUrl;
 
-  loading: Loading;
+  loading: boolean;
 
   constructor(
     private domSanitizer: DomSanitizer,
-    private loadingCtrl: LoadingController
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {
@@ -29,13 +29,11 @@ export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
 
   onWebpageLoad(): void {
     if (this.loading) {
-      this.loading.dismiss();
-      this.loading = null;
+      this.loadingService.dismiss();
+      this.loading = false;
     } else {
-      this.loading = this.loadingCtrl.create({
-        content: ''
-      });
-      this.loading.present();
+      this.loadingService.present();
+      this.loading = true;
     }
     console.log('webpage loaded Successfully!!!!');
   }

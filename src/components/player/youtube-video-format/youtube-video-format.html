@@ -1,8 +1,8 @@
 <ion-content class="vertical-align-content">
   <ion-grid>
     <ion-row text-center>
-        <ion-card no-margin class="youtube-card" *ngIf="youtube" (click)="play()">
-          <img [src]="youtube.image_url"  />
+        <ion-card no-margin class="youtube-card" *ngIf="youtubeVideo" (click)="play()">
+          <img [src]="youtubeVideo.image_url" (load)="onLoadYoutubeImage()" />
           <div class="youtube-play"><i></i></div>
         </ion-card>
     </ion-row>

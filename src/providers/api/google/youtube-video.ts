@@ -4,17 +4,17 @@ import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import { ENV } from '@app/env';
-import { YoutubeModel } from '@models/app/youtube';
+import { YoutubeVideoModel } from '@models/google/youtube-video';
 
 @Injectable()
-export class YouTubeProvider {
+export class YouTubeVideoProvider {
   API_KEY: string = ENV.YOUTUBE_API_KEY;
 
   url: string = 'https://www.googleapis.com/youtube/v3/videos';
 
   constructor(public http: HttpClient) {}
 
-  getYoutubeVideoById(id: string): Observable<YoutubeModel> {
+  getYoutubeVideoById(id: string): Observable<YoutubeVideoModel> {
     let httpParams = new HttpParams();
     httpParams = httpParams.set('key', this.API_KEY);
     httpParams = httpParams.set('id', id);
@@ -24,11 +24,11 @@ export class YouTubeProvider {
     );
     httpParams = httpParams.set('part', 'snippet');
     return this.http
-      .get<YoutubeModel>(this.url, { params: httpParams })
+      .get<YoutubeVideoModel>(this.url, { params: httpParams })
       .pipe(catchError(this.handleError))
       .map(res => {
         let item = res.items[0];
-        let result: YoutubeModel = {
+        let result: YoutubeVideoModel = {
           id: item.id,
           title: item.snippet.title,
           image_url: item.snippet.thumbnails.standard.url

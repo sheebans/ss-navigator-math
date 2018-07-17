@@ -1,13 +1,15 @@
-import { ToastController } from 'ionic-angular';
+import { ToastController, Toast } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ToastService {
-  defaultPosition: string = 'top';
+  defaultPosition: string = 'bottom';
 
   defaultShowCloseButton: boolean = true;
 
   defaultCloseButtonText: string = 'OK';
+
+  toast: Toast;
 
   constructor(private toastCtrl: ToastController) {}
 
@@ -17,16 +19,21 @@ export class ToastService {
     showCloseButton?: boolean,
     closeButtonText?: string
   ) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      closeButtonText: closeButtonText
-        ? closeButtonText
-        : this.defaultCloseButtonText,
-      position: position ? position : this.defaultPosition,
-      showCloseButton: showCloseButton
-        ? showCloseButton
-        : this.defaultShowCloseButton
-    });
-    toast.present();
+    if (!this.toast) {
+      this.toast = this.toastCtrl.create({
+        message: message,
+        closeButtonText: closeButtonText
+          ? closeButtonText
+          : this.defaultCloseButtonText,
+        position: position ? position : this.defaultPosition,
+        showCloseButton: showCloseButton
+          ? showCloseButton
+          : this.defaultShowCloseButton
+      });
+      this.toast.onDidDismiss(() => {
+        this.toast = null;
+      });
+      this.toast.present();
+    }
   }
 }
