@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
-import { Loading, LoadingController } from 'ionic-angular';
+import { LoadingService } from '@providers/util/loading.service';
 
 @Component({
   selector: 'pdf-format',
@@ -16,11 +16,11 @@ export class PdfFormatComponent implements ContentFormatComponent, OnInit {
 
   trustedPdfUrl: SafeResourceUrl;
 
-  loading: Loading;
+  loading: boolean;
 
   constructor(
     private domSanitizer: DomSanitizer,
-    private loadingCtrl: LoadingController
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {
@@ -32,13 +32,11 @@ export class PdfFormatComponent implements ContentFormatComponent, OnInit {
 
   onPdfLoad(): void {
     if (this.loading) {
-      this.loading.dismiss();
-      this.loading = null;
+      this.loadingService.dismiss();
+      this.loading = false;
     } else {
-      this.loading = this.loadingCtrl.create({
-        content: ''
-      });
-      this.loading.present();
+      this.loadingService.present();
+      this.loading = true;
     }
     console.log('pdf loaded Successfully!!!!');
   }

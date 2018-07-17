@@ -1,78 +1,54 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { PlayerService } from '@components/player/player.service';
-import { Loading, LoadingController } from 'ionic-angular';
+import { YouTubeVideoProvider } from '@providers/api/google/youtube-video';
+import { YoutubeVideoModel } from '@models/google/youtube-video';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { LoadingService } from '@providers/util/loading.service';
+import { ENV } from '@app/env';
 
 @Component({
   selector: 'youtube-video-format',
   templateUrl: 'youtube-video-format.html',
-  providers: [PlayerService]
+  providers: [PlayerService, YouTubeVideoProvider, YoutubeVideoPlayer]
 })
 export class YoutubeVideoFormatComponent
   implements ContentFormatComponent, OnInit {
-  youtubePlayerUrl: string = 'https://www.youtube.com/embed/';
+  API_KEY: string = ENV.YOUTUBE_API_KEY;
 
   @Input() content: any;
 
   @Input() isActive: boolean;
 
-  trustedYoutubeVideoUrl: SafeResourceUrl;
+  youtubeVideo: YoutubeVideoModel;
 
-  loading: Loading;
+  youTubeVideoId: string;
 
   constructor(
-    private domSanitizer: DomSanitizer,
     private playerService: PlayerService,
-    private loadingCtrl: LoadingController
-  ) {}
+    private youTubeVideoProvider: YouTubeVideoProvider,
+    private youtubeVideoPlayer: YoutubeVideoPlayer,
+    private loadingService: LoadingService
+  ) {
+    this.loadingService.present();
+  }
 
   ngOnInit() {
-    const youtubeId = this.playerService.getYoutubeIdFromUrl(this.content.url);
-    const start = this.getStart();
-    const stop = this.getStop();
-    const youtubeVideoUrl = `${
-      this.youtubePlayerUrl
-    }${youtubeId}?start=${start}&end=${stop}&rel=0`;
-    this.trustedYoutubeVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
-      youtubeVideoUrl
+    this.youTubeVideoId = this.playerService.getYoutubeIdFromUrl(
+      this.content.url
     );
-  }
-
-  onYoutubeVideoLoad(): void {
-    if (this.loading) {
-      this.loading.dismiss();
-      this.loading = null;
-    } else {
-      this.loading = this.loadingCtrl.create({
-        content: ''
+    this.youTubeVideoProvider
+      .getYoutubeVideoById(this.youTubeVideoId)
+      .subscribe(youtubeVideo => {
+        this.youtubeVideo = youtubeVideo;
       });
-      this.loading.present();
-    }
-    console.log('youtube video loaded Successfully!!!!');
   }
 
-  /**
-   * @property {string} Begin playing the video at the given number of seconds from the start of the video
-   */
-  getStart(): number {
-    if (this.content.display_guide && this.content.display_guide.start_time) {
-      return this.playerService.convertToSeconds(
-        this.content.display_guide.start_time
-      );
-    }
-    return null;
+  play() {
+    this.youtubeVideoPlayer.openVideo(this.youTubeVideoId);
   }
 
-  /**
-   * @property {string} The time, measured in seconds from the start of the video, when the player should stop playing the video
-   */
-  getStop(): number {
-    if (this.content.display_guide && this.content.display_guide.end_time) {
-      return this.playerService.convertToSeconds(
-        this.content.display_guide.end_time
-      );
-    }
-    return 0;
+  onLoadYoutubeImage() {
+    this.loadingService.dismiss();
   }
 }

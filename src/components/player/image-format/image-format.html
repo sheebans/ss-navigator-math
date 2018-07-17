@@ -1,13 +1,9 @@
-<ng-container *ngIf="isActive">
-  <ion-content class="vertical-align-content">
-    <ion-grid>
-      <ion-row text-center>
-        <ion-col>
-          <ion-card no-margin>
-            <img [src]="trustedImageUrl ? trustedImageUrl : null" (load)="trustedImageUrl ? onImageLoad() : null"  />
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
-</ng-container>
+<ion-content class="vertical-align-content">
+  <ion-grid>
+    <ion-row text-center>
+      <ion-card no-margin class="image-card">
+        <img [src]="trustedImageUrl ? trustedImageUrl : null" (load)="trustedImageUrl ? onImageLoad() : null" />
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

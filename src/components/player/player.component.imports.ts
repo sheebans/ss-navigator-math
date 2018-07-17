@@ -19,6 +19,7 @@ import { MultipleSelectImageFormatComponent } from './multiple-select-image-form
 import { MultipleSelectTextFormatComponent } from './multiple-select-text-format/multiple-select-text-format';
 import { FreeResponseFormatComponent } from './free-response-format/free-response-format';
 import { ImageFormatComponent } from './image-format/image-format';
+import { CollectionPlaylistFooterComponent } from './collection-playlist-footer/collection-playlist-footer';
 
 export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
   YoutubeVideoFormatComponent,
@@ -45,6 +46,7 @@ export const PLAYER_COMPONENTS = [
   ContentPlayerComponent,
   CollectionPlaylistComponent,
   AssessmentPlaylistComponent,
+  CollectionPlaylistFooterComponent,
   PLAYER_CONTENT_FORMAT_COMPONENTS
 ];
 

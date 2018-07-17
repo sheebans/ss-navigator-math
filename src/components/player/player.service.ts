@@ -69,7 +69,7 @@ export class PlayerService {
     return playerComponent;
   }
 
-  private getPlayerFormat(content: any): string {
+  getPlayerFormat(content: any): string {
     let playerFormat = '';
     if (content.url) {
       let urlExtension = this.getUrlExtension(content.url);

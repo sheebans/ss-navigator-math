@@ -1,3 +1,10 @@
-<ng-container *ngIf="isActive">
-  <iframe  [src]="trustedYoutubeVideoUrl ? trustedYoutubeVideoUrl : null" (load)="trustedYoutubeVideoUrl ? onYoutubeVideoLoad() : null" frameborder="0"></iframe>
-</ng-container>
+<ion-content class="vertical-align-content">
+  <ion-grid>
+    <ion-row text-center>
+        <ion-card no-margin class="youtube-card" *ngIf="youtubeVideo" (click)="play()">
+          <img [src]="youtubeVideo.image_url" (load)="onLoadYoutubeImage()" />
+          <div class="youtube-play"><i></i></div>
+        </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>
