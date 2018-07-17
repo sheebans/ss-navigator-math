@@ -13,6 +13,7 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="http://*" />
     <allow-navigation href="https://*" />
+    <preference name="Orientation" value="portrait" />
     <preference name="YouTubeDataApiKey" value="AIzaSyB_hPBFrpQKqZfo7zHG4rWT1T6loiEBxHA" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
@@ -115,4 +116,5 @@
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-youtube-video-player" spec="~1.0.6" />
     <engine name="android" spec="~6.4.0" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
 </widget>
