@@ -1,11 +1,13 @@
 import { MilestoneItemComponent } from '@components/dashboard/milestone-item/milestone-item';
-import { MilestoneAccordionComponent } from '@components/dashboard/milestone-accordion/milestone-accordion';
 import { MilestoneListComponent } from '@components/dashboard/milestone-list/milestone-list';
+import { MilestoneLessonItemComponent } from '@components/dashboard/milestone-lesson-item/milestone-lesson-item';
+import { MilestoneCollectionItemComponent } from '@components/dashboard/milestone-collection-item/milestone-collection-item';
 import { BadgeInfoComponent } from '@components/dashboard/badge-info/badge-info';
 
 export const DASHBOARD_COMPONENTS = [
   MilestoneItemComponent,
-  MilestoneAccordionComponent,
   MilestoneListComponent,
+  MilestoneLessonItemComponent,
+  MilestoneCollectionItemComponent,
   BadgeInfoComponent
 ];

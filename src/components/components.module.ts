@@ -17,7 +17,11 @@ import { DASHBOARD_COMPONENTS } from '@components/dashboard/dashboard.component.
   declarations: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
-  entryComponents: [PLAYER_CONTENT_FORMAT_COMPONENTS, HEADER_TITLE_COMPONENTS],
+  entryComponents: [
+    PLAYER_CONTENT_FORMAT_COMPONENTS,
+    HEADER_TITLE_COMPONENTS,
+    DASHBOARD_COMPONENTS
+  ],
   providers: [Deeplinks]
 })
 export class ComponentsModule {}

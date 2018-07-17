@@ -1,0 +1,24 @@
+<div class=" menu-bar">
+  <div class="icon-container">
+    <i class="lesson-icon"></i>
+  </div>
+</div>
+<div class="lesson-row">
+  <div class="lesson">
+    <span>{{unit.unit_title}}</span>
+    <div class="lesson-title">{{lesson.lesson_title}}</div>
+  </div>
+  <div class="lesson-meta">
+    <div class="badge">
+      <i *ngIf="lesson.badge" class="badge-icon" (click)="$event.stopPropagation(); openBadgeInfo()"></i>
+    </div>
+    <div class="info">
+      <i class="info-icon"></i>
+    </div>
+  </div>
+</div>
+<div *ngIf="lesson.started" class="score">
+  <span>100%</span>
+</div>
+<div *ngIf="!lesson.started" class="lesson-image">
+</div>

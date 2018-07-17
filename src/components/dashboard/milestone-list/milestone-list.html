@@ -1,1 +1,3 @@
-<milestone-item *ngFor="let milestone of milestones" [milestone]="milestone" [location]="locationModel.asObservable()"></milestone-item>
+<ng-container *ngFor="let milestone of milestones">
+  <milestone-item [milestone]="milestone" [context]="context" *ngIf="userLocationModel" [location]="userLocationModel"></milestone-item>
+</ng-container>

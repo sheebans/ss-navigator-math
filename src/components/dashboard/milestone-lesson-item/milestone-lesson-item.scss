@@ -1,0 +1,104 @@
+milestone-lesson-item {
+  %container {
+    width: 50px;
+    height: 100%;
+  }
+
+  span {
+    font-size: 11px;
+    color: #5d5d5d;
+    display: block;
+  }
+
+  .menu-bar {
+    padding: 10px;
+    display: flex;
+    @extend %container;
+
+    .icon-container {
+      margin: auto;
+      width: 100%;
+
+      .lesson-icon {
+        background: url("../assets/icon/combined.svg");
+        height: 41px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+        background-position: 0 3px;
+      }
+    }
+  }
+
+  .score {
+    @extend %container;
+    text-align: center;
+    background: #539846;
+    display: flex;
+
+    span {
+      margin: auto;
+      color: #ffffff !important;
+    }
+  }
+
+  .lesson-image {
+    @extend %container;
+  }
+
+  .lesson-row {
+    height: 100%;
+    width: calc(100% - 100px);
+    display: flex;
+
+    .lesson {
+      padding-top: 10px;
+      height: 100%;
+      background-color: #ffffff;
+      width: calc(100% - 100px);
+
+      .lesson-title {
+        margin: 0;
+        white-space: nowrap;
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-style: normal;
+        color: #5d5d5d;
+      }
+    }
+  }
+
+  .lesson-meta {
+    display: flex;
+    float: left;
+  }
+
+  .badge {
+    @extend %container;
+
+    .badge-icon {
+      pointer-events: auto;
+      background: url("../assets/imgs/dashboard/badge-2x.png");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 30px 30px;
+      background-position: 19px 13px;
+    }
+  }
+
+  .info {
+    @extend %container;
+    text-align: center;
+
+    .info-icon {
+      background: url("../assets/icon/info.svg");
+      height: 41px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 12px 13px;
+    }
+  }
+}

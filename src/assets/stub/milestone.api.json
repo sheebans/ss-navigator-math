@@ -9,7 +9,7 @@
           "lessons": [{
               "lesson_id": "0d76362b-22a4-49ca-9ee8-f317f2c25df4",
               "lesson_title": "Find rate of change and values of linear function",
-              "badge": false,
+              "badge": true,
               "started": false
             },
             {
