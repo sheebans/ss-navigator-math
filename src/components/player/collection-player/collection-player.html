@@ -6,6 +6,6 @@
     <collection-player-overview (onContentPlay)="openPlayer($event)" [collection]="collection" [unit]="unit" [lesson]="lesson"></collection-player-overview>
   </ng-container>
   <ng-container *ngIf="activePlayerIndex > -1 ">
-    <collection-playlist  [collection]="collection" [activePlayerIndex]="activePlayerIndex"></collection-playlist>
+    <collection-playlist  [collection]="collection" [unit]="unit" [lesson]="lesson" [activePlayerIndex]="activePlayerIndex"></collection-playlist>
   </ng-container>
 </ion-content>

@@ -1,4 +1,4 @@
-import { ModalController } from 'ionic-angular';
+import { ModalController, Modal } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -9,14 +9,20 @@ export class ModalService {
     enableBackdropDismiss: true
   };
 
+  modal: Modal;
+
   constructor(private modalCtrl: ModalController) {}
 
   presentModal(component: any, data?: object, params?: object) {
-    let modal = this.modalCtrl.create(
+    this.modal = this.modalCtrl.create(
       component,
       data,
       params ? params : this.defaultParams
     );
-    modal.present();
+    this.modal.present();
+  }
+
+  dismiss() {
+    this.modal.dismiss();
   }
 }

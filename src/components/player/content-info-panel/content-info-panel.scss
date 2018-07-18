@@ -1,0 +1,97 @@
+content-info-panel {
+  .content-panel {
+    display: flex;
+    min-height: 45px;
+    background-color: #5c5c5c;
+
+    .content-icon {
+      width: 45px;
+      height: 45px;
+
+      i {
+        width: 20px;
+        height: 20px;
+        display: block;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        margin-top: 14px;
+        margin-left: 17px;
+        background-color: white;
+      }
+
+      .video-icon {
+        background-image: url("../assets/icon/video-resource-dark.svg");
+      }
+
+      .text-icon {
+        background-image: url("../assets/icon/text-resource-dark.svg");
+      }
+
+      .audio-icon {
+        background-image: url("../assets/icon/audio-resource-dark.svg");
+      }
+
+      .webpage-icon {
+        background-image: url("../assets/icon/website-resource-dark.svg");
+      }
+
+      .interactive-icon {
+        background-image: url("../assets/icon/interactive-resource-dark.svg");
+      }
+
+      .image-icon {
+        background-image: url("../assets/icon/image-resource-dark.svg");
+      }
+
+      .question-icon {
+        background-image: url("../assets/icon/question-dark.svg");
+      }
+    }
+
+    .content-metadata {
+      width: calc(100% - 150px);
+      color: #ffffff;
+      padding-left: 10px;
+
+      p {
+        margin-top: 17px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .playlist-pulldown,
+    .playlist-pullup {
+      width: 20px;
+      height: 45px;
+      margin-left: 5px;
+
+      ion-icon {
+        margin-top: 17px;
+        color: white;
+      }
+    }
+
+    .fullscreen {
+      width: 45px;
+      height: 45px;
+      -webkit-mask-image: url("../assets/icon/full-screen.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 35px 35px;
+      background-color: #fff;
+      -webkit-mask-position: 6px 6px;
+    }
+
+    .reactions {
+      width: 45px;
+      height: 45px;
+      background-repeat: no-repeat;
+      background-position: 4px 6px;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #ffffff;
+      background-size: 35px 35px;
+    }
+  }
+}
