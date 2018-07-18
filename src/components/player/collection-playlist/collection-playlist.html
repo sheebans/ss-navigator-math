@@ -1,9 +1,10 @@
 <ion-content>
   <ion-slides [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
-    <ion-slide *ngFor="let content of contents; let contentIndex = index" >
-      <content-player  [isActive]="activePlayerIndex === contentIndex" [content]="content"></content-player>
+    <ion-slide *ngFor="let content of contents; let contentIndex = index">
+      <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content"></content-player>
     </ion-slide>
   </ion-slides>
 </ion-content>
-<collection-playlist-footer>
-</collection-playlist-footer>
+<ion-footer>
+  <content-info-panel [collection]="collection" [unit]="unit" [lesson]="lesson" [content]="activeContent"></content-info-panel>
+</ion-footer>

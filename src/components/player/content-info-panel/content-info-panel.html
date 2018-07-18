@@ -1,0 +1,27 @@
+<div class="content-panel">
+  <div class="content-icon">
+    <ng-container *ngIf="content.content_format === 'resource'">
+      <i class="{{content.content_subformat | resourceFormat}}-icon"></i>
+    </ng-container>
+    <ng-container *ngIf="content.content_format === 'question'">
+      <i class="question-icon"></i>
+    </ng-container>
+  </div>
+  <div class="content-metadata">
+    <p>{{content.title}}</p>
+  </div>
+  <ng-container *ngIf="!isCollectionPlayListPanelOpen">
+    <div class="playlist-pullup" (click)="openCollectionPlaylistPanel()">
+      <ion-icon ios="ios-arrow-up" md="ios-arrow-up"></ion-icon>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isCollectionPlayListPanelOpen">
+    <div class="playlist-pulldown" (click)="closeCollectionPlaylistPanel()">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+    </div>
+  </ng-container>
+  <div class="reactions smiley-1">
+
+  </div>
+  <div class="fullscreen"></div>
+</div>

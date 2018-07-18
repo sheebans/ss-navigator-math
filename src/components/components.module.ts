@@ -5,7 +5,7 @@ import { Deeplinks } from '@ionic-native/deeplinks';
 import { PipesModule } from '@pipes/pipes.module';
 import {
   PLAYER_COMPONENTS,
-  PLAYER_CONTENT_FORMAT_COMPONENTS
+  PLAYER_ENTRY_COMPONENTS
 } from '@components/player/player.component.imports';
 import {
   HEADER_COMPONENTS,
@@ -17,7 +17,7 @@ import { DASHBOARD_COMPONENTS } from '@components/dashboard/dashboard.component.
   declarations: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
   exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
-  entryComponents: [PLAYER_CONTENT_FORMAT_COMPONENTS, HEADER_TITLE_COMPONENTS],
+  entryComponents: [PLAYER_ENTRY_COMPONENTS, HEADER_TITLE_COMPONENTS],
   providers: [Deeplinks]
 })
 export class ComponentsModule {}

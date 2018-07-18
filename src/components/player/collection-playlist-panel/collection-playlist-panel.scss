@@ -1,0 +1,151 @@
+collection-playlist-panel {
+  background: white;
+
+  .collection-img {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+
+  .panel-header {
+    height: 50px;
+    margin-top: 5px;
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+
+    .collection-icon {
+      width: 50px;
+      height: 50px;
+
+      i {
+        background: url("../assets/icon/collection-dark.svg");
+        height: 40px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-position: 10px 9px;
+      }
+    }
+
+    .collection-meta {
+      width: calc(100% - 100px);
+      color: #5d5d5d;
+      padding-left: 10px;
+
+      p {
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      h6 {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .collection-info {
+      width: 75px;
+      height: 50px;
+
+      i {
+        background: url("../assets/icon/info.svg");
+        height: 41px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+        background-position: 6px 15px;
+      }
+    }
+  }
+
+  .panel-body {
+    height: calc(100% - 100px);
+    overflow: auto;
+
+    .content-panel {
+      height: 50px;
+      display: flex;
+      border-bottom: 1px solid #cccccc;
+
+      .content-icon {
+        width: 50px;
+        height: 50px;
+
+        i {
+          width: 20px;
+          height: 20px;
+          display: block;
+          background-size: 20px 20px;
+          background-repeat: no-repeat;
+          margin-left: 19px;
+          margin-top: 16px;
+        }
+
+        .video-icon {
+          background-image: url("../assets/icon/video-resource-dark.svg");
+        }
+
+        .text-icon {
+          background-image: url("../assets/icon/text-resource-dark.svg");
+        }
+
+        .audio-icon {
+          background-image: url("../assets/icon/audio-resource-dark.svg");
+        }
+
+        .webpage-icon {
+          background-image: url("../assets/icon/website-resource-dark.svg");
+        }
+
+        .interactive-icon {
+          background-image: url("../assets/icon/interactive-resource-dark.svg");
+        }
+
+        .image-icon {
+          background-image: url("../assets/icon/image-resource-dark.svg");
+        }
+
+        .question-icon {
+          background-image: url("../assets/icon/question-dark.svg");
+        }
+      }
+
+      .content-meta {
+        width: calc(100% - 100px);
+        color: #5d5d5d;
+        padding-left: 10px;
+
+        p {
+          margin-bottom: 0;
+          margin-top: 12px;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .content-timespent {
+        width: 50px;
+        height: 50px;
+        background: rgba(216, 216, 216, 0.2);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        color: #5d5d5d;
+      }
+    }
+  }
+}

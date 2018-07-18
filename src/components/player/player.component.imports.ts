@@ -19,9 +19,10 @@ import { MultipleSelectImageFormatComponent } from './multiple-select-image-form
 import { MultipleSelectTextFormatComponent } from './multiple-select-text-format/multiple-select-text-format';
 import { FreeResponseFormatComponent } from './free-response-format/free-response-format';
 import { ImageFormatComponent } from './image-format/image-format';
-import { CollectionPlaylistFooterComponent } from './collection-playlist-footer/collection-playlist-footer';
+import { ContentInfoPanelComponent } from './content-info-panel/content-info-panel';
+import { CollectionPlaylistPanelComponent } from './collection-playlist-panel/collection-playlist-panel';
 
-export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
+export const PLAYER_ENTRY_COMPONENTS = [
   YoutubeVideoFormatComponent,
   VimeoVideoFormatComponent,
   WebpageFormatComponent,
@@ -35,7 +36,8 @@ export const PLAYER_CONTENT_FORMAT_COMPONENTS = [
   HighlightTextFormatComponent,
   MultipleSelectImageFormatComponent,
   MultipleSelectTextFormatComponent,
-  FreeResponseFormatComponent
+  FreeResponseFormatComponent,
+  CollectionPlaylistPanelComponent
 ];
 
 export const PLAYER_COMPONENTS = [
@@ -46,8 +48,9 @@ export const PLAYER_COMPONENTS = [
   ContentPlayerComponent,
   CollectionPlaylistComponent,
   AssessmentPlaylistComponent,
-  CollectionPlaylistFooterComponent,
-  PLAYER_CONTENT_FORMAT_COMPONENTS
+  ContentInfoPanelComponent,
+  CollectionPlaylistPanelComponent,
+  PLAYER_ENTRY_COMPONENTS
 ];
 
 export const PLAYER_CONTENT_FORMAT_MAPPER: object = {
