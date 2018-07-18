@@ -58,3 +58,45 @@ ion-icon {
     mask-image: url("../assets/icon/vertical-line.svg");
   }
 }
+// smiley  default icon & active icons, use these class name to apply this icon
+// whereever necessary in application.
+
+.smiley-1 {
+  background-image: url("../assets/icon/smiley/1.svg");
+}
+
+.smiley-2 {
+  background-image: url("../assets/icon/smiley/2.svg");
+}
+
+.smiley-3 {
+  background-image: url("../assets/icon/smiley/3.svg");
+}
+
+.smiley-4 {
+  background-image: url("../assets/icon/smiley/4-default.svg");
+}
+
+.smiley-5 {
+  background-image: url("../assets/icon/smiley/5-default.svg");
+}
+
+.smiley-1-default {
+  background-image: url("../assets/icon/smiley/1-default.svg");
+}
+
+.smiley-2-default {
+  background-image: url("../assets/icon/smiley/2-default.svg");
+}
+
+.smiley-3-default {
+  background-image: url("../assets/icon/smiley/3-default.svg");
+}
+
+.smiley-4-default {
+  background-image: url("../assets/icon/smiley/4-default.svg");
+}
+
+.smiley-5-default {
+  background-image: url("../assets/icon/smiley/5-default.svg");
+}
