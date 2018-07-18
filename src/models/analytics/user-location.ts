@@ -1,6 +1,11 @@
-import { LocationContent } from '@models/analytics/location-content';
+import { CollectionSummary } from '@models/course-map/collection-summary';
 export interface UserLocationModel {
-  content: Array<LocationContent>;
-  message?: any;
-  paginate?: any;
+  id?: string;
+  collectionId?: string;
+  assessmentId?: string;
+  unitId: string;
+  lessonId: string;
+  courseId?: string;
+  classId?: string;
+  collection?: Array<CollectionSummary>;
 }

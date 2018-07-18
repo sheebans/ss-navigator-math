@@ -16,8 +16,12 @@ import { DASHBOARD_COMPONENTS } from '@components/dashboard/dashboard.component.
 @NgModule({
   declarations: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
   imports: [IonicModule, TranslateModule.forChild(), PipesModule],
-  exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
-  entryComponents: [PLAYER_ENTRY_COMPONENTS, HEADER_TITLE_COMPONENTS],
+  exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS
+  entryComponents: [
+    PLAYER_CONTENT_FORMAT_COMPONENTS,
+    HEADER_TITLE_COMPONENTS,
+    DASHBOARD_COMPONENTS
+  ],
   providers: [Deeplinks]
 })
 export class ComponentsModule {}

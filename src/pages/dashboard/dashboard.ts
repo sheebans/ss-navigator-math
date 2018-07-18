@@ -21,20 +21,38 @@ export class DashboardPage {
 
   milestones: any;
 
+  context: object;
+
+  classId: string;
+
+  courseId: string;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
     private milestoneProvider: MilestoneProvider
   ) {
+    this.classId =
+      this.navParams.get('classId') || 'bd5b0c71-3b3f-441f-903f-91f000fa9863';
+    this.courseId =
+      this.navParams.get('courseId') || '5d2d7b02-540f-495b-9ce3-6f3ed5a99074';
     this.headerContextModel.header_title_context = this.headerTitleContext;
-    this.init();
   }
 
-  init() {
+  ngOnInit() {
     this.milestoneProvider.getMileStones().subscribe(data => {
       this.milestones = data.milestones;
     });
+
+    this.serializeLessonMeta();
+  }
+
+  serializeLessonMeta() {
+    this.context = {
+      classId: this.classId,
+      courseId: this.courseId
+    };
   }
 
   ionViewDidEnter() {
