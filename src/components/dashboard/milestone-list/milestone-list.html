@@ -1,3 +1,4 @@
 <ng-container *ngFor="let milestone of milestones">
   <milestone-item [milestone]="milestone" [context]="context" *ngIf="userLocationModel" [location]="userLocationModel"></milestone-item>
 </ng-container>
+<milestone-menu *ngIf="milestones && userLocationModel" [milestones]="milestones" [location]="userLocationModel"></milestone-menu>

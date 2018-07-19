@@ -41,24 +41,21 @@ milestone-item {
       width: 100%;
 
       .lesson-container {
-        opacity: 0.5;
+        opacity: 1;
         margin-right: 5px;
         margin-left: 5px;
-        box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-        border: solid 0.5px rgba(151, 151, 151, 0.3);
+        border-bottom: solid 0.5px #ccc;
+        border-right: solid 0.5px #ccc;
+        border-left: solid 0.5px #ccc;
       }
 
       .lesson-container:nth-child(1) {
-        margin-top: 5px;
+        border-top: solid 1px #ccc;
       }
 
       .lesson-container:last-child {
         margin-bottom: 5px;
-      }
-
-      .lesson-container:not(:first-child) {
-        border-top: solid 0.5px rgba(151, 151, 151, 0.3);
+        box-shadow: 0 1px 1.5px 0 #ccc;
       }
 
       .active {
@@ -71,16 +68,20 @@ milestone-item {
         padding-right: 5px;
         padding-left: 5px;
         pointer-events: none;
+        box-shadow: 0 1px 1.5px 0 #ccc;
       }
 
       .active > .lesson-item > .lesson-row > .lesson > .lesson-title {
         font-weight: bold;
       }
+
+      .active + .lesson-container {
+        border-top: solid 1px #ccc;
+      }
     }
 
     .lesson-item {
       display: flex;
-      box-shadow: 0 1px 2.5px 0 rgba(93, 93, 93, 0.3);
       height: 50px;
       width: 100%;
     }

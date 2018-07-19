@@ -1,0 +1,28 @@
+<svg version="1.1" id="side-menu" attr.height.px="{{height}}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
+  <ng-container *ngFor="let learningPath of learningPaths">
+    <ng-container *ngIf="learningPath.imageName == 'milestone'">
+      <image xlink:href="assets/icon/flag.svg" [attr.x]="learningPath.imageX" [attr.y]="learningPath.imageY" height="20" width="20"/>
+        <ng-container *ngIf="learningPath.drawLine">
+          <line xmlns="http://www.w3.org/2000/svg" [attr.x1]="learningPath.lineX1" [attr.y1]="learningPath.lineY1" [attr.x2]="learningPath.lineX2" [attr.y2]="learningPath.lineY2" style="stroke:#5d5d5d;stroke-width:2"/>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="learningPath.imageName == 'lesson'">
+      <image xlink:href="assets/icon/lesson.svg" [attr.x]="learningPath.imageX" [attr.y]="learningPath.imageY" height="20" width="20"/>
+        <ng-container *ngIf="learningPath.drawLine">
+          <line xmlns="http://www.w3.org/2000/svg" [attr.x1]="learningPath.lineX1" [attr.y1]="learningPath.lineY1" [attr.x2]="learningPath.lineX2" [attr.y2]="learningPath.lineY2" style="stroke:#5d5d5d;stroke-width:2"/>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="learningPath.imageName == 'collection'">
+      <image xlink:href="assets/icon/collection.svg" [attr.x]="learningPath.imageX" [attr.y]="learningPath.imageY + 10" height="20" width="20"/>
+        <ng-container *ngIf="learningPath.drawLine">
+          <line xmlns="http://www.w3.org/2000/svg" [attr.x1]="learningPath.lineX1" [attr.y1]="learningPath.lineY1" [attr.x2]="learningPath.lineX2" [attr.y2]="learningPath.lineY2" style="stroke:#5d5d5d;stroke-width:2"/>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="learningPath.imageName == 'assessment'">
+      <image xlink:href="assets/icon/assessment.svg" [attr.x]="learningPath.imageX" [attr.y]="learningPath.imageY" height="20" width="20"/>
+        <ng-container *ngIf="learningPath.drawLine">
+          <line xmlns="http://www.w3.org/2000/svg" [attr.x1]="learningPath.lineX1" [attr.y1]="learningPath.lineY1" [attr.x2]="learningPath.lineX2" [attr.y2]="learningPath.lineY2" style="stroke:#5d5d5d;stroke-width:2"/>
+        </ng-container>
+    </ng-container>
+</ng-container>
+</svg>
