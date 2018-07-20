@@ -11,7 +11,11 @@ export class MultipleChoiceFormatComponent
 
   @Input() isActive: boolean;
 
+  question: any;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.question = this.content;
+  }
 }
