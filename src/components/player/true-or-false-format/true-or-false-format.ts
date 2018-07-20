@@ -11,7 +11,11 @@ export class TrueOrFalseFormatComponent
 
   @Input() isActive: boolean;
 
+  question: any;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.question = this.content;
+  }
 }
