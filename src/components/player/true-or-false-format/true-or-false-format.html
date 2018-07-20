@@ -8,7 +8,7 @@
       <div class="desc" [innerHtml]="question.description"></div>
       <ion-grid no-padding text-left>
         <ion-row no-padding>
-          <ion-col *ngFor="let answer of question.answer" col-3 col-4 col-sm>
+          <ion-col *ngFor="let answer of question.answer" col-6>
             <input type="radio" class="choice" [ngClass]="{'selected': selectedAnswer}" [(ngModel)]="selectedAnswer" name=" answers{{question.sequence_id}}" value="{{answer.answer_text}} " />
             <span class="answer">{{answer.answer_text}}</span>
           </ion-col>
