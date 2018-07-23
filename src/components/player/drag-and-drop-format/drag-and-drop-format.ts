@@ -11,7 +11,20 @@ export class DragAndDropFormatComponent
 
   @Input() isActive: boolean;
 
+  question: any;
+
+  isReorder: boolean = false;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.question = this.content;
+  }
+
+  reorderAnswer(indexes) {
+    this.isReorder = true;
+    let element = this.question.answer[indexes.from];
+    this.question.answer.splice(indexes.from, 1);
+    this.question.answer.splice(indexes.to, 0, element);
+  }
 }
