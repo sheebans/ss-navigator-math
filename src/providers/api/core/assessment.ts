@@ -79,7 +79,9 @@ export class AssessmentProvider {
           narration: content.narration,
           taxonomy: content.taxonomy,
           hint_explanation_detail: content.hint_explanation_detail,
-          thumbnail: content.thumbnail,
+          thumbnail: content.thumbnail
+            ? `https:${session.cdn_urls.content_cdn_url}${content.thumbnail}`
+            : null,
           sequence_id: content.sequence_id,
           is_copyright_owner: content.is_copyright_owner,
           visible_on_profile: content.visible_on_profile,

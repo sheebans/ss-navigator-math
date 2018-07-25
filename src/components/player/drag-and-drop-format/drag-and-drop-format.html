@@ -5,9 +5,12 @@
     </div>
     <div class="question-container">
       <div class="title">{{'DRAG_AND_DROP_QUESTION' | translate}}</div>
-      <div class="desc" [innerHtml]="question.description"></div>
+      <div class="desc" [question-text-parser]="question.description"></div>
+      <img *ngIf="content.thumbnail" float-left padding src="{{content.thumbnail}}" />
       <ion-list reorder="true" (ionItemReorder)="reorderAnswer($event)" class="answer-list" [ngClass]="{'reorder': isReorder}">
-        <ion-item *ngFor="let answer of question.answer">{{ answer.answer_text}}</ion-item>
+        <ion-item *ngFor="let answer of question.answer">
+          <span [question-text-parser]="answer.answer_text"></span>
+        </ion-item>
       </ion-list>
     </div>
   </div>

@@ -12,10 +12,15 @@ import {
   HEADER_TITLE_COMPONENTS
 } from '@components/header/header.component.imports';
 import { DASHBOARD_COMPONENTS } from '@components/dashboard/dashboard.component.imports.ts';
-
+import { DirectivesModule } from '@directives/directives.module';
 @NgModule({
   declarations: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
-  imports: [IonicModule, TranslateModule.forChild(), PipesModule],
+  imports: [
+    IonicModule,
+    TranslateModule.forChild(),
+    PipesModule,
+    DirectivesModule
+  ],
   exports: [DASHBOARD_COMPONENTS, HEADER_COMPONENTS, PLAYER_COMPONENTS],
   entryComponents: [
     PLAYER_ENTRY_COMPONENTS,

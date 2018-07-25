@@ -1,16 +1,17 @@
 <ion-content [ngClass]="{'answer-selected': selectedAnswer}">
   <div class="panel-body">
     <div class="question-sequence">
-      <div class="sequence">{{question.sequence_id}}.</div>
+      <div class="sequence">{{content.sequence_id}}.</div>
     </div>
     <div class="question-container">
       <div class="title">{{'MULTIPLE_CHOICE_QUESTION' | translate}}</div>
-      <div class="desc" [innerHtml]="question.description"></div>
+      <div class="desc" [question-text-parser]="content.description" [color]="color"></div>
+      <img *ngIf="content.thumbnail" padding float-left src="{{content.thumbnail}}" />
       <ion-grid no-padding text-left>
         <ion-row no-padding>
-          <ion-col *ngFor="let answer of question.answer" col-3 col-6 col-sm>
-            <input type="radio" class="choice" [ngClass]="{'selected': selectedAnswer}" [(ngModel)]="selectedAnswer" name=" answers{{question.sequence_id}}" value="{{answer.answer_text}} " />
-            <span class="answer" [innerHtml]="answer.answer_text"></span>
+          <ion-col *ngFor="let answer of content.answer" col-3 col-6 col-sm>
+            <input type="radio" (ngModelChange)="emitData($event)" class="choice" [ngClass]="{'selected': selectedAnswer}" [(ngModel)]="selectedAnswer" name="answers{{content.sequence_id}}" value="{{answer.answer_text}}" />
+            <span class="answer" [question-text-parser]="answer.answer_text" [color]="color"></span>
           </ion-col>
         </ion-row>
       </ion-grid>
