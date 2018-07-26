@@ -17,9 +17,7 @@ export class DragAndDropFormatComponent
 
   constructor() {}
 
-  ngOnInit() {
-    this.question = this.content;
-  }
+  ngOnInit() {}
 
   reorderAnswer(indexes) {
     this.isReorder = true;

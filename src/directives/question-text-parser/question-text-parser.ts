@@ -16,9 +16,11 @@ export class QuestionTextParserDirective {
 
   @Input() color?: string;
 
-  COLOR: string = 'white';
+  PRIMARY_COLOR: string = 'black';
 
-  PREFIX = 'https';
+  SECONDARY_COLOR: string = 'white';
+
+  URL_PREFIX = 'https';
 
   INPUT_TAG: string = "<input class='question-fib' type='text'/>";
 
@@ -29,7 +31,7 @@ export class QuestionTextParserDirective {
   constructor(private elementRef: ElementRef) {}
 
   ngOnChanges() {
-    this.color = this.color ? this.color : this.COLOR;
+    this.color = this.color ? this.PRIMARY_COLOR : this.SECONDARY_COLOR;
     if (this.type == 'fib') {
       const questionInput = this.question.replace(
         this.FIB_REGEX.global,
@@ -58,7 +60,7 @@ export class QuestionTextParserDirective {
   }
 
   changeImageColor(imageUrl) {
-    imageUrl = imageUrl.replace('file', this.PREFIX);
+    imageUrl = imageUrl.replace('file', this.URL_PREFIX);
     return imageUrl.replace(/[?]/, `?%5C${this.color}`);
   }
 }

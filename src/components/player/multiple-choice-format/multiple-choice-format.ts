@@ -11,15 +11,13 @@ export class MultipleChoiceFormatComponent
 
   @Input() isActive: boolean;
 
-  BLACK_COLOR = 'black';
-
-  color: string;
+  isSelected: boolean = false;
 
   constructor() {}
 
   ngOnInit() {}
 
-  emitData() {
-    this.color = this.BLACK_COLOR;
+  answerSelected() {
+    this.isSelected = true;
   }
 }
