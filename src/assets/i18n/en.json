@@ -33,5 +33,9 @@
   "SIGN_IN_CREDENTIALS_NOT_VALID": "Uh oh! Something's not right. Please double check your username and password and try again.",
   "UN_EXPECTED_ERROR": "An unexpected error has occurred and has been reported. We're sorry for the inconvenience!",
   "FAILED_TO_LOGIN": "Failed to login",
-  "QUESTION": "question"
+  "QUESTION": "question",
+  "DRAG_AND_DROP_QUESTION": "DRAG AND DROP ORDER",
+  "MULTIPLE_CHOICE_QUESTION": "MULTIPLE CHOICE QUESTION",
+  "TRUE_OR_FALSE_QUESTION": "TRUE OR FALSE QUESTION",
+  "FILL_IN_THE_BLANKS": "FILL IN THE BLANKS"
 }

@@ -8,6 +8,7 @@ var env = process.env.IONIC_ENV;
 useDefaultConfig[env].resolve.alias = {
   "@models": path.resolve('./src/models/'),
   "@components": path.resolve('./src/components/'),
+  "@directives": path.resolve('./src/directives/'),
   "@providers": path.resolve('./src/providers/'),
   "@pipes": path.resolve('./src/pipes/'),
   "@app/env": path.resolve(environmentPath(env)),

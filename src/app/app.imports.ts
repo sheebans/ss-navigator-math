@@ -17,13 +17,19 @@ import { Firebase } from '@ionic-native/firebase';
 import { Network } from '@ionic-native/network';
 
 // Directives
+import { DirectivesModule } from '@directives/directives.module';
 
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '@components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 
-export const MODULES = [BrowserModule, ComponentsModule, HttpClientModule];
+export const MODULES = [
+  BrowserModule,
+  ComponentsModule,
+  HttpClientModule,
+  DirectivesModule
+];
 
 export const PROVIDERS = [
   ToastService,

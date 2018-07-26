@@ -17,19 +17,22 @@
       "@app/env": [
         "environments/environment"
       ],
-      "@models/*":[
+      "@models/*": [
         "models/*"
       ],
-      "@app/config":[
+      "@app/config": [
         "config/config"
       ],
-      "@providers/*":[
+      "@providers/*": [
         "providers/*"
       ],
-      "@components/*":[
+      "@components/*": [
         "components/*"
       ],
-      "@pipes/*":[
+      "@directives/*": [
+        "directives/*"
+      ],
+      "@pipes/*": [
         "pipes/*"
       ]
     }

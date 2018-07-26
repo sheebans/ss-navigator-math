@@ -11,11 +11,13 @@ export class MultipleChoiceFormatComponent
 
   @Input() isActive: boolean;
 
-  question: any;
+  isSelected: boolean = false;
 
   constructor() {}
 
-  ngOnInit() {
-    this.question = this.content;
+  ngOnInit() {}
+
+  answerSelected() {
+    this.isSelected = true;
   }
 }
