@@ -5,6 +5,7 @@ import 'rxjs/add/observable/fromPromise';
 import { AssessmentModel } from '@models/assessment/assessment';
 import { ContentModel } from '@models/content/content';
 import { SessionModel } from '@models/auth/session';
+import { AnswerModel } from '@models/content/answer';
 import { Storage } from '@ionic/storage';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/mergeMap';
@@ -19,6 +20,7 @@ import { DEFAULT_IMAGES } from '@app/config';
 @Injectable()
 export class AssessmentProvider {
   assessmentV1Namespace: string = 'api/nucleus/v1/assessments';
+  multipleImageSelect: string = 'hot_spot_image_question';
 
   constructor(private restClient: RestClient, private storage: Storage) {}
 
@@ -74,7 +76,10 @@ export class AssessmentProvider {
           original_creator_id: content.original_creator_id,
           content_format: content.content_format,
           content_subformat: content.content_subformat,
-          answer: content.answer,
+          answer:
+            content.content_subformat == this.multipleImageSelect
+              ? this.serializeAnswerModel(content.answer, session)
+              : content.answer,
           metadata: content.metadata,
           narration: content.narration,
           taxonomy: content.taxonomy,
@@ -87,6 +92,22 @@ export class AssessmentProvider {
           visible_on_profile: content.visible_on_profile,
           display_guide: content.display_guide,
           description: content.description
+        };
+        return result;
+      }
+    );
+  }
+
+  serializeAnswerModel(answer: any, session: SessionModel): Array<AnswerModel> {
+    return answer.map(
+      (content): AnswerModel => {
+        const result: AnswerModel = {
+          answer_text: `https:${session.cdn_urls.content_cdn_url}${
+            content.answer_text
+          }`,
+          answer_type: content.answer_type,
+          sequence_id: content.sequence_id,
+          is_correct: content.is_correct
         };
         return result;
       }

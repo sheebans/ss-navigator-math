@@ -20,7 +20,7 @@ import { DEFAULT_IMAGES } from '@app/config';
 export class CourseMapProvider {
   couseMapV1Namespace: string = 'api/nucleus/v1/course-map';
 
-  session: any;
+  session: SessionModel;
 
   constructor(private storage: Storage, private restClient: RestClient) {
     this.getSession().then(session => {

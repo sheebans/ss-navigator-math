@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
 
 @Component({
   selector: 'drag-and-drop-format',
@@ -7,11 +8,9 @@ import { ContentFormatComponent } from '@components/player/content-format.compon
 })
 export class DragAndDropFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
-
-  question: any;
 
   isReorder: boolean = false;
 
@@ -21,8 +20,8 @@ export class DragAndDropFormatComponent
 
   reorderAnswer(indexes) {
     this.isReorder = true;
-    let element = this.question.answer[indexes.from];
-    this.question.answer.splice(indexes.from, 1);
-    this.question.answer.splice(indexes.to, 0, element);
+    let element = this.content.answer[indexes.from];
+    this.content.answer.splice(indexes.from, 1);
+    this.content.answer.splice(indexes.to, 0, element);
   }
 }

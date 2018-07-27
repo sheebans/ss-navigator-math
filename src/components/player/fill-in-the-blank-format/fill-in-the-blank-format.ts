@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
 
 @Component({
   selector: 'fill-in-the-blank-format',
@@ -7,7 +8,7 @@ import { ContentFormatComponent } from '@components/player/content-format.compon
 })
 export class FillInTheBlankFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
 

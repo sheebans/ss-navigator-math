@@ -19,14 +19,15 @@ multiple-choice-format {
       }
     }
 
-    .desc > * {
-      color: #ffffff !important;
-      font-size: 15px !important;
-      background-color: #38424b !important;
+    .desc {
+      * {
+        color: #ffffff !important;
+        font-size: 15px !important;
+        background-color: #38424b !important;
+      }
     }
 
     .panel-body {
-      height: 250px;
       color: #ffffff;
       display: flex;
 

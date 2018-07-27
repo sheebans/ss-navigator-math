@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
 
 @Component({
   selector: 'multiple-choice-format',
@@ -7,7 +8,7 @@ import { ContentFormatComponent } from '@components/player/content-format.compon
 })
 export class MultipleChoiceFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
 
@@ -15,7 +16,9 @@ export class MultipleChoiceFormatComponent
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.content.answer);
+  }
 
   answerSelected() {
     this.isSelected = true;

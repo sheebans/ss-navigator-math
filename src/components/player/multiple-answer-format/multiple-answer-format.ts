@@ -11,7 +11,17 @@ export class MultipleAnswerFormatComponent
 
   @Input() isActive: boolean;
 
+  selectedAnswer: Array<object> = [];
+
+  answerSelected: boolean = false;
+
   constructor() {}
 
   ngOnInit() {}
+
+  selectAnswer(answer: object): void {
+    this.selectedAnswer.push(answer);
+    this.answerSelected =
+      this.selectedAnswer >= this.content.answer ? true : false;
+  }
 }

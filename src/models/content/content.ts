@@ -1,3 +1,4 @@
+import { AnswerModel } from '@models/content/answer';
 export interface ContentModel {
   id: string;
   title: string;
@@ -6,7 +7,7 @@ export interface ContentModel {
   original_creator_id: string;
   content_format: string;
   content_subformat: string;
-  answer: any;
+  answer: Array<AnswerModel>;
   metadata: any;
   narration: string;
   taxonomy: any;
