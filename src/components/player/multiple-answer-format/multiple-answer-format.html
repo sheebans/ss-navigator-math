@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let answer of content.answer;let i = index">
+          <tr *ngFor="let answer of content.answer">
             <td>
               <input type="radio" class="choice" [ngClass]="{'selected': answerSelected}" (click)="selectAnswer(answer)" name="answer-{{i}}" value="yes-{{i}}" />
             </td>

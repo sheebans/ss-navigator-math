@@ -16,9 +16,7 @@ export class MultipleChoiceFormatComponent
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.content.answer);
-  }
+  ngOnInit() {}
 
   answerSelected() {
     this.isSelected = true;

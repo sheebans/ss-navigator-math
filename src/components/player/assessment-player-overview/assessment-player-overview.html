@@ -21,10 +21,10 @@
   <div class="panel-body">
     <div class="content-panel" *ngFor="let content of assessment.question; let contentIndex = index" (click)="playContent(content, contentIndex)">
       <div class="content-icon">
-          <i class="question-icon"></i>
+        <i class="question-icon"></i>
       </div>
       <div class="content-meta">
-        <p>{{content.title}}</p>
+        <p [question-text-parser]="content.title"></p>
         <span>{{content.content_subformat | questionFormat}}</span>
       </div>
       <div class="content-info">

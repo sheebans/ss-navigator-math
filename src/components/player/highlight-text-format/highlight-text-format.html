@@ -1,1 +1,15 @@
-<h2>Highlight Text Question</h2>
+<ion-content [ngClass]="{'answer': answerSelected}">
+  <div class="panel-body">
+    <div class="question-sequence">
+      <div class="sequence">{{content.sequence_id}}.</div>
+    </div>
+    <div class="question-container">
+      <div class="title">{{'HIGHLIGHT_TEXT' | translate}}</div>
+      <div class="desc" [question-text-parser]="content.description" [color]="answered"></div>
+      <img *ngIf="content.thumbnail" padding float-left src="{{content.thumbnail}}" />
+      <p class="answer">
+        <span (click)="answerSelect(answer)" [ngClass]="{'highlight': answer.selected}" *ngFor="let answer of answers">{{answer.text}}</span>
+      </p>
+    </div>
+  </div>
+</ion-content>

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
 
 @Component({
   selector: 'free-response-format',
@@ -7,11 +8,27 @@ import { ContentFormatComponent } from '@components/player/content-format.compon
 })
 export class FreeResponseFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
 
-  constructor() {}
+  answered: boolean = false;
+
+  constructor(public element: ElementRef) {}
 
   ngOnInit() {}
+
+  enteredAnswer(answer: string) {
+    this.answered = true;
+    this.autoAdjust();
+  }
+
+  autoAdjust() {
+    const textArea = this.element.nativeElement.getElementsByTagName(
+      'textarea'
+    )[0];
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = 'auto';
+    textArea.style.height = textArea.scrollHeight + 'px';
+  }
 }
