@@ -1,0 +1,13 @@
+<div class="reactions" [ngClass]="currentReaction ? 'smiley-' + currentReaction : 'smiley-5-default'">
+  <ng-container *ngIf="isOpen">
+    <div class="overlay">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+    </div>
+  </ng-container>
+  <div class="slider close">
+    <ion-list no-lines no-margin *ngIf="isOpen">
+      <ion-item (click)="selectReaction(reaction)" *ngFor="let reaction of reactions" class="smiley-{{reaction.id}}">
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

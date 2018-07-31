@@ -1,0 +1,20 @@
+<div class="content-panel">
+  <div class="content-icon">
+    <i class="question-icon"></i>
+  </div>
+  <div class="content-metadata">
+    <p>{{content.title}}</p>
+  </div>
+  <ng-container *ngIf="!isAssessmentPlayListPanelOpen">
+    <div class="playlist-pullup" (click)="openAssessmentPlaylistPanel()">
+      <ion-icon ios="ios-arrow-up" md="ios-arrow-up"></ion-icon>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isAssessmentPlayListPanelOpen">
+    <div class="playlist-pulldown" (click)="closeAssessmentPlaylistPanel()">
+      <ion-icon ios="ios-arrow-down" md="ios-arrow-down"></ion-icon>
+    </div>
+  </ng-container>
+  <smiley></smiley>
+  <div class="fullscreen"></div>
+</div>

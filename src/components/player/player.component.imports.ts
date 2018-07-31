@@ -21,6 +21,9 @@ import { FreeResponseFormatComponent } from './free-response-format/free-respons
 import { ImageFormatComponent } from './image-format/image-format';
 import { ContentInfoPanelComponent } from './content-info-panel/content-info-panel';
 import { CollectionPlaylistPanelComponent } from './collection-playlist-panel/collection-playlist-panel';
+import { QuestionInfoPanelComponent } from './question-info-panel/question-info-panel';
+import { QuestionPlaylistPanelComponent } from './question-playlist-panel/question-playlist-panel';
+import { SmileyComponent } from './smiley/smiley';
 
 export const PLAYER_ENTRY_COMPONENTS = [
   YoutubeVideoFormatComponent,
@@ -37,7 +40,8 @@ export const PLAYER_ENTRY_COMPONENTS = [
   MultipleSelectImageFormatComponent,
   MultipleSelectTextFormatComponent,
   FreeResponseFormatComponent,
-  CollectionPlaylistPanelComponent
+  CollectionPlaylistPanelComponent,
+  QuestionPlaylistPanelComponent
 ];
 
 export const PLAYER_COMPONENTS = [
@@ -49,7 +53,10 @@ export const PLAYER_COMPONENTS = [
   CollectionPlaylistComponent,
   AssessmentPlaylistComponent,
   ContentInfoPanelComponent,
+  QuestionInfoPanelComponent,
   CollectionPlaylistPanelComponent,
+  QuestionPlaylistPanelComponent,
+  SmileyComponent,
   PLAYER_ENTRY_COMPONENTS
 ];
 

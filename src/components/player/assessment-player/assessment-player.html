@@ -6,6 +6,6 @@
     <assessment-player-overview (onContentPlay)="openPlayer($event)" [assessment]="assessment" [unit]="unit" [lesson]="lesson"></assessment-player-overview>
   </ng-container>
   <ng-container *ngIf="activePlayerIndex > -1 ">
-    <assessment-playlist  [assessment]="assessment" [activePlayerIndex]="activePlayerIndex"></assessment-playlist>
+    <assessment-playlist [unit]="unit" [lesson]="lesson" [assessment]="assessment" [activePlayerIndex]="activePlayerIndex"></assessment-playlist>
   </ng-container>
 </ion-content>
