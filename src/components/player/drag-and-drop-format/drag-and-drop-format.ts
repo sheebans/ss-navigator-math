@@ -1,19 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
+import { PlayerEventService } from '@components/player/player-event.service';
 
 @Component({
   selector: 'drag-and-drop-format',
-  templateUrl: 'drag-and-drop-format.html'
+  templateUrl: 'drag-and-drop-format.html',
+  providers: [PlayerEventService]
 })
 export class DragAndDropFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
 
-  question: any;
-
   isReorder: boolean = false;
+
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.isReorder ? 'answer-reorder' : 'default';
+  }
 
   constructor() {}
 
@@ -21,8 +27,8 @@ export class DragAndDropFormatComponent
 
   reorderAnswer(indexes) {
     this.isReorder = true;
-    let element = this.question.answer[indexes.from];
-    this.question.answer.splice(indexes.from, 1);
-    this.question.answer.splice(indexes.to, 0, element);
+    let element = this.content.answer[indexes.from];
+    this.content.answer.splice(indexes.from, 1);
+    this.content.answer.splice(indexes.to, 0, element);
   }
 }

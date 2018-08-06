@@ -33,9 +33,21 @@
   "SIGN_IN_CREDENTIALS_NOT_VALID": "Uh oh! Something's not right. Please double check your username and password and try again.",
   "UN_EXPECTED_ERROR": "An unexpected error has occurred and has been reported. We're sorry for the inconvenience!",
   "FAILED_TO_LOGIN": "Failed to login",
+  "YES": "Yes",
+  "NO": "No",
   "QUESTION": "question",
   "DRAG_AND_DROP_QUESTION": "DRAG AND DROP ORDER",
   "MULTIPLE_CHOICE_QUESTION": "MULTIPLE CHOICE QUESTION",
   "TRUE_OR_FALSE_QUESTION": "TRUE OR FALSE QUESTION",
-  "FILL_IN_THE_BLANKS": "FILL IN THE BLANKS"
+  "FILL_IN_THE_BLANKS": "FILL IN THE BLANKS",
+  "MULTIPLE_IMAGE_SELECT": "MULTIPLE IMAGE SELECT",
+  "MULTIPLE_ANSWER_SELECT": "MULTIPLE ANSWER SELECT",
+  "FREE_RESPONSE": "FREE RESPONSE",
+  "HIGHLIGHT_TEXT": "HIGHLIGHT TEXT",
+  "BIDIRECTIONAL_INFO": "Navigate forward and backwards to answer questions",
+  "NON_BIDIRECTIONAL_INFO": "Navigate forward only to answer questions",
+  "UNLIMITED_ATTEMPT": "Unlimited attempts",
+  "CONFIRM": "CONFIRM",
+  "UNLIMITED_ATTEMPT_INFO": "In this assessment, You have unlimited attempt for answering the question",
+  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{count}} attempt for answering the question"
 }

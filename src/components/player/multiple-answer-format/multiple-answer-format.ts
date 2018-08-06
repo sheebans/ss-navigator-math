@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, HostBinding, OnInit } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 
 @Component({
@@ -11,7 +11,23 @@ export class MultipleAnswerFormatComponent
 
   @Input() isActive: boolean;
 
+  selectedAnswer: Array<object> = [];
+
+  answerSelected: boolean = false;
+
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.answerSelected ? 'answer-selected' : 'default';
+  }
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.content);
+  }
+  selectAnswer(answer: object): void {
+    this.selectedAnswer.push(answer);
+    this.answerSelected =
+      this.selectedAnswer >= this.content.answer ? true : false;
+  }
 }

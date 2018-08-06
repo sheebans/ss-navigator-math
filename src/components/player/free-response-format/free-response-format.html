@@ -1,1 +1,13 @@
-<h2>Free Response Question</h2>
+<div class="panel-body">
+  <div class="question-sequence">
+    <div class="sequence">{{content.sequence_id}}.</div>
+  </div>
+  <div class="question-container">
+    <div class="title">{{'FREE_RESPONSE' | translate}}</div>
+    <div class="desc" [question-text-parser]="content.description" [color]="answered"></div>
+    <img *ngIf="content.thumbnail" class="thumbnail" float-left src="{{content.thumbnail}}" />
+    <ion-item no-padding class="answer" [ngClass]="{'highlight': answered}">
+      <ion-textarea row="3" (ngModelChange)="enterAnswer(answer)" placeholder="Enter text here" [(ngModel)]="answer"></ion-textarea>
+    </ion-item>
+  </div>
+</div>

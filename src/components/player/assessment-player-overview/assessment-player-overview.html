@@ -18,10 +18,32 @@
       <i></i>
     </div>
   </div>
+  <div class="setting-panel">
+    <div class="direction">
+      <ng-container *ngIf="assessment.setting.bidirectional_play">
+        <i class="bidirectional"></i>
+        <div class="info">{{'BIDIRECTIONAL_INFO' | translate}}</div>
+      </ng-container>
+      <ng-container *ngIf="!assessment.setting.bidirectional_play">
+        <i class="non-bidirectional"></i>
+        <div class="info">{{'NON_BIDIRECTIONAL_INFO' | translate}}</div>
+      </ng-container>
+    </div>
+    <div class="attempts">
+      <ng-container *ngIf="assessment.setting.attempts_allowed == -1">
+        <i class="unlimited-attempt"></i>
+        <div class="info">{{'UNLIMITED_ATTEMPT' | translate}}</div>
+      </ng-container>
+      <ng-container *ngIf="assessment.setting.attempts_allowed > -1">
+        <span class="attempt">{{assessment.setting.attempts_allowed}}</span>
+        <div class="info">You have {{assessment.setting.attempts_allowed}} attempts</div>
+      </ng-container>
+    </div>
+  </div>
   <div class="panel-body">
     <div class="content-panel" *ngFor="let content of assessment.question; let contentIndex = index" (click)="playContent(content, contentIndex)">
       <div class="content-icon">
-          <i class="question-icon"></i>
+        <i class="question-icon"></i>
       </div>
       <div class="content-meta">
         <p>{{content.title}}</p>

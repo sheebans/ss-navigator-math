@@ -1,0 +1,11 @@
+<ion-content>
+  <ng-container *ngFor="let content of contents; let contentIndex = index">
+    <div class="content-player">
+      <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
+      </content-player>
+    </div>
+  </ng-container>
+</ion-content>
+<ion-footer>
+  <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent"></question-info-panel>
+</ion-footer>

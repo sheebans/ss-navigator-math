@@ -1,20 +1,18 @@
-<ion-content [ngClass]="{'answer-selected': selectedAnswer}">
-  <div class="panel-body">
-    <div class="question-sequence">
-      <div class="sequence">{{content.sequence_id}}.</div>
-    </div>
-    <div class="question-container">
-      <div class="title">{{'TRUE_OR_FALSE_QUESTION' | translate}}</div>
-      <div class="desc" [question-text-parser]="content.description" [color]="isSelected"></div>
-      <img *ngIf="content.thumbnail" padding float-left src="{{content.thumbnail}}" />
-      <ion-grid no-padding text-left>
-        <ion-row no-padding>
-          <ion-col *ngFor="let answer of content.answer" col-6>
-            <input type="radio" class="choice" (ngModelChange)="answerSelected($event)" [ngClass]="{'selected': selectedAnswer}" [(ngModel)]="selectedAnswer" name=" answers{{content.sequence_id}}" value="{{answer.answer_text}} " />
-            <span class="answer">{{answer.answer_text}}</span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
+<div class="panel-body">
+  <div class="question-sequence">
+    <div class="sequence">{{content.sequence_id}}.</div>
   </div>
-</ion-content>
+  <div class="question-container">
+    <div class="title">{{'TRUE_OR_FALSE_QUESTION' | translate}}</div>
+    <div class="desc" [question-text-parser]="content.description" [color]="isSelected"></div>
+    <img *ngIf="content.thumbnail" padding float-left src="{{content.thumbnail}}" />
+    <ion-grid no-padding text-left>
+      <ion-row no-padding>
+        <ion-col *ngFor="let answer of content.answer" col-6>
+          <input type="radio" class="choice" (ngModelChange)="answerSelected($event)" [ngClass]="{'selected': isSelected}" [(ngModel)]="isSelected" name=" answers{{content.sequence_id}}" value="{{answer.answer_text}} " />
+          <span class="answer">{{answer.answer_text}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>

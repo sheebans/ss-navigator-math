@@ -2,12 +2,77 @@ assessment-player-overview {
   ion-content {
     margin-top: 45px;
   }
+
   .assessment-img {
     width: 100%;
     background-position: center center;
     background-size: cover;
     height: 250px;
     margin-bottom: 20px;
+  }
+
+  .setting-panel {
+    display: flex;
+    height: 75px;
+    border-bottom: solid 1px #cccc;
+
+    .attempts {
+      width: 150px;
+
+      .unlimited-attempt {
+        background: url("../assets/icon/unlimited-attempt.svg");
+        height: 40px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 25px 25px;
+        background-position: 10px 9px;
+      }
+
+      .attempt {
+        font-size: 25px;
+        display: block;
+        margin-top: 10px;
+        color: #29323a;
+      }
+
+      .info {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #5d5d5d;
+      }
+    }
+
+    .direction {
+      margin-left: 45px;
+      width: calc(100% - 150px);
+
+      i.bidirectional {
+        background: url("../assets/icon/bidirection.svg");
+        height: 40px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 25px 25px;
+        background-position: 10px 9px;
+      }
+
+      i.non-bidirectional {
+        background: url("../assets/icon/non-bidirection.svg");
+        height: 40px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 25px 25px;
+        background-position: 10px 9px;
+      }
+
+      .info {
+        font-size: 10px;
+        font-weight: bold;
+        padding-left: 16px;
+        text-align: left;
+        color: #5d5d5d;
+      }
+    }
   }
 
   .panel-header {
@@ -20,7 +85,7 @@ assessment-player-overview {
       height: 50px;
 
       i {
-        background: url("../assets/icon/assessment-dark.svg");
+        background: url("../assets/icon/assessment.svg");
         height: 40px;
         display: block;
         background-repeat: no-repeat;

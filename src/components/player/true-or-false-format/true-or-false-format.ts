@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
+import { ContentModel } from '@models/content/content';
 
 @Component({
   selector: 'true-or-false-format',
@@ -7,12 +8,16 @@ import { ContentFormatComponent } from '@components/player/content-format.compon
 })
 export class TrueOrFalseFormatComponent
   implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+  @Input() content: ContentModel;
 
   @Input() isActive: boolean;
 
   isSelected: boolean = false;
 
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.isSelected ? '  answer-selected' : 'default';
+  }
   constructor() {}
 
   ngOnInit() {}

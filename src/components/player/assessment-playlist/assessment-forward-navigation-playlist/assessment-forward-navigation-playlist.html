@@ -1,0 +1,23 @@
+<ion-content fullscreen="true">
+  <ion-slides direction="vertical" [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let content of contents; let contentIndex = index">
+      <div class="content-player" [ngClass]="{'answer': isActive}">
+        <content-player  [isActive]="activePlayerIndex === contentIndex" [content]="content">
+        </content-player>
+        <div class="assessment-info">
+          <ng-container *ngIf="attempt.count > -1">
+            <p>{{'LIMITED_ATTEMPT_INFO' | translate}}</p>
+          </ng-container>
+          <ng-container *ngIf="attempt.count == -1">
+            <p>{{'UNLIMITED_ATTEMPT_INFO' | translate:attempt}}</p>
+          </ng-container>
+          <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAnswer()" ion-button>{{'CONFIRM' | translate}}</button>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer>
+  <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent">
+  </question-info-panel>
+</ion-footer>

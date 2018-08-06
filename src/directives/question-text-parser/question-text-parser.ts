@@ -1,11 +1,5 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
-/**
- * Generated class for the GruFibDirective directive.
- *
- * See https://angular.io/api/core/Directive for more info on Angular
- * Directives.
- */
 @Directive({
   selector: '[question-text-parser]' // Attribute selector
 })
@@ -59,7 +53,7 @@ export class QuestionTextParserDirective {
     );
   }
 
-  changeImageColor(imageUrl) {
+  changeImageColor(imageUrl: string) {
     imageUrl = imageUrl.replace('file', this.URL_PREFIX);
     return imageUrl.replace(/[?]/, `?%5C${this.color}`);
   }

@@ -1,0 +1,33 @@
+<question-info-panel [isAssessmentPlayListPanelOpen]="isAssessmentPlayListPanelOpen" [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="content">
+</question-info-panel>
+<div class="panel-header">
+  <div class="question-icon">
+    <i></i>
+  </div>
+  <div class="question-meta">
+    <ng-container *ngIf="unit">
+      <p>{{unit.title}}</p>
+    </ng-container>
+    <ng-container *ngIf="lesson">
+      <p>{{lesson.title}}</p>
+    </ng-container>
+    <h6>{{assessment.title}}</h6>
+  </div>
+  <div class="question-timespent">
+    <i></i>
+  </div>
+</div>
+<div class="panel-body">
+  <div class="content-panel" *ngFor="let content of assessment.question; let contentIndex = index" (click)="playContent(content, contentIndex)">
+    <div class="content-icon">
+      <i class="question-icon"></i>
+    </div>
+    <div class="content-meta">
+      <p>{{content.title}}</p>
+      <span>{{content.content_subformat | questionFormat}}</span>
+    </div>
+    <div class="content-timespent">
+      <span>2m</span>
+    </div>
+  </div>
+</div>
