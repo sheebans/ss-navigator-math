@@ -1,16 +1,26 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Slides } from 'ionic-angular';
+import {
+  Component,
+  OnInit,
+  Input,
+  ComponentRef,
+  ComponentFactoryResolver,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import { AssessmentModel } from '@models/assessment/assessment';
 import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
-import { ContentModel } from '@models/content/content';
+import { AssessmentBidirectionalPlaylistComponent } from '@components/player/assessment-playlist/assessment-bidirectional-playlist/assessment-bidirectional-playlist';
+import { AssessmentForwardNavigationPlaylistComponent } from '@components/player/assessment-playlist/assessment-forward-navigation-playlist/assessment-forward-navigation-playlist';
+import { AssessmentContentFormatComponent } from '@components/player/assessment-playlist/assessment-content-format.component';
 
 @Component({
   selector: 'assessment-playlist',
-  templateUrl: 'assessment-playlist.html'
+  template: '<ng-container #assessment_container></ng-container>'
 })
 export class AssessmentPlaylistComponent implements OnInit {
-  @ViewChild(Slides) slides: Slides;
+  @ViewChild('assessment_container', { read: ViewContainerRef })
+  assessmentContainer: ViewContainerRef;
 
   @Input() assessment: AssessmentModel;
 
@@ -18,24 +28,31 @@ export class AssessmentPlaylistComponent implements OnInit {
 
   @Input() lesson: LessonModel;
 
-  activeContent: ContentModel;
-
   @Input() activePlayerIndex: number;
 
-  contents: Array<ContentModel>;
+  private componentRef: ComponentRef<{}>;
 
-  constructor() {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.contents = this.assessment.question;
-    this.activeContent = this.contents[this.activePlayerIndex];
+    let componentType = this.assessment.setting.bidirectional_play
+      ? AssessmentBidirectionalPlaylistComponent
+      : AssessmentForwardNavigationPlaylistComponent;
+    let factory = this.componentFactoryResolver.resolveComponentFactory(
+      componentType
+    );
+    this.componentRef = this.assessmentContainer.createComponent(factory);
+    let instance = <AssessmentContentFormatComponent>this.componentRef.instance;
+    instance.assessment = this.assessment;
+    instance.unit = this.unit;
+    instance.lesson = this.lesson;
+    instance.activePlayerIndex = this.activePlayerIndex;
   }
 
-  slideChanged() {
-    let activeIndex = this.slides.getActiveIndex();
-    if (activeIndex <= this.contents.length - 1) {
-      this.activePlayerIndex = activeIndex;
-      this.activeContent = this.contents[this.activePlayerIndex];
+  OnDestroy() {
+    if (this.componentRef) {
+      this.componentRef.destroy();
+      this.componentRef = null;
     }
   }
 }

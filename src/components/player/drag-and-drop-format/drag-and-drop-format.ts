@@ -1,10 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { ContentModel } from '@models/content/content';
+import { PlayerEventService } from '@components/player/player-event.service';
 
 @Component({
   selector: 'drag-and-drop-format',
-  templateUrl: 'drag-and-drop-format.html'
+  templateUrl: 'drag-and-drop-format.html',
+  providers: [PlayerEventService]
 })
 export class DragAndDropFormatComponent
   implements ContentFormatComponent, OnInit {
@@ -13,6 +15,11 @@ export class DragAndDropFormatComponent
   @Input() isActive: boolean;
 
   isReorder: boolean = false;
+
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.isReorder ? 'answer-reorder' : 'default';
+  }
 
   constructor() {}
 

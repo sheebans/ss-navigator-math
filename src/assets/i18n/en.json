@@ -43,5 +43,11 @@
   "MULTIPLE_IMAGE_SELECT": "MULTIPLE IMAGE SELECT",
   "MULTIPLE_ANSWER_SELECT": "MULTIPLE ANSWER SELECT",
   "FREE_RESPONSE": "FREE RESPONSE",
-  "HIGHLIGHT_TEXT": "HIGHLIGHT TEXT"
+  "HIGHLIGHT_TEXT": "HIGHLIGHT TEXT",
+  "BIDIRECTIONAL_INFO": "Navigate forward and backwards to answer questions",
+  "NON_BIDIRECTIONAL_INFO": "Navigate forward only to answer questions",
+  "UNLIMITED_ATTEMPT": "Unlimited attempts",
+  "CONFIRM": "CONFIRM",
+  "UNLIMITED_ATTEMPT_INFO": "In this assessment, You have unlimited attempt for answering the question",
+  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{count}} attempt for answering the question"
 }

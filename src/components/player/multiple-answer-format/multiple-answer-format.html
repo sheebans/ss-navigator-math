@@ -1,34 +1,32 @@
-<ion-content [ngClass]="{'answer-selected': answerSelected}">
-  <div class="panel-body">
-    <div class="question-sequence">
-      <div class="sequence">{{content.sequence_id}}.</div>
-    </div>
-    <div class="question-container">
-      <div class="title">{{'MULTIPLE_ANSWER_SELECT' | translate}}</div>
-      <div class="desc" [question-text-parser]="content.description" [color]="answerSelected"></div>
-      <img *ngIf="content.thumbnail" padding float-left src="{{content.thumbnail}}" />
-      <table class="table">
-        <thead>
-          <tr>
-            <th>{{'YES' | translate}}</th>
-            <th>{{'No' | translate}}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let answer of content.answer">
-            <td>
-              <input type="radio" class="choice" [ngClass]="{'selected': answerSelected}" (click)="selectAnswer(answer)" name="answer-{{i}}" value="yes-{{i}}" />
-            </td>
-            <td>
-              <input type="radio" class="choice" [ngClass]="{'selected': answerSelected}" (click)="selectAnswer(answer)" name="answer-{{i}}" value="no-{{i}}" />
-            </td>
-            <td>
-              <span class="answer" [question-text-parser]="answer.answer_text" [color]="answerSelected"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="panel-body">
+  <div class="question-sequence">
+    <div class="sequence">{{content.sequence_id}}.</div>
   </div>
-</ion-content>
+  <div class="question-container">
+    <div class="title">{{'MULTIPLE_ANSWER_SELECT' | translate}}</div>
+    <div class="desc" [question-text-parser]="content.description" [color]="answerSelected"></div>
+    <img *ngIf="content.thumbnail" class="thumbnail" float-left src="{{content.thumbnail}}" />
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{{'YES' | translate}}</th>
+          <th>{{'No' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let answer of content.answer;let i = index;">
+          <td>
+            <input type="radio" class="choice" [ngClass]="{'selected': answerSelected}" (click)="selectAnswer(answer)" name="answer-{{i}}" value="yes-{{i}}" />
+          </td>
+          <td>
+            <input type="radio" class="choice" [ngClass]="{'selected': answerSelected}" (click)="selectAnswer(answer)" name="answer-{{i}}" value="no-{{i}}" />
+          </td>
+          <td>
+            <span class="answer" [question-text-parser]="answer.answer_text" [color]="answerSelected"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

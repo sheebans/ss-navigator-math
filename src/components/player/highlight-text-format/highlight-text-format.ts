@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { ContentModel } from '@models/content/content';
 import { AnswerModel } from '@models/content/answer';
@@ -23,6 +23,10 @@ export class HighlightTextFormatComponent
     global: /\[([^[]*)\]/g
   };
 
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.answerSelected ? '  answer' : 'default';
+  }
   constructor() {}
 
   ngOnInit() {

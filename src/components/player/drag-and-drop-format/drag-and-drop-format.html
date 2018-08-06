@@ -1,17 +1,15 @@
-<ion-content [ngClass]="{'answer-reorder': isReorder}">
-  <div class="panel-body">
-    <div class="question-sequence">
-      <div class="sequence">{{content.sequence_id}}.</div>
-    </div>
-    <div class="question-container">
-      <div class="title">{{'DRAG_AND_DROP_QUESTION' | translate}}</div>
-      <div class="desc" [question-text-parser]="content.description" [color]="isReorder"></div>
-      <img *ngIf="content.thumbnail" float-left padding src="{{content.thumbnail}}" />
-      <ion-list reorder="true" (ionItemReorder)="reorderAnswer($event)" class="answer-list" [ngClass]="{'reorder': isReorder}">
-        <ion-item *ngFor="let answer of content.answer">
-          <span [question-text-parser]="answer.answer_text" [color]="isReorder"></span>
-        </ion-item>
-      </ion-list>
-    </div>
+<div class="panel-body">
+  <div class="question-sequence">
+    <div class="sequence">{{content.sequence_id}}.</div>
   </div>
-</ion-content>
+  <div class="question-container">
+    <div class="title">{{'DRAG_AND_DROP_QUESTION' | translate}}</div>
+    <div class="desc" [question-text-parser]="content.description" [color]="isReorder"></div>
+    <img *ngIf="content.thumbnail" float-left padding src="{{content.thumbnail}}" />
+    <ion-list reorder="true" (ionItemReorder)="reorderAnswer($event)" class="answer-list" [ngClass]="{'reorder': isReorder}">
+      <ion-item *ngFor="let answer of content.answer">
+        <span [question-text-parser]="answer.answer_text" [color]="isReorder"></span>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { ContentModel } from '@models/content/content';
 
@@ -14,6 +14,10 @@ export class TrueOrFalseFormatComponent
 
   isSelected: boolean = false;
 
+  @HostBinding('class')
+  get hostClasses(): string {
+    return this.isSelected ? '  answer-selected' : 'default';
+  }
   constructor() {}
 
   ngOnInit() {}

@@ -1,20 +1,18 @@
-<ion-content [ngClass]="{'answer-selected': colorChange}">
-  <div class="panel-body">
-    <div class="question-sequence">
-      <div class="sequence">{{question.sequence_id}}.</div>
+<div class="panel-body">
+  <div class="question-sequence">
+    <div class="sequence">{{question.sequence_id}}.</div>
+  </div>
+  <div class="question-container">
+    <div class="title">{{'MULTIPLE_IMAGE_SELECT' | translate}}</div>
+    <div class="desc" [question-text-parser]="question.description" [color]="isSelected"></div>
+    <div class="thumbnail" text-left>
+      <img *ngIf="content.thumbnail" src="{{content.thumbnail}}" />
     </div>
-    <div class="question-container">
-      <div class="title">{{'MULTIPLE_IMAGE_SELECT' | translate}}</div>
-      <div class="desc" [question-text-parser]="question.description" [color]="colorChange"></div>
-      <div class="thumbnail" text-left>
-        <img *ngIf="content.thumbnail" src="{{content.thumbnail}}" />
-      </div>
-      <div class="answer" *ngFor="let answer of question.answer;" [ngClass]="{'highlight': answer.isSelected}">
-        <img src="{{answer.answer_text}}" (click)="answerSelected(answer)" />
-        <span>
+    <div class="answer" *ngFor="let answer of question.answer;" [ngClass]="{'highlight': answer.isSelected}">
+      <img src="{{answer.answer_text}}" (click)="answerSelected(answer)" />
+      <span>
           <i class="check_circle"></i>
         </span>
-      </div>
     </div>
   </div>
-</ion-content>
+</div>
