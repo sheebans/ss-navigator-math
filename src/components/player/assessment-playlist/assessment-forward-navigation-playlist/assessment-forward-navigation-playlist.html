@@ -2,16 +2,21 @@
   <ion-slides direction="vertical" [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let content of contents; let contentIndex = index">
       <div class="content-player" [ngClass]="{'answer': isActive}">
-        <content-player  [isActive]="activePlayerIndex === contentIndex" [content]="content">
+        <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
         </content-player>
-        <div class="assessment-info">
-          <ng-container *ngIf="attempt.count > -1">
+        <div class="assessment-footer-bar" [ngClass]="{'answer': isActive}">
+          <ng-container *ngIf="assessment.setting.attempts_allowed > -1">
             <p>{{'LIMITED_ATTEMPT_INFO' | translate}}</p>
           </ng-container>
-          <ng-container *ngIf="attempt.count == -1">
-            <p>{{'UNLIMITED_ATTEMPT_INFO' | translate:attempt}}</p>
+          <ng-container *ngIf="assessment.setting.attempts_allowed == -1">
+            <p>{{'UNLIMITED_ATTEMPT_INFO' | translate:assessment.setting}}</p>
           </ng-container>
-          <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAnswer()" ion-button>{{'CONFIRM' | translate}}</button>
+          <ng-container *ngIf="!isLastQuestion">
+            <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAnswer()" ion-button>{{'CONFIRM' | translate}}</button>
+          </ng-container>
+          <ng-container *ngIf="isLastQuestion">
+            <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAllAnswer()" ion-button>{{'SUBMIT_ALL' | translate}}</button>
+          </ng-container>
         </div>
       </div>
     </ion-slide>

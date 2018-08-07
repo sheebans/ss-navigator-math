@@ -5,6 +5,9 @@
       </content-player>
     </div>
   </ng-container>
+  <div>
+    <button class="submit-btn" full type="submit" (click)="submitAllAnswer()" ion-button>{{'SUBMIT_ALL' | translate}}</button>
+  </div>
 </ion-content>
 <ion-footer>
   <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent"></question-info-panel>

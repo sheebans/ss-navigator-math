@@ -6,13 +6,13 @@ milestone-item {
 
   .container {
     min-height: 200px;
-    background: #ffffff;
+    background: color($colors, white);
 
     .header-container {
       display: flex;
       width: 100%;
       height: 50px;
-      border-bottom: dashed 1px #5d5d5d;
+      border-bottom: dashed 1px color($colors, grey);
       padding: 5px;
 
       .header-icon {
@@ -45,7 +45,7 @@ milestone-item {
         margin-right: 5px;
         margin-left: 5px;
         box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
+        background-color: color($colors, white);
         border: solid 0.5px rgba(151, 151, 151, 0.3);
       }
 

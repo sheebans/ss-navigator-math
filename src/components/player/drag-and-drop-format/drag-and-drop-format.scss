@@ -1,30 +1,30 @@
 drag-and-drop-format {
   &.answer-reorder {
     .panel-body {
-      background-color: #ffffff;
-      color: #38424b;
+      background-color: color($colors, white);
+      color: color($colors, dark);
     }
 
     .desc {
       * {
-        color: #ffffff !important;
+        color: color($colors, white) !important;
         font-size: 15px !important;
-        background-color: #38424b !important;
+        background-color: color($colors, dark) !important;
       }
     }
   }
 
   .desc {
     * {
-      color: #ffffff !important;
+      color: color($colors, white) !important;
       font-size: 15px !important;
-      background-color: #38424b !important;
+      background-color: color($colors, dark) !important;
     }
   }
 
   .panel-body {
-    background-color: #38424b;
-    color: #ffffff;
+    background-color: color($colors, dark);
+    color: color($colors, white);
     display: flex;
 
     .question-sequence {
@@ -59,8 +59,8 @@ drag-and-drop-format {
       padding: 10px 10px 10px 0;
 
       ion-item {
-        color: #ffffff;
-        background-color: #38424b;
+        color: color($colors, white);
+        background-color: color($colors, white);
         border: solid 1px;
         margin-bottom: 10px;
         border-radius: 5px;
@@ -76,12 +76,12 @@ drag-and-drop-format {
 
       &.reorder {
         ion-item {
-          color: #38424b;
-          background-color: #ffffff;
+          color: color($colors, dark);
+          background-color: color($colors, white);
         }
 
         ion-reorder {
-          color: #38424b;
+          color: color($colors, dark);
         }
       }
     }

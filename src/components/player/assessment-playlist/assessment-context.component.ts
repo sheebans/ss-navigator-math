@@ -1,4 +1,4 @@
-export interface AssessmentContentFormatComponent {
+export interface AssessmentContextComponent {
   assessment: any;
   unit: any;
   lesson: any;

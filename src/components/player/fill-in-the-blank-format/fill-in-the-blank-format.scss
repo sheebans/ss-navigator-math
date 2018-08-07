@@ -1,30 +1,30 @@
 fill-in-the-blank-format {
   &.answer {
     .panel-body {
-      background-color: #ffffff;
-      color: #38424b;
+      background-color: color($colors, white);
+      color: color($colors, dark);
     }
 
     .desc {
       * {
-        color: #38424b !important;
+        color: color($colors, dark) !important;
         font-size: 15px !important;
-        background-color: #ffffff !important;
+        background-color: color($colors, white) !important;
       }
     }
   }
 
   .desc {
     * {
-      color: #ffffff !important;
+      color: color($colors, white) !important;
       font-size: 15px !important;
-      background-color: #38424b !important;
+      background-color: color($colors, dark) !important;
     }
   }
 
   .panel-body {
-    background-color: #38424b;
-    color: #ffffff;
+    background-color: color($colors, dark);
+    color: color($colors, white);
     display: flex;
 
     .question-sequence {
@@ -60,7 +60,7 @@ fill-in-the-blank-format {
     border: none;
     width: 100px;
     border-color: transparent;
-    background: #38424b;
+    background: color($colors, dark);
     border-bottom: solid 1px;
   }
 }

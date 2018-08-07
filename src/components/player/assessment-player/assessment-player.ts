@@ -44,5 +44,6 @@ export class AssessmentPlayerComponent implements OnInit, OnChanges {
 
   openPlayer(data) {
     this.activePlayerIndex = data.index;
+    console.log(this.activePlayerIndex);
   }
 }

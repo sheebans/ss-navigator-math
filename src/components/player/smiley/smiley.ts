@@ -1,5 +1,5 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
-
+import { REACTIONS } from '@app/config';
 /**
  * Generated class for the SmileyComponent component.
  *
@@ -19,29 +19,7 @@ export class SmileyComponent {
 
   constructor(private element: ElementRef) {}
 
-  reactions: Array<object> = [
-    {
-      id: 1,
-      selected: false
-    },
-    {
-      id: 2,
-      selected: false
-    },
-    {
-      id: 3,
-      selected: false
-    },
-    {
-      id: 4,
-      selected: false
-    },
-    {
-      id: 5,
-      selected: false
-    }
-  ];
-
+  reactions: Array<object> = REACTIONS;
   @HostListener('click', ['$event'])
   openEmotions(e): void {
     this.isOpen = !this.isOpen;

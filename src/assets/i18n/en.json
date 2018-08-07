@@ -47,7 +47,9 @@
   "BIDIRECTIONAL_INFO": "Navigate forward and backwards to answer questions",
   "NON_BIDIRECTIONAL_INFO": "Navigate forward only to answer questions",
   "UNLIMITED_ATTEMPT": "Unlimited attempts",
+  "LIMITED_ATTEMPT": "You have {{attempts_allowed}} attempts",
   "CONFIRM": "CONFIRM",
+  "SUBMIT_ALL":"SUBMIT ALL",
   "UNLIMITED_ATTEMPT_INFO": "In this assessment, You have unlimited attempt for answering the question",
-  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{count}} attempt for answering the question"
+  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{attempts_allowed}} attempt for answering the question"
 }

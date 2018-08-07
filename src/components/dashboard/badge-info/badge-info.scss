@@ -31,7 +31,7 @@ badge-info {
         display: flex;
 
         span {
-          color: #ffffff;
+          color: color($colors, white);
           margin: auto;
         }
       }
@@ -52,7 +52,7 @@ badge-info {
     width: calc(100% - 50px);
     padding-top: 10px;
     padding-bottom: 10px;
-    color: #ffffff;
+    color: color($colors, white);
 
     span {
       font-size: 11px;

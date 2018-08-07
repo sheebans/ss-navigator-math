@@ -31,7 +31,7 @@ collection-player-overview {
 
     .collection-meta {
       width: calc(100% - 125px);
-      color: #5d5d5d;
+      color: color($colors, grey);
       padding-left: 10px;
 
       p {
@@ -117,7 +117,7 @@ collection-player-overview {
 
       .content-meta {
         width: calc(100% - 125px);
-        color: #5d5d5d;
+        color: color($colors, grey);
         padding-left: 10px;
 
         p {

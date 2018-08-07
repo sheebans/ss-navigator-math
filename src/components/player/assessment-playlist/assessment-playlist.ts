@@ -12,7 +12,7 @@ import { UnitModel } from '@models/course/unit';
 import { LessonModel } from '@models/course/lesson';
 import { AssessmentBidirectionalPlaylistComponent } from '@components/player/assessment-playlist/assessment-bidirectional-playlist/assessment-bidirectional-playlist';
 import { AssessmentForwardNavigationPlaylistComponent } from '@components/player/assessment-playlist/assessment-forward-navigation-playlist/assessment-forward-navigation-playlist';
-import { AssessmentContentFormatComponent } from '@components/player/assessment-playlist/assessment-content-format.component';
+import { AssessmentContextComponent } from '@components/player/assessment-playlist/assessment-context.component';
 
 @Component({
   selector: 'assessment-playlist',
@@ -42,7 +42,7 @@ export class AssessmentPlaylistComponent implements OnInit {
       componentType
     );
     this.componentRef = this.assessmentContainer.createComponent(factory);
-    let instance = <AssessmentContentFormatComponent>this.componentRef.instance;
+    let instance = <AssessmentContextComponent>this.componentRef.instance;
     instance.assessment = this.assessment;
     instance.unit = this.unit;
     instance.lesson = this.lesson;

@@ -7,13 +7,6 @@
   height: 1em;
 }
 
-%smiley-container {
-  background-size: 35px 35px;
-  mask-position: 50% 50%;
-  background-position: 5px;
-  background-repeat: no-repeat;
-}
-
 ion-icon {
   &[class*="icon-dashboard"] {
     @extend %background-container;
@@ -69,27 +62,22 @@ ion-icon {
 // whereever necessary in application.
 
 .smiley-1 {
-  @extend %smiley-container;
   background-image: url("../assets/icon/smiley/1.svg");
 }
 
 .smiley-2 {
-  @extend %smiley-container;
   background-image: url("../assets/icon/smiley/2.svg");
 }
 
 .smiley-3 {
-  @extend %smiley-container;
   background-image: url("../assets/icon/smiley/3.svg");
 }
 
 .smiley-4 {
-  @extend %smiley-container;
   background-image: url("../assets/icon/smiley/4.svg");
 }
 
 .smiley-5 {
-  @extend %smiley-container;
   background-image: url("../assets/icon/smiley/5.svg");
 }
 

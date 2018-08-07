@@ -20,19 +20,19 @@ assessment-forward-navigation-playlist {
 
   .content-player {
     &.answer {
-      background: #ffffff;
+      background-color: color($colors, white);
 
       .assessment-info {
-        color: #38424b;
+        color: color($colors, dark);
       }
     }
     height: 100%;
     width: 100%;
-    background: #38424b;
+    background-color: color($colors, dark);
     position: relative;
   }
 
-  .assessment-info {
+  .assessment-footer-bar {
     color: white;
     bottom: 100px;
     position: absolute;
@@ -46,12 +46,12 @@ assessment-forward-navigation-playlist {
     }
 
     .confirm-btn {
-      background-color: #539846;
+      background-color: color($colors, green);
       margin-bottom: 1px;
       height: 50px;
 
       &.button-md:hover:not(.disable-hover) {
-        background-color: #539846;
+        background-color: color($colors, green);
       }
     }
   }
