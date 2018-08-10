@@ -1,14 +1,29 @@
-<ion-content>
-  <ng-container *ngFor="let content of contents; let contentIndex = index">
-    <div class="content-player">
-      <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
-      </content-player>
+<ng-container *ngIf="!showReport">
+  <ion-content class="no-scroll">
+    <ion-scroll scrollY="true">
+      <ion-list>
+        <ng-container *ngFor="let content of contents; let contentIndex = index">
+          <div class="content-player">
+            <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
+            </content-player>
+          </div>
+        </ng-container>
+      </ion-list>
+    </ion-scroll>
+    <div class="assessment-footer-bar">
+      <ng-container *ngIf="assessment.setting.attempts_allowed > -1">
+        <p>{{'LIMITED_ATTEMPT_INFO' | translate:assessment.setting}}</p>
+      </ng-container>
+      <ng-container *ngIf="assessment.setting.attempts_allowed == -1">
+        <p>{{'UNLIMITED_ATTEMPT_INFO' | translate}}</p>
+      </ng-container>
+      <button class="submit-btn" [disabled]="!isActive" full type="submit" (click)="submitAllAnswer()" ion-button>{{'SUBMIT_ALL' | translate}}</button>
     </div>
-  </ng-container>
-  <div>
-    <button class="submit-btn" full type="submit" (click)="submitAllAnswer()" ion-button>{{'SUBMIT_ALL' | translate}}</button>
-  </div>
-</ion-content>
-<ion-footer>
-  <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent"></question-info-panel>
-</ion-footer>
+  </ion-content>
+  <ion-footer>
+    <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent"></question-info-panel>
+  </ion-footer>
+</ng-container>
+<ng-container *ngIf="showReport">
+  <assessment-report-overview [assessment]="assessment" [unit]="unit" [lesson]="lesson"></assessment-report-overview>
+</ng-container>

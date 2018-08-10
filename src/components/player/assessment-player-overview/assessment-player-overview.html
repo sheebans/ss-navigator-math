@@ -2,9 +2,7 @@
   <div class="assessment-img" text-center [style.background-image]="'url(' + assessment.thumbnail + ')'">
   </div>
   <div class="panel-header">
-    <div class="assessment-icon">
-      <i></i>
-    </div>
+    <i class="assessment-icon"></i>
     <div class="assessment-meta">
       <ng-container *ngIf="unit">
         <p>{{unit.title}}</p>
@@ -15,7 +13,7 @@
       <h6>{{assessment.title}}</h6>
     </div>
     <div class="assessment-info">
-      <i></i>
+      <i class="assessment-info-icon"></i>
     </div>
   </div>
   <div class="setting-panel">
@@ -53,6 +51,5 @@
         <i></i>
       </div>
     </div>
-    <div class="content-panel"></div>
   </div>
 </ion-content>

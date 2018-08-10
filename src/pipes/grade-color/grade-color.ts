@@ -9,10 +9,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'gradeColor'
 })
 export class GradeColorPipe implements PipeTransform {
-  /**
-   * Takes a value and makes it lowercase.
-   */
-  transform(value: string, ...args) {
-    return value.toLowerCase();
+  transform(value: number) {
+    if (value < 50) {
+      return '#f53d3d';
+    } else if (value > 50 && value < 75) {
+      return '#e88f3f';
+    } else if (value > 50) {
+      return '#2f9e4b';
+    }
   }
 }

@@ -1,0 +1,138 @@
+assessment-report-overview {
+  top: 56px;
+  position: relative;
+
+  ion-content {
+    &.content-md {
+      background-color: color($colors, dark);
+    }
+  }
+
+  %icon-container {
+    height: 49px;
+    width: 37px;
+    display: block;
+    background-size: 25px 25px;
+    mask-position: 50% 50%;
+    background-position: 5px 10px;
+    background-repeat: no-repeat;
+  }
+
+  .overview-container {
+    background-color: color($colors, white);
+
+    .assessment-img {
+      width: 100%;
+      background-position: center center;
+      background-size: cover;
+      height: 250px;
+    }
+
+    .panel-header {
+      height: 50px;
+      display: flex;
+      box-shadow: 0 0 3.5px 0 rgba(0, 0, 0, 0.3);
+
+      i.assessment-icon {
+        width: 50px;
+        height: 50px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-position: 10px 9px;
+      }
+
+      .assessment-meta {
+        width: calc(100% - 100px);
+        color: color($colors, grey);
+        padding-left: 10px;
+
+        p {
+          margin-bottom: 0;
+          margin-top: 0;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        h6 {
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .score {
+        width: 50px;
+        color: color($colors, white);
+        display: flex;
+
+        span {
+          margin: auto;
+        }
+      }
+    }
+
+    .panel-body {
+      .content-panel {
+        height: 50px;
+        display: flex;
+        border-bottom: 1px solid color($colors, light);
+
+        .content-icon {
+          width: 50px;
+          height: 50px;
+
+          i {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            margin-left: 19px;
+            margin-top: 16px;
+          }
+        }
+
+        .content-meta {
+          width: calc(100% - 125px);
+          color: color($colors, grey);
+          padding-left: 10px;
+
+          p {
+            margin-bottom: 0;
+            margin-top: 12px;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          span {
+            font-size: 10px;
+          }
+        }
+
+        .content-info {
+          display: flex;
+
+          .correct-answer,
+          .smiley-1,
+          .smiley-2,
+          .smiley-3,
+          .smiley-4,
+          .smiley-5,
+          .wrong-answer {
+            @extend %icon-container;
+          }
+        }
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}

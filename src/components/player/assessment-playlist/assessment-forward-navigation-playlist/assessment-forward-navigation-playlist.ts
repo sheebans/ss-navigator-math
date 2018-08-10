@@ -6,7 +6,6 @@ import { LessonModel } from '@models/course/lesson';
 import { AssessmentModel } from '@models/assessment/assessment';
 import { PlayerEvent } from '@models/events/player-event';
 import { PlayerEventService } from '@components/player/player-event.service';
-
 @Component({
   selector: 'assessment-forward-navigation-playlist',
   templateUrl: 'assessment-forward-navigation-playlist.html',
@@ -35,7 +34,9 @@ export class AssessmentForwardNavigationPlaylistComponent {
 
   activeSlide: PlayerEvent;
 
-  constructor(private playerEventService: PlayerEventService) {}
+  showReport: boolean = false;
+
+  constructor(public playerEventService: PlayerEventService) {}
 
   ngOnInit() {
     this.contents = this.assessment.question;
@@ -48,8 +49,9 @@ export class AssessmentForwardNavigationPlaylistComponent {
   }
 
   ngAfterContentInit() {
-    //Lock Swipe
-    this.slides.onlyExternal = true;
+    if (this.slides) {
+      this.slides.lockSwipes(true);
+    }
   }
 
   eventListen(event: any): void {
@@ -73,5 +75,7 @@ export class AssessmentForwardNavigationPlaylistComponent {
       this.contents.length - 1 === activeIndex ? true : false;
   }
 
-  submitAllAnswer() {}
+  submitAllAnswer() {
+    this.showReport = true;
+  }
 }

@@ -6,8 +6,7 @@ import {
   ComponentRef,
   ComponentFactoryResolver,
   ViewChild,
-  ViewContainerRef,
-  OnChanges
+  ViewContainerRef
 } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 
@@ -18,7 +17,7 @@ import { PlayerService } from '@components/player/player.service';
   template: '<ng-container #player_container></ng-container>',
   providers: [PlayerService]
 })
-export class ContentPlayerComponent implements OnInit, OnDestroy, OnChanges {
+export class ContentPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('player_container', { read: ViewContainerRef })
   playerContainer: ViewContainerRef;
 
@@ -32,14 +31,6 @@ export class ContentPlayerComponent implements OnInit, OnDestroy, OnChanges {
     private componentFactoryResolver: ComponentFactoryResolver,
     private playerService: PlayerService
   ) {}
-
-  ngOnChanges() {
-    if (this.componentRef) {
-      let instance = <ContentFormatComponent>this.componentRef.instance;
-      instance.content = this.content;
-      instance.isActive = this.isActive;
-    }
-  }
 
   ngOnInit() {
     if (this.content) {

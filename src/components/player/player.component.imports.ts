@@ -26,7 +26,8 @@ import { QuestionPlaylistPanelComponent } from './question-playlist-panel/questi
 import { SmileyComponent } from './smiley/smiley';
 import { AssessmentBidirectionalPlaylistComponent } from './assessment-playlist/assessment-bidirectional-playlist/assessment-bidirectional-playlist';
 import { AssessmentForwardNavigationPlaylistComponent } from './assessment-playlist/assessment-forward-navigation-playlist/assessment-forward-navigation-playlist';
-
+import { CollectionReportOverviewComponent } from './collection-report-overview/collection-report-overview';
+import { AssessmentReportOverviewComponent } from './assessment-report-overview/assessment-report-overview';
 export const PLAYER_ENTRY_COMPONENTS = [
   YoutubeVideoFormatComponent,
   VimeoVideoFormatComponent,
@@ -45,7 +46,9 @@ export const PLAYER_ENTRY_COMPONENTS = [
   CollectionPlaylistPanelComponent,
   QuestionPlaylistPanelComponent,
   AssessmentBidirectionalPlaylistComponent,
-  AssessmentForwardNavigationPlaylistComponent
+  AssessmentForwardNavigationPlaylistComponent,
+  CollectionReportOverviewComponent,
+  AssessmentReportOverviewComponent
 ];
 
 export const PLAYER_COMPONENTS = [
@@ -61,8 +64,6 @@ export const PLAYER_COMPONENTS = [
   CollectionPlaylistPanelComponent,
   QuestionPlaylistPanelComponent,
   SmileyComponent,
-  AssessmentBidirectionalPlaylistComponent,
-  AssessmentForwardNavigationPlaylistComponent,
   PLAYER_ENTRY_COMPONENTS
 ];
 

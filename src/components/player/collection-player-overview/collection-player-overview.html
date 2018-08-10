@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="collection-img" text-center  [style.background-image]="'url(' + collection.thumbnail + ')'">
+  <div class="collection-img" text-center [style.background-image]="'url(' + collection.thumbnail + ')'">
   </div>
   <div class="panel-header">
     <div class="collection-icon">
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="panel-body">
-    <div  class="content-panel" *ngFor="let content of collection.content; let contentIndex = index" (click)="playContent(content, contentIndex)">
+    <div class="content-panel" *ngFor="let content of collection.content; let contentIndex = index" (click)="playContent(content, contentIndex)">
       <div class="content-icon">
         <ng-container *ngIf="content.content_format === 'resource'">
           <i class="{{content.content_subformat | resourceFormat}}-icon"></i>
@@ -41,6 +41,5 @@
         <i></i>
       </div>
     </div>
-    <div class="content-panel"></div>
   </div>
 </ion-content>
