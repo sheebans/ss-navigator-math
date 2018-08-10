@@ -1,11 +1,4 @@
 smiley {
-  %smiley-container {
-    background-size: 35px 35px;
-    mask-position: 50% 50%;
-    background-position: 5px;
-    background-repeat: no-repeat;
-  }
-
   .reactions {
     width: 45px;
     height: 45px;
@@ -53,27 +46,14 @@ smiley {
     }
   }
 
-  .smiley-1 {
-    @extend %smiley-container;
-  }
-
-  .smiley-2 {
-    @extend %smiley-container;
-  }
-
-  .smiley-3 {
-    @extend %smiley-container;
-  }
-
-  .smiley-4 {
-    @extend %smiley-container;
-  }
-
+  .smiley-1,
+  .smiley-2,
+  .smiley-3,
+  .smiley-4,
   .smiley-5 {
-    @extend %smiley-container;
-  }
-
-  .smiley-5-default {
-    @extend %smiley-container;
+    background-size: 35px 35px;
+    mask-position: 50% 50%;
+    background-position: 5px;
+    background-repeat: no-repeat;
   }
 }
