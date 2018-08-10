@@ -31,7 +31,7 @@ question-playlist-panel {
 
     .question-meta {
       width: calc(100% - 100px);
-      color: #5d5d5d;
+      color: color($colors, grey);
       padding-left: 10px;
 
       p {
@@ -96,7 +96,7 @@ question-playlist-panel {
 
       .content-meta {
         width: calc(100% - 100px);
-        color: #5d5d5d;
+        color: color($colors, grey);
         padding-left: 10px;
 
         p {
@@ -120,7 +120,7 @@ question-playlist-panel {
         align-items: center;
         display: flex;
         justify-content: center;
-        color: #5d5d5d;
+        color: color($colors, grey);
       }
     }
   }

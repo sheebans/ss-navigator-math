@@ -5,8 +5,8 @@ smiley {
     position: relative;
     background-repeat: no-repeat;
     background-position: 4px 6px;
-    border-left: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
+    border-left: 1px solid color($colors, white);
+    border-right: 1px solid color($colors, white);
     background-size: 35px 35px;
 
     .slider {
@@ -44,5 +44,16 @@ smiley {
       margin-top: 12px;
       color: white;
     }
+  }
+
+  .smiley-1,
+  .smiley-2,
+  .smiley-3,
+  .smiley-4,
+  .smiley-5 {
+    background-size: 35px 35px;
+    mask-position: 50% 50%;
+    background-position: 5px;
+    background-repeat: no-repeat;
   }
 }

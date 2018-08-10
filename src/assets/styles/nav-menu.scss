@@ -1,6 +1,6 @@
 .main-nav-menu {
   ion-content {
-    background-color: #0072bc !important;
+    background-color: color($colors, blue) !important;
   }
 
   .menu-border {
@@ -18,7 +18,7 @@
   }
 
   .menu-button {
-    background-color: #0072bc;
+    background-color: color($colors, blue);
     color: white;
   }
 

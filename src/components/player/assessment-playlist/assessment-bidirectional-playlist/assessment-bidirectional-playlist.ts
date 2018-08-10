@@ -4,12 +4,6 @@ import { UnitModel } from '@models/course/unit';
 import { AssessmentModel } from '@models/assessment/assessment';
 import { LessonModel } from '@models/course/lesson';
 
-/**
- * Generated class for the AssessmentBidirectionalPlayerComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'assessment-bidirectional-playlist',
   templateUrl: 'assessment-bidirectional-playlist.html'

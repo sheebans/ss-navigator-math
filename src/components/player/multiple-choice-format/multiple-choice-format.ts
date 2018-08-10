@@ -30,6 +30,7 @@ export class MultipleChoiceFormatComponent
   }
 
   answerSelected(answer: any) {
+    // console.log(answer);
     this.isSelected = true;
     this.eventContent.isCorrect = answer.is_correct;
     this.eventContent.isSelected = true;

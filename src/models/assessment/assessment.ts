@@ -12,7 +12,7 @@ export interface AssessmentModel {
   license?: string;
   metadata?: object;
   taxonomy?: object;
-  setting?: object;
+  setting?: any;
   grading?: any;
   visible_on_profile?: boolean;
   course_id?: string;

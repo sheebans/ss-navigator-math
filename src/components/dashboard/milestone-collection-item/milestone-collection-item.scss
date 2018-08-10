@@ -25,7 +25,7 @@ milestone-collection-item {
     .collection {
       padding-top: 10px;
       height: 100%;
-      background-color: #ffffff;
+      background-color: color($colors, white);
       width: calc(100% - 100px);
     }
 
@@ -39,7 +39,7 @@ milestone-collection-item {
       overflow: hidden;
       text-overflow: ellipsis;
       font-style: normal;
-      color: #5d5d5d;
+      color: color($colors, grey);
     }
 
     .collection-meta {

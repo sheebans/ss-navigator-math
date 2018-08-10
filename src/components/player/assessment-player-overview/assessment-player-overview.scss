@@ -14,7 +14,7 @@ assessment-player-overview {
   .setting-panel {
     display: flex;
     height: 75px;
-    border-bottom: solid 1px #cccc;
+    border-bottom: solid 1px color($colors, light);
 
     .attempts {
       width: 150px;
@@ -39,7 +39,7 @@ assessment-player-overview {
         font-size: 10px;
         font-weight: bold;
         text-align: left;
-        color: #5d5d5d;
+        color: color($colors, grey);
       }
     }
 
@@ -70,7 +70,7 @@ assessment-player-overview {
         font-weight: bold;
         padding-left: 16px;
         text-align: left;
-        color: #5d5d5d;
+        color: color($colors, grey);
       }
     }
   }
@@ -78,7 +78,7 @@ assessment-player-overview {
   .panel-header {
     height: 50px;
     display: flex;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid color($colors, light);
 
     .assessment-icon {
       width: 50px;
@@ -96,7 +96,7 @@ assessment-player-overview {
 
     .assessment-meta {
       width: calc(100% - 125px);
-      color: #5d5d5d;
+      color: color($colors, grey);
       padding-left: 10px;
 
       p {
@@ -135,7 +135,7 @@ assessment-player-overview {
     .content-panel {
       height: 50px;
       display: flex;
-      border-bottom: 1px solid #cccccc;
+      border-bottom: 1px solid color($colors, light);
 
       .content-icon {
         width: 50px;
@@ -158,7 +158,7 @@ assessment-player-overview {
 
       .content-meta {
         width: calc(100% - 125px);
-        color: #5d5d5d;
+        color: color($colors, grey);
         padding-left: 10px;
 
         p {

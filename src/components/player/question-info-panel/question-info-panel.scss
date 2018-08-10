@@ -26,7 +26,7 @@ question-info-panel {
 
     .content-metadata {
       width: calc(100% - 150px);
-      color: #ffffff;
+      color: color($colors, white);
       padding-left: 10px;
 
       p {
@@ -56,7 +56,7 @@ question-info-panel {
       -webkit-mask-image: url("../assets/icon/full-screen.svg");
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-size: 35px 35px;
-      background-color: #fff;
+      background-color: color($colors, white);
       -webkit-mask-position: 6px 6px;
     }
   }

@@ -6,7 +6,7 @@ milestone-lesson-item {
 
   span {
     font-size: 11px;
-    color: #5d5d5d;
+    color: color($colors, grey);
     display: block;
   }
 
@@ -38,7 +38,7 @@ milestone-lesson-item {
 
     span {
       margin: auto;
-      color: #ffffff !important;
+      color: color($colors, white) !important;
     }
   }
 
@@ -54,7 +54,7 @@ milestone-lesson-item {
     .lesson {
       padding-top: 10px;
       height: 100%;
-      background-color: #ffffff;
+      background-color: color($colors, white);
       width: calc(100% - 100px);
 
       .lesson-title {
@@ -64,7 +64,7 @@ milestone-lesson-item {
         overflow: hidden;
         text-overflow: ellipsis;
         font-style: normal;
-        color: #5d5d5d;
+        color: color($colors, grey);
       }
     }
   }

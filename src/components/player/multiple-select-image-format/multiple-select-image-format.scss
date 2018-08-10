@@ -1,30 +1,30 @@
 multiple-select-image-format {
   &.answer-selected {
     .panel-body {
-      background-color: #ffffff;
-      color: #38424b;
+      background-color: color($colors, white);
+      color: color($colors, dark);
     }
 
     .desc {
       * {
-        color: #ffffff !important;
+        color: color($colors, white) !important;
         font-size: 15px !important;
-        background-color: #38424b !important;
+        background-color: color($colors, dark) !important;
       }
     }
   }
 
   .desc {
     * {
-      color: #ffffff !important;
+      color: color($colors, white) !important;
       font-size: 15px !important;
-      background-color: #38424b !important;
+      background-color: color($colors, dark) !important;
     }
   }
 
   .panel-body {
-    background-color: #38424b;
-    color: #ffffff;
+    background-color: color($colors, dark);
+    color: color($colors, white);
     display: flex;
 
     .question-sequence {
@@ -64,7 +64,7 @@ multiple-select-image-format {
         margin: 10px;
 
         &.highlight {
-          border: solid 2px #0072bc;
+          border: solid 2px color($colors, blue);
 
           span {
             display: block;

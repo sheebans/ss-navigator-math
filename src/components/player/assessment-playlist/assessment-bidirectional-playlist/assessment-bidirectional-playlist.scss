@@ -1,15 +1,29 @@
 assessment-bidirectional-playlist {
   ion-content {
     top: 56px;
+
+    .scroll-content {
+      background-color: color($colors, dark);
+    }
   }
 
   .content-player {
     height: auto;
     width: 100%;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid color($colors, white);
   }
 
   ion-footer {
     position: fixed;
+  }
+
+  .submit-btn {
+    background-color: color($colors, green);
+    margin-bottom: 1px;
+    height: 50px;
+
+    &.button-md:hover:not(.disable-hover) {
+      background-color: color($colors, green);
+    }
   }
 }

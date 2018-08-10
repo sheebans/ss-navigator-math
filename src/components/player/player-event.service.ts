@@ -32,10 +32,13 @@ export class PlayerEventService {
     this.storage.set('events', playerEvents);
   }
 
-  getEvents(): Observable<PlayerEvent[]> {
-    const subject = new Subject<PlayerEvent[]>();
+  getEventByContentId(contentId: string): Observable<PlayerEvent> {
+    const subject = new Subject<PlayerEvent>();
     this.events.subscribe('player:activities', events => {
-      subject.next(events);
+      let contentEvent = events.find(event => {
+        return event.contentId === contentId;
+      });
+      subject.next(contentEvent);
     });
     return subject.asObservable();
   }
