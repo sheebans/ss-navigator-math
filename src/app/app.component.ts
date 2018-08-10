@@ -59,9 +59,10 @@ export class NavMathApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#fff');
       if (this.platform.is('cordova')) {
         // make your native calls
-        this.statusBar.styleDefault();
         this.splashScreen.hide();
         this.keyboard.disableScroll(false);
         this.appVersion.getVersionNumber().then(version => {

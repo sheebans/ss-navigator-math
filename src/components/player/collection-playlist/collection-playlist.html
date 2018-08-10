@@ -1,10 +1,15 @@
-<ion-content>
-  <ion-slides [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
-    <ion-slide *ngFor="let content of contents; let contentIndex = index">
-      <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content"></content-player>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
-<ion-footer>
-  <content-info-panel [collection]="collection" [unit]="unit" [lesson]="lesson" [content]="activeContent"></content-info-panel>
-</ion-footer>
+<ng-container *ngIf="!showReport">
+  <ion-content>
+    <ion-slides (swipe)="swipeLeft($event)" [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
+      <ion-slide *ngFor="let content of contents; let contentIndex = index">
+        <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content"></content-player>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+  <ion-footer>
+    <content-info-panel [collection]="collection" [unit]="unit" [lesson]="lesson" [content]="activeContent"></content-info-panel>
+  </ion-footer>
+</ng-container>
+<ng-container *ngIf="showReport">
+  <collection-report-overview [collection]="collection" [unit]="unit" [lesson]="lesson"></collection-report-overview>
+</ng-container>

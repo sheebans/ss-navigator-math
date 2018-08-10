@@ -1,15 +1,17 @@
-<ion-content fullscreen="true">
-  <ion-slides direction="vertical" [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
-    <ion-slide *ngFor="let content of contents; let contentIndex = index">
-      <div class="content-player" [ngClass]="{'answer': isActive}">
-        <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
-        </content-player>
+<ng-container *ngIf="!showReport">
+  <ion-content  [ngClass]="{'answer': isActive}">
+    <ion-slides direction="vertical" [initialSlide]="activePlayerIndex" (ionSlideDidChange)="slideChanged()">
+      <ion-slide *ngFor="let content of contents; let contentIndex = index">
+        <div class="content-player">
+          <content-player [isActive]="activePlayerIndex === contentIndex" [content]="content">
+          </content-player>
+        </div>
         <div class="assessment-footer-bar" [ngClass]="{'answer': isActive}">
           <ng-container *ngIf="assessment.setting.attempts_allowed > -1">
-            <p>{{'LIMITED_ATTEMPT_INFO' | translate}}</p>
+            <p>{{'LIMITED_ATTEMPT_INFO' | translate:assessment.setting}}}</p>
           </ng-container>
           <ng-container *ngIf="assessment.setting.attempts_allowed == -1">
-            <p>{{'UNLIMITED_ATTEMPT_INFO' | translate:assessment.setting}}</p>
+            <p>{{'UNLIMITED_ATTEMPT_INFO' | translate}}</p>
           </ng-container>
           <ng-container *ngIf="!isLastQuestion">
             <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAnswer()" ion-button>{{'CONFIRM' | translate}}</button>
@@ -18,11 +20,14 @@
             <button class="confirm-btn" full type="submit" [disabled]="!isActive" (click)="submitAllAnswer()" ion-button>{{'SUBMIT_ALL' | translate}}</button>
           </ng-container>
         </div>
-      </div>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
-<ion-footer>
-  <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent">
-  </question-info-panel>
-</ion-footer>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+  <ion-footer>
+    <question-info-panel [assessment]="assessment" [unit]="unit" [lesson]="lesson" [content]="activeContent">
+    </question-info-panel>
+  </ion-footer>
+</ng-container>
+<ng-container *ngIf="showReport">
+  <assessment-report-overview [assessment]="assessment" [unit]="unit" [lesson]="lesson"></assessment-report-overview>
+</ng-container>

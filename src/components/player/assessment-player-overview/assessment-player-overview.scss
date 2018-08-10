@@ -80,18 +80,13 @@ assessment-player-overview {
     display: flex;
     border-bottom: 1px solid color($colors, light);
 
-    .assessment-icon {
+    i.assessment-icon {
       width: 50px;
       height: 50px;
-
-      i {
-        background: url("../assets/icon/assessment.svg");
-        height: 40px;
-        display: block;
-        background-repeat: no-repeat;
-        background-size: 32px 32px;
-        background-position: 10px 9px;
-      }
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 32px 32px;
+      background-position: 10px 9px;
     }
 
     .assessment-meta {
@@ -116,18 +111,13 @@ assessment-player-overview {
       }
     }
 
-    .assessment-info {
+    i.assessment-info-icon {
       width: 75px;
       height: 50px;
-
-      i {
-        background: url("../assets/icon/info.svg");
-        height: 41px;
-        display: block;
-        background-repeat: no-repeat;
-        background-size: 24px 24px;
-        background-position: 6px 15px;
-      }
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6px 15px;
     }
   }
 
@@ -149,10 +139,6 @@ assessment-player-overview {
           background-repeat: no-repeat;
           margin-left: 19px;
           margin-top: 16px;
-        }
-
-        .question-icon {
-          background-image: url("../assets/icon/question-dark.svg");
         }
       }
 
@@ -187,14 +173,6 @@ assessment-player-overview {
           background-size: 24px 24px;
           background-position: 6px 15px;
         }
-      }
-
-      &:nth-last-child(2) {
-        box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.3);
-      }
-
-      &:last-child {
-        border: none;
       }
     }
   }

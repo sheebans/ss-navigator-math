@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="overview-container">
+    <div class="assessment-img" text-center [style.background-image]="'url(' + assessment.thumbnail + ')'">
+    </div>
+    <div class="panel-header">
+      <i class="assessment-icon"></i>
+      <div class="assessment-meta">
+        <ng-container *ngIf="unit">
+          <p>{{unit.title}}</p>
+        </ng-container>
+        <ng-container *ngIf="lesson">
+          <p>{{lesson.title}}</p>
+        </ng-container>
+        <h6>{{assessment.title}}</h6>
+      </div>
+      <div class="score" [style.background-color]="score | gradeColor">
+        <span>{{score}}%</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="content-panel" *ngFor="let content of assessment.question;">
+        <div class="content-icon">
+          <i class="question-icon"></i>
+        </div>
+        <div class="content-meta">
+          <p>{{content.title}}</p>
+          <span>{{content.content_subformat | questionFormat}}</span>
+        </div>
+        <div class="content-info">
+          <i class="smiley-1"></i>
+          <i class="correct-answer"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

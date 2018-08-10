@@ -1,10 +1,15 @@
 assessment-bidirectional-playlist {
   ion-content {
-    top: 56px;
-
     .scroll-content {
       background-color: color($colors, dark);
+      overflow: hidden;
     }
+  }
+
+  ion-scroll {
+    width: 100%;
+    height: 68%;
+    top: 56px;
   }
 
   .content-player {
@@ -15,6 +20,15 @@ assessment-bidirectional-playlist {
 
   ion-footer {
     position: fixed;
+  }
+
+  .assessment-footer-bar {
+    position: fixed;
+    width: 100%;
+    bottom: 44px;
+    color: color($colors, white);
+    background-color: color($colors, dark);
+    text-align: center;
   }
 
   .submit-btn {

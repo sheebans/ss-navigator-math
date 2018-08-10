@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="overview-container">
+
+    <div class="collection-img" text-center [style.background-image]="'url(' + collection.thumbnail + ')'">
+    </div>
+    <div class="panel-header">
+      <div class="collection-icon">
+        <i></i>
+      </div>
+      <div class="collection-meta">
+        <ng-container *ngIf="unit">
+          <p>{{unit.title}}</p>
+        </ng-container>
+        <ng-container *ngIf="lesson">
+          <p>{{lesson.title}}</p>
+        </ng-container>
+        <h6>{{collection.title}}</h6>
+      </div>
+      <div class="collection-info">
+        <i></i>
+        <div class="time-spent">
+          <span>17m</span>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="content-panel" *ngFor="let content of collection.content;">
+        <div class="content-icon">
+          <ng-container *ngIf="content.content_format === 'resource'">
+            <i class="{{content.content_subformat | resourceFormat}}-icon"></i>
+          </ng-container>
+          <ng-container *ngIf="content.content_format === 'question'">
+            <i class="question-icon"></i>
+          </ng-container>
+        </div>
+        <div class="content-meta">
+          <p>{{content.title}}</p>
+          <ng-container *ngIf="content.content_format === 'resource'">
+            <span>{{content.content_subformat | resourceFormat}}</span>
+          </ng-container>
+          <ng-container *ngIf="content.content_format === 'question'">
+            <span>{{'QUESTION' | translate}}</span>
+          </ng-container>
+        </div>
+        <div class="content-info">
+          <i class="smiley-5"></i>
+          <div class="time-spent">
+            <span>4m</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -24,11 +24,22 @@ export class CollectionPlaylistComponent implements OnInit {
 
   activeContent: ContentModel;
 
+  showReport: boolean = false;
+
+  SWIPE_LEFT: number = 2;
+
   constructor() {}
 
   ngOnInit() {
     this.contents = this.collection.content;
     this.activeContent = this.contents[this.activePlayerIndex];
+  }
+
+  swipeLeft(event) {
+    if (event.direction == this.SWIPE_LEFT) {
+      this.showReport =
+        this.contents.length - 1 === this.activePlayerIndex ? true : false;
+    }
   }
 
   slideChanged() {
