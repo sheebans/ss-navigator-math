@@ -4,9 +4,7 @@
     <div class="collection-img" text-center [style.background-image]="'url(' + collection.thumbnail + ')'">
     </div>
     <div class="panel-header">
-      <div class="collection-icon">
-        <i></i>
-      </div>
+      <i class="collection-icon"></i>
       <div class="collection-meta">
         <ng-container *ngIf="unit">
           <p>{{unit.title}}</p>
@@ -17,7 +15,7 @@
         <h6>{{collection.title}}</h6>
       </div>
       <div class="collection-info">
-        <i></i>
+        <i class="info-icon"></i>
         <div class="time-spent">
           <span>17m</span>
         </div>

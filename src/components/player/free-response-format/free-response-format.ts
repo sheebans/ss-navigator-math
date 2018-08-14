@@ -33,9 +33,7 @@ export class FreeResponseFormatComponent
     private playerEventService: PlayerEventService
   ) {}
 
-  ngOnInit() {
-    console.log(this.content);
-  }
+  ngOnInit() {}
 
   enterAnswer(answer: any) {
     this.answered = true;

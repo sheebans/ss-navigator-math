@@ -71,8 +71,7 @@ export class AssessmentForwardNavigationPlaylistComponent {
       this.activePlayerIndex = activeIndex;
       this.activeContent = this.contents[this.activePlayerIndex];
     }
-    this.isLastQuestion =
-      this.contents.length - 1 === activeIndex ? true : false;
+    this.isLastQuestion = this.contents.length - 1 === activeIndex;
   }
 
   submitAllAnswer() {

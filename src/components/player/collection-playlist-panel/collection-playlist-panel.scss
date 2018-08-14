@@ -18,15 +18,10 @@ collection-playlist-panel {
     .collection-icon {
       width: 50px;
       height: 50px;
-
-      i {
-        background: url("../assets/icon/collection-dark.svg");
-        height: 40px;
-        display: block;
-        background-repeat: no-repeat;
-        background-size: 32px 32px;
-        background-position: 10px 9px;
-      }
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 32px 32px;
+      background-position: 10px 9px;
     }
 
     .collection-meta {
@@ -48,20 +43,6 @@ collection-playlist-panel {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-      }
-    }
-
-    .collection-info {
-      width: 75px;
-      height: 50px;
-
-      i {
-        background: url("../assets/icon/info.svg");
-        height: 41px;
-        display: block;
-        background-repeat: no-repeat;
-        background-size: 24px 24px;
-        background-position: 6px 15px;
       }
     }
   }
@@ -87,34 +68,6 @@ collection-playlist-panel {
           background-repeat: no-repeat;
           margin-left: 19px;
           margin-top: 16px;
-        }
-
-        .video-icon {
-          background-image: url("../assets/icon/video-resource-dark.svg");
-        }
-
-        .text-icon {
-          background-image: url("../assets/icon/text-resource-dark.svg");
-        }
-
-        .audio-icon {
-          background-image: url("../assets/icon/audio-resource-dark.svg");
-        }
-
-        .webpage-icon {
-          background-image: url("../assets/icon/website-resource-dark.svg");
-        }
-
-        .interactive-icon {
-          background-image: url("../assets/icon/interactive-resource-dark.svg");
-        }
-
-        .image-icon {
-          background-image: url("../assets/icon/image-resource-dark.svg");
-        }
-
-        .question-icon {
-          background-image: url("../assets/icon/question-dark.svg");
         }
       }
 

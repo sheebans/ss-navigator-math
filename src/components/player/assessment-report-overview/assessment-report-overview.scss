@@ -118,13 +118,33 @@ assessment-report-overview {
         .content-info {
           display: flex;
 
-          .correct-answer,
+          .correct-answer {
+            color: color($colors, green);
+            height: 49px;
+            width: 37px;
+            font-size: 30px;
+
+            &::before {
+              margin-top: 5px;
+            }
+          }
+
+          .wrong-answer {
+            color: color($colors, danger);
+            height: 49px;
+            width: 37px;
+            font-size: 30px;
+
+            &::before {
+              margin-top: 5px;
+            }
+          }
+
           .smiley-1,
           .smiley-2,
           .smiley-3,
           .smiley-4,
-          .smiley-5,
-          .wrong-answer {
+          .smiley-5 {
             @extend %icon-container;
           }
         }
