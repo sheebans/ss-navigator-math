@@ -15,6 +15,9 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { Device } from '@ionic-native/device';
 import { Firebase } from '@ionic-native/firebase';
 import { Network } from '@ionic-native/network';
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 // Directives
 import { DirectivesModule } from '@directives/directives.module';
@@ -47,5 +50,8 @@ export const PROVIDERS = [
   AppVersion,
   StatusBar,
   SplashScreen,
-  Network
+  Network,
+  File,
+  DocumentViewer,
+  FileTransfer
 ];

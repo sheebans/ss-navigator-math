@@ -49,7 +49,8 @@
   "UNLIMITED_ATTEMPT": "Unlimited attempts",
   "LIMITED_ATTEMPT": "You have {{attempts_allowed}} attempts",
   "CONFIRM": "CONFIRM",
-  "SUBMIT_ALL":"SUBMIT ALL",
+  "SUBMIT_ALL": "SUBMIT ALL",
   "UNLIMITED_ATTEMPT_INFO": "In this assessment, You have unlimited attempt for answering the question",
-  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{attempts_allowed}} attempt for answering the question"
+  "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{attempts_allowed}} attempt for answering the question",
+  "DOWNLOAD_INFO": "Downloading..."
 }
