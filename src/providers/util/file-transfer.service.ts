@@ -4,30 +4,25 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { Platform } from 'ionic-angular';
 import { Md5 } from 'ts-md5/dist/md5';
 import { LoadingService } from '@providers/util/loading.service';
+import { ToastService } from '@providers/util/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class FileTransferProvider {
   constructor(
-    public loadingService: LoadingService,
-    public translate: TranslateService,
-    public file: File,
-    public fileTransfer: FileTransfer,
-    public platform: Platform
+    private toastService: ToastService,
+    private loadingService: LoadingService,
+    private translate: TranslateService,
+    private file: File,
+    private fileTransfer: FileTransfer,
+    private platform: Platform
   ) {}
 
   transfer(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      let path = null;
-      if (this.platform.is('ios')) {
-        path = this.file.documentsDirectory;
-      } else if (this.platform.is('android')) {
-        path = this.file.dataDirectory;
-      } else {
-        path = this.file.externalDataDirectory;
-      }
+      const path = this.getFilePath();
       this.hashFileName(url).then(filename => {
-        let filePath = path + filename;
+        let filePath = `${path}${filename}`;
         this.file.checkFile(path, filename).then(
           result => {
             resolve(filePath);
@@ -42,6 +37,10 @@ export class FileTransferProvider {
                 resolve(url);
               },
               error => {
+                this.loadingService.dismiss();
+                this.translate.get('DOWNLOAD_FAIELD').subscribe(value => {
+                  this.toastService.presentToast(value);
+                });
                 reject(error);
               }
             );
@@ -51,9 +50,21 @@ export class FileTransferProvider {
     });
   }
 
+  getFilePath() {
+    let path = null;
+    if (this.platform.is('ios')) {
+      path = this.file.documentsDirectory;
+    } else if (this.platform.is('android')) {
+      path = this.file.dataDirectory;
+    } else {
+      path = this.file.externalDataDirectory;
+    }
+    return path;
+  }
+
   hashFileName(url: string): Promise<string> {
     return new Promise(resolve => {
-      resolve(Md5.hashStr(url) + '.pdf');
+      resolve(`${Md5.hashStr(url)}.pdf`);
     });
   }
 }

@@ -52,5 +52,5 @@
   "SUBMIT_ALL": "SUBMIT ALL",
   "UNLIMITED_ATTEMPT_INFO": "In this assessment, You have unlimited attempt for answering the question",
   "LIMITED_ATTEMPT_INFO": "In this assessment, You have only {{attempts_allowed}} attempt for answering the question",
-  "DOWNLOAD_INFO": "Downloading..."
+  "DOWNLOAD_FAIELD": "Download Failed"
 }
