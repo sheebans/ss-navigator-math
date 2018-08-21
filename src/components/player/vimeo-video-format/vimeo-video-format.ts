@@ -1,48 +1,40 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { ContentFormatComponent } from '@components/player/content-format.component';
 import { PlayerService } from '@components/player/player.service';
-import { LoadingService } from '@providers/util/loading.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'vimeo-video-format',
   templateUrl: 'vimeo-video-format.html',
-  providers: [PlayerService]
+  providers: [PlayerService, InAppBrowser]
 })
 export class VimeoVideoFormatComponent
   implements ContentFormatComponent, OnInit {
   vimeoPlayerUrl: string = 'https://player.vimeo.com/video/';
 
-  @Input() content: any;
+  vimeoVideoUrl: string;
 
-  @Input() isActive: boolean;
+  @Input()
+  content: any;
 
-  loading: boolean;
-
-  trustedVimeoVideoUrl: SafeResourceUrl;
+  @Input()
+  isActive: boolean;
 
   constructor(
-    private domSanitizer: DomSanitizer,
-    private playerService: PlayerService,
-    private loadingService: LoadingService
+    private inAppBrowser: InAppBrowser,
+    private playerService: PlayerService
   ) {}
 
   ngOnInit() {
     const vimeoId = this.playerService.getVimeoIdFromUrl(this.content.url);
-    const vimeoVideoUrl = `${this.vimeoPlayerUrl}${vimeoId}`;
-    this.trustedVimeoVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
-      vimeoVideoUrl
-    );
+    this.vimeoVideoUrl = `${this.vimeoPlayerUrl}${vimeoId}`;
   }
 
-  onVimeoVideoLoad(): void {
-    if (this.loading) {
-      this.loadingService.dismiss();
-      this.loading = false;
-    } else {
-      this.loadingService.present();
-      this.loading = true;
-    }
-    console.log('vimeo video loaded Successfully!!!!');
+  loadVimeo() {
+    this.inAppBrowser.create(
+      this.vimeoVideoUrl,
+      '_blank',
+      'location=no,EnableViewPortScale=yes,toolbar=no,closebuttoncaption=Close'
+    );
   }
 }

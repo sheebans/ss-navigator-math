@@ -10,15 +10,20 @@ import { ContentModel } from '@models/content/content';
   templateUrl: 'collection-playlist.html'
 })
 export class CollectionPlaylistComponent implements OnInit {
-  @ViewChild(Slides) slides: Slides;
+  @ViewChild(Slides)
+  slides: Slides;
 
-  @Input() collection: CollectionModel;
+  @Input()
+  collection: CollectionModel;
 
-  @Input() activePlayerIndex: number;
+  @Input()
+  activePlayerIndex: number;
 
-  @Input() unit: UnitModel;
+  @Input()
+  unit: UnitModel;
 
-  @Input() lesson: LessonModel;
+  @Input()
+  lesson: LessonModel;
 
   contents: Array<ContentModel>;
 
@@ -37,8 +42,7 @@ export class CollectionPlaylistComponent implements OnInit {
 
   swipeLeft(event) {
     if (event.direction == this.SWIPE_LEFT) {
-      this.showReport =
-        this.contents.length - 1 === this.activePlayerIndex ? true : false;
+      this.showReport = this.contents.length - 1 === this.activePlayerIndex;
     }
   }
 

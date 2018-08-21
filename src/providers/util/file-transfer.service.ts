@@ -3,15 +3,13 @@ import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { Platform } from 'ionic-angular';
 import { Md5 } from 'ts-md5/dist/md5';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingService } from '@providers/util/loading.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class FileTransferProvider {
-  loading: Loading;
-
   constructor(
-    public loadingCtrl: LoadingController,
+    public loadingService: LoadingService,
     public translate: TranslateService,
     public file: File,
     public fileTransfer: FileTransfer,
@@ -36,10 +34,10 @@ export class FileTransferProvider {
           },
           error => {
             const fileTransfer = this.fileTransfer.create();
-            this.present();
+            this.loadingService.present();
             fileTransfer.download(url, filePath, true).then(
               entry => {
-                this.dismiss();
+                this.loadingService.dismiss();
                 let url = entry.toURL();
                 resolve(url);
               },
@@ -57,21 +55,5 @@ export class FileTransferProvider {
     return new Promise(resolve => {
       resolve(Md5.hashStr(url) + '.pdf');
     });
-  }
-
-  present() {
-    this.translate.get('DOWNLOAD_INFO').subscribe(res => {
-      console.log(res);
-      if (!this.loading) {
-        this.loading = this.loadingCtrl.create({
-          content: res
-        });
-        this.loading.present();
-      }
-    });
-  }
-
-  dismiss() {
-    this.loading.dismiss();
   }
 }

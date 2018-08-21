@@ -23,7 +23,9 @@ export class PdfFormatComponent implements ContentFormatComponent {
   loadPdf() {
     const pdfUrl = `${this.content.url}`;
     this.fileTransfer.transfer(pdfUrl).then(url => {
-      this.document.viewDocument(url, 'application/pdf', {});
+      this.document.viewDocument(url, 'application/pdf', {
+        title: this.content.title
+      });
     });
   }
 }

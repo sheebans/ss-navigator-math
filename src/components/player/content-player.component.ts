@@ -21,9 +21,11 @@ export class ContentPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('player_container', { read: ViewContainerRef })
   playerContainer: ViewContainerRef;
 
-  @Input() isActive: boolean;
+  @Input()
+  isActive: boolean;
 
-  @Input() content: any;
+  @Input()
+  content: any;
 
   private componentRef: ComponentRef<{}>;
 
@@ -45,6 +47,13 @@ export class ContentPlayerComponent implements OnInit, OnDestroy {
     }
   }
 
+  ngOnChanges() {
+    if (this.componentRef) {
+      let instance = <ContentFormatComponent>this.componentRef.instance;
+      instance.content = this.content;
+      instance.isActive = this.isActive;
+    }
+  }
   ngOnDestroy() {
     if (this.componentRef) {
       this.componentRef.destroy();
