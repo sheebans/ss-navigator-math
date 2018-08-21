@@ -28,7 +28,7 @@ assessment-forward-navigation-playlist {
   .content-player {
     height: 68%;
     width: 100%;
-    overflow: scroll;
+    overflow-y: auto;
     position: relative;
   }
 

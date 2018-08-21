@@ -1,5 +1,21 @@
 webpage-format {
-  iframe {
-    background: white;
+  .container {
+    height: 100%;
+    display: flex;
+
+    .content {
+      color: color($colors, white);
+      margin: auto;
+
+      span {
+        display: block;
+        font-weight: 300;
+        padding: 10px;
+      }
+
+      ion-icon {
+        font-size: 4em;
+      }
+    }
   }
 }

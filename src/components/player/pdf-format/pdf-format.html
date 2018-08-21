@@ -1,3 +1,8 @@
 <ng-container *ngIf="isActive">
-  <iframe data-tap-disabled="true" width="100%" height="100%" [src]="trustedPdfUrl ? trustedPdfUrl : null" (load)="trustedPdfUrl ? onPdfLoad() : null" frameborder="0" allowfullscreen></iframe>
+  <div class="container">
+    <div class="content">
+      <span>{{content.title}}</span>
+      <ion-icon name="play" (click)="loadPdf()"></ion-icon>
+    </div>
+  </div>
 </ng-container>

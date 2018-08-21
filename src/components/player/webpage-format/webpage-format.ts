@@ -1,40 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { Component, Input } from '@angular/core';
 import { ContentFormatComponent } from '@components/player/content-format.component';
-import { LoadingService } from '@providers/util/loading.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'webpage-format',
-  templateUrl: 'webpage-format.html'
+  templateUrl: 'webpage-format.html',
+  providers: [InAppBrowser]
 })
-export class WebpageFormatComponent implements ContentFormatComponent, OnInit {
-  @Input() content: any;
+export class WebpageFormatComponent implements ContentFormatComponent {
+  @Input()
+  content: any;
 
-  @Input() isActive: boolean;
+  @Input()
+  isActive: boolean;
 
-  trustedWebsiteUrl: SafeResourceUrl;
+  constructor(private inAppBrowser: InAppBrowser) {}
 
-  loading: boolean;
-
-  constructor(
-    private domSanitizer: DomSanitizer,
-    private loadingService: LoadingService
-  ) {}
-
-  ngOnInit() {
-    this.trustedWebsiteUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
-      this.content.url
+  loadWebPage() {
+    this.inAppBrowser.create(
+      this.content.url,
+      '_blank',
+      'location=no,EnableViewPortScale=yes,toolbar=no,closebuttoncaption=Close'
     );
-  }
-
-  onWebpageLoad(): void {
-    if (this.loading) {
-      this.loadingService.dismiss();
-      this.loading = false;
-    } else {
-      this.loadingService.present();
-      this.loading = true;
-    }
-    console.log('webpage loaded Successfully!!!!');
   }
 }
